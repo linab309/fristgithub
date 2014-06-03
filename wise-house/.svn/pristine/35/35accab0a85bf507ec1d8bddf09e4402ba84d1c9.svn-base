@@ -1,0 +1,10 @@
+#if ! defined(CH_DEBUG_H_D7CBA5A8_D7A6_45E9_9DAD_59E29BFB2602)
+#define CH_DEBUG_H_D7CBA5A8_D7A6_45E9_9DAD_59E29BFB2602
+
+char ChDebugHex(char *bufOut,char *format,unsigned long hex);
+char ChDebugSigned(char *bufOut,char *format,long decimal);
+char ChDebugUnsigned(char *bufOut,char *format,unsigned long decimal);
+char ChDebugStr(char *bufOut,char *format,char* str);
+
+
+#endif
