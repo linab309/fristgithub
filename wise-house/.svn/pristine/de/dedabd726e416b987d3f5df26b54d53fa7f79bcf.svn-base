@@ -1,0 +1,226 @@
+#include <string.h>
+#include "chdebug.h"
+char ChDebugHex(char *bufOut,char *format,unsigned long hex)
+{
+	int i;
+	unsigned char isNewLine = 0;
+	char err=0;
+	int len = strlen(format);
+	strcpy(bufOut,format);
+	for(i=0;i<len;i++)
+		if(bufOut[i] == '%')
+		{
+			if(bufOut[i+1] == 'x')// %x
+			{
+				if(bufOut[i+2] == '\r' || bufOut[i+2] == '\n')
+				{
+					isNewLine = 1;
+				}
+				bufOut[i++] = '0';
+				bufOut[i++] = 'x';
+				{
+					int k;
+					char isNotZeroStart=0;
+					for(k=7;k>=0;k--)
+					{
+						unsigned char c = ((hex>>(4*k))&0x0f);
+						if(c == 0 && ! isNotZeroStart)
+							continue;
+						isNotZeroStart = 1;
+						if(c<10)
+							bufOut[i++] = c + '0';
+						else
+							bufOut[i++] = c + 'A' - 10;
+					}
+				}
+				if(isNewLine)
+				{
+					bufOut[i++] = '\r';
+					bufOut[i++] = '\n';
+					bufOut[i++] = '\0';
+				}
+			}
+			else if(bufOut[i+1] == '0'
+				&&(bufOut[i+2] >= '1' && bufOut[i+2] <= '9') 
+				&& bufOut[i+3] == 'x') // %04x
+			{
+				if(bufOut[i+4] == '\r' || bufOut[i+4] == '\n')
+				{
+					isNewLine = 1;
+				}
+				{
+					char num = bufOut[i+2] - '0';
+					int k;
+					bufOut[i++] = '0';
+					bufOut[i++] = 'x';
+					for(k=num-1;k>=0;k--)
+					{
+						char c = ((hex>>(4*k))&0x0f);
+
+						if(c<10)
+							bufOut[i++] = c + '0';
+						else
+							bufOut[i++] = c + 'A' - 10;
+					}
+				}
+				if(isNewLine)
+				{
+					bufOut[i++] = '\r';
+					bufOut[i++] = '\n';
+					bufOut[i++] = '\0';
+				}
+				
+			}
+
+			break;
+		}
+	return err;
+}
+char ChDebugSigned(char *bufOut,char *format,long decimal)//有符号十进制
+{
+	int i;
+	unsigned char isNewLine = 0;
+	char err=0;
+	int len = strlen(format);
+	strcpy(bufOut,format);
+	for(i=0;i<len;i++)
+		if(bufOut[i] == '%')
+		{
+			if(bufOut[i+1] == 'd')// %d
+			{
+				if(bufOut[i+2] == '\r' || bufOut[i+2] == '\n')
+				{
+					isNewLine = 1;
+				}
+				{
+					int l = i;
+					int r;
+					long value = decimal;
+					char c;
+					if(value < 0)
+					{
+						bufOut[i++] = '-';
+						value = -value;
+						l++;
+					}
+					do
+					{
+						c = value%10;
+						bufOut[i++] = c + '0';
+						value /= 10;
+					}while(value != 0);
+					////swap the string
+					r = i-1;
+					while(l < r)
+					{
+						c = bufOut[l];
+						bufOut[l] = bufOut[r];
+						bufOut[r] = c;
+						l++;
+						r--;
+					}
+					
+				}
+				if(isNewLine)
+				{
+					bufOut[i++] = '\r';
+					bufOut[i++] = '\n';
+					bufOut[i++] = '\0';
+				}
+			}
+			
+
+			break;
+		}
+	return err;
+}
+char ChDebugUnsigned(char *bufOut,char *format,unsigned long decimal)//无符号十进制
+{
+	int i;
+	unsigned char isNewLine = 0;
+	char err=0;
+	int len = strlen(format);
+	strcpy(bufOut,format);
+	for(i=0;i<len;i++)
+		if(bufOut[i] == '%')
+		{
+			if(bufOut[i+1] == 'd')// %d
+			{
+				if(bufOut[i+2] == '\r' || bufOut[i+2] == '\n')
+				{
+					isNewLine = 1;
+				}
+				{
+					int l = i;
+					int r;
+					long value = decimal;
+					char c;
+					if(value < 0)
+					{
+						bufOut[i++] = '-';
+						value = -value;
+						l++;
+					}
+					do
+					{
+						c = value%10;
+						bufOut[i++] = c + '0';
+						value /= 10;
+					}while(value != 0);
+					////swap the string
+					r = i-1;
+					while(l < r)
+					{
+						c = bufOut[l];
+						bufOut[l] = bufOut[r];
+						bufOut[r] = c;
+						l++;
+						r--;
+					}
+					
+				}
+				if(isNewLine)
+				{
+					bufOut[i++] = '\r';
+					bufOut[i++] = '\n';
+					bufOut[i++] = '\0';
+				}
+			}
+			
+
+			break;
+		}
+	return err;
+}
+char ChDebugStr(char *bufOut,char *format,char* str)
+{
+	int i;
+	unsigned char isNewLine = 0;
+	char err=0;
+	int len = strlen(format);
+	strcpy(bufOut,format);
+	for(i=0;i<len;i++)
+		if(bufOut[i] == '%')
+		{
+			if(bufOut[i+1] == 's')// %s
+			{
+				if(bufOut[i+2] == '\r' || bufOut[i+2] == '\n')
+				{
+					isNewLine = 1;
+				}
+				bufOut[i] = '\0';
+				strcpy(&bufOut[i],str);
+				i += strlen(str);
+				if(isNewLine)
+				{
+					bufOut[i++] = '\r';
+					bufOut[i++] = '\n';
+					bufOut[i++] = '\0';
+				}
+			}
+			
+
+			break;
+		}
+	return err;
+}
