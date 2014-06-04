@@ -1,0 +1,1042 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Apr/2013  11:22:01 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\WSN_sensors\Source\DS18B20.c  #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0 #
+#                          \Projects\zstack\Samples\WSN_sensors\CC2530DB\..\. #
+#                          .\..\Tools\CC2530DB\f8wRouter.cfg" (-DCPU32MHZ     #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DRTR_NWK -DBLINK_LEDS) -f "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\Tools\CC #
+#                          2530DB\f8wConfig.cfg" (-DSECURE=0                  #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\WSN_sensors\Source\DS18B20.c #
+#                          " -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D         #
+#                          MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC "C:\Texas   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\RouterEB\List\"   #
+#                          -lA "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3. #
+#                          0\Projects\zstack\Samples\WSN_sensors\CC2530DB\Rou #
+#                          terEB\List\" --diag_suppress Pe001,Pa010 -o        #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\WSN_sensors\CC2530DB\RouterE #
+#                          B\Obj\" -e --require_prototypes --no_unroll        #
+#                          --no_inline --no_tbaa --debug --core=plain         #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 8 -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\" -I "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\SOURCE\" -I    #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\WSN_sensors\CC2530DB\..\..\. #
+#                          .\ZMAIN\TI2530DB\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MT\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\HAL\INCLUDE\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\HAL\TARGET\CC2530EB\" -I "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\OSAL\INCLUDE\" -I "C:\Texas               #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\AF\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\NWK\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SEC\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SAPI\" -I "C:\Texas                 #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SYS\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\ZDO\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\ZMAC\F8W\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\ZMAC\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\SERVICES\SADDR\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\SERVICES\SDATA\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\INCLUDE\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\HIGH_LEVEL\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I      #
+#                          "D:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "D:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\" -Om #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\WSN_sensors\CC2530DB\RouterEB #
+#                          \List\DS18B20.lst                                  #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\WSN_sensors\CC2530DB\RouterEB #
+#                          \Obj\DS18B20.r51                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zstack\Samples\WSN_sensors\Source\DS18B20.c
+      1          #include "DS18B20.h"
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+      2          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      3          UINT8 id[8];
+   \                     id:
+   \   000000                DS 8
+   \   000008                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      4          UINT8 sensor_data_value[2];
+   \                     sensor_data_value:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      5          UINT8 ch[9];
+   \                     ch:
+   \   000000                DS 9
+   \   000009                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      6          UINT8 flag; 
+   \                     flag:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+      7          
+      8          /*
+      9          cc2430的1个机器周期 = 1个振荡周期
+     10          在32MHz主频下工作：
+     11          1个振荡周期 = 1/32  uS ，即 1个机器周期也是1/32 uS
+     12          所以如果执行一条减法指令需要1个机器周期，那么就可以通过计数来实现定时
+     13          */
+     14          
+     15          #pragma optimize=none
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     16          void Delay_nus(UINT16 s) 
+   \                     Delay_nus:
+     17          {  
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     18            while (s--)
+   \                     ??Delay_nus_0:
+   \   000000   EA           MOV     A,R2
+   \   000001   F8           MOV     R0,A
+   \   000002   EB           MOV     A,R3
+   \   000003   F9           MOV     R1,A
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   28           ADD     A,R0
+   \   000007   FA           MOV     R2,A
+   \   000008   74FF         MOV     A,#-0x1
+   \   00000A   39           ADDC    A,R1
+   \   00000B   FB           MOV     R3,A
+   \   00000C   7400         MOV     A,#0x0
+   \   00000E   68           XRL     A,R0
+   \   00000F   7003         JNZ     ??Delay_nus_1
+   \   000011   7400         MOV     A,#0x0
+   \   000013   69           XRL     A,R1
+   \                     ??Delay_nus_1:
+   \   000014   6008         JZ      ??Delay_nus_2
+     19            {
+     20              asm("NOP");
+   \   000016   00           NOP
+     21              asm("NOP");
+   \   000017   00           NOP
+     22              asm("NOP");
+   \   000018   00           NOP
+     23              
+     24              asm("NOP");
+   \   000019   00           NOP
+     25              asm("NOP");
+   \   00001A   00           NOP
+     26              asm("NOP");
+   \   00001B   00           NOP
+   \   00001C   80E2         SJMP    ??Delay_nus_0
+     27            }
+     28          
+     29          }
+   \                     ??Delay_nus_2:
+   \   00001E   02....       LJMP    ?BRET
+     30          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     31          void init_1820(void) 
+   \                     init_1820:
+     32          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     33            SET_OUT; 
+   \   000004   43FE02       ORL     0xfe,#0x2
+   \   000007   00           NOP
+   \   000008   00           NOP
+     34            SET_DQ;//输出1
+   \   000009   D291         SETB    0x90.1
+   \   00000B   00           NOP
+   \   00000C   00           NOP
+     35            CL_DQ; 
+   \   00000D   C291         CLR     0x90.1
+   \   00000F   00           NOP
+   \   000010   00           NOP
+     36            Delay_nus(550);//拉低一段时间 550
+   \   000011                ; Setup parameters for call to function Delay_nus
+   \   000011   7A26         MOV     R2,#0x26
+   \   000013   7B02         MOV     R3,#0x2
+   \   000015   12....       LCALL   ??Delay_nus?relay
+     37            SET_DQ;//释放 
+   \   000018   D291         SETB    0x90.1
+   \   00001A   00           NOP
+   \   00001B   00           NOP
+     38            SET_IN;//输入 
+   \   00001C   53FEFD       ANL     0xfe,#0xfd
+   \   00001F   00           NOP
+   \   000020   00           NOP
+     39            Delay_nus(20); //释放总线后等待15-60us 40
+   \   000021                ; Setup parameters for call to function Delay_nus
+   \   000021   7A14         MOV     R2,#0x14
+   \   000023   7B00         MOV     R3,#0x0
+   \   000025   12....       LCALL   ??Delay_nus?relay
+     40            while(IN_DQ)  {;}//等待回复 
+   \                     ??init_1820_0:
+   \   000028   A291         MOV     C,0x90.1
+   \   00002A   40FC         JC      ??init_1820_0
+     41            Delay_nus(240);//回复的低电平在60到240us  
+   \   00002C                ; Setup parameters for call to function Delay_nus
+   \   00002C   7AF0         MOV     R2,#-0x10
+   \   00002E   7B00         MOV     R3,#0x0
+   \   000030   12....       LCALL   ??Delay_nus?relay
+     42            SET_OUT; 
+   \   000033   43FE02       ORL     0xfe,#0x2
+   \   000036   00           NOP
+   \   000037   00           NOP
+     43            SET_DQ;//回到初始DQ=1；
+   \   000038   D291         SETB    0x90.1
+   \   00003A   00           NOP
+   \   00003B   00           NOP
+     44          }
+   \   00003C   D083         POP     DPH
+   \   00003E   D082         POP     DPL
+   \   000040   02....       LJMP    ?BRET
+   \   000043                REQUIRE _A_P1
+   \   000043                REQUIRE P1DIR
+     45          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     46          void write_1820(UINT8 x)  
+   \                     write_1820:
+     47          {  
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FF           MOV     R7,A
+     48            UINT8 m;    
+     49            SET_OUT;
+   \   000007   43FE02       ORL     0xfe,#0x2
+   \   00000A   00           NOP
+   \   00000B   00           NOP
+     50            for(m=0;m<8;m++)  
+   \   00000C   7E00         MOV     R6,#0x0
+   \   00000E   8010         SJMP    ??write_1820_0
+     51            {  
+     52               CL_DQ;
+     53               if(x&(1<<m))    //写数据，从低位开始  
+     54               {
+     55                SET_DQ; 
+     56               }
+     57               else  
+     58               {
+     59                CL_DQ;
+   \                     ??write_1820_1:
+   \   000010   C291         CLR     0x90.1
+   \                     ??write_1820_2:
+   \   000012   00           NOP
+   \   000013   00           NOP
+     60               }
+     61               Delay_nus(40);   //15~60us  
+   \   000014                ; Setup parameters for call to function Delay_nus
+   \   000014   7A28         MOV     R2,#0x28
+   \   000016   7B00         MOV     R3,#0x0
+   \   000018   12....       LCALL   ??Delay_nus?relay
+     62               SET_DQ;  
+   \   00001B   D291         SETB    0x90.1
+   \   00001D   00           NOP
+   \   00001E   00           NOP
+   \   00001F   0E           INC     R6
+   \                     ??write_1820_0:
+   \   000020   EE           MOV     A,R6
+   \   000021   C3           CLR     C
+   \   000022   9408         SUBB    A,#0x8
+   \   000024   5019         JNC     ??write_1820_3
+   \   000026   C291         CLR     0x90.1
+   \   000028   00           NOP
+   \   000029   00           NOP
+   \   00002A   75..01       MOV     ?V0 + 0,#0x1
+   \   00002D   75..00       MOV     ?V0 + 1,#0x0
+   \   000030   EE           MOV     A,R6
+   \   000031   78..         MOV     R0,#?V0 + 0
+   \   000033   12....       LCALL   ?S_SHL
+   \   000036   E5..         MOV     A,?V0 + 0
+   \   000038   5F           ANL     A,R7
+   \   000039   60D5         JZ      ??write_1820_1
+   \   00003B   D291         SETB    0x90.1
+   \   00003D   80D3         SJMP    ??write_1820_2
+     63            }
+     64            SET_DQ;  
+   \                     ??write_1820_3:
+   \   00003F   D291         SETB    0x90.1
+   \   000041   00           NOP
+   \   000042   00           NOP
+     65          } 
+   \   000043   7F02         MOV     R7,#0x2
+   \   000045   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000048                REQUIRE _A_P1
+   \   000048                REQUIRE P1DIR
+     66          
+     67          
+     68          
+     69          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     70          UINT8 read_1820(void)  
+   \                     read_1820:
+     71          {   
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+     72            UINT8 temp,k,n;    
+     73            temp=0;  
+   \   000005   75..00       MOV     ?V0 + 0,#0x0
+     74            for(n=0;n<8;n++)  
+   \   000008   7E00         MOV     R6,#0x0
+   \   00000A   8011         SJMP    ??read_1820_0
+     75            {  
+     76              CL_DQ;     
+     77              SET_DQ; 
+     78              SET_IN;  
+     79              k=IN_DQ;    //读数据,从低位开始  
+     80              if(k)  
+     81              temp|=(1<<n);  
+     82              else  
+     83              temp&=~(1<<n);  
+   \                     ??read_1820_1:
+   \   00000C   EA           MOV     A,R2
+   \   00000D   F4           CPL     A
+   \   00000E   52..         ANL     ?V0 + 0,A
+     84              Delay_nus(70); //60~120us      70
+   \                     ??read_1820_2:
+   \   000010                ; Setup parameters for call to function Delay_nus
+   \   000010   7A46         MOV     R2,#0x46
+   \   000012   7B00         MOV     R3,#0x0
+   \   000014   12....       LCALL   ??Delay_nus?relay
+     85              SET_OUT;
+   \   000017   43FE02       ORL     0xfe,#0x2
+   \   00001A   00           NOP
+   \   00001B   00           NOP
+   \   00001C   0E           INC     R6
+   \                     ??read_1820_0:
+   \   00001D   EE           MOV     A,R6
+   \   00001E   C3           CLR     C
+   \   00001F   9408         SUBB    A,#0x8
+   \   000021   5029         JNC     ??read_1820_3
+   \   000023   C291         CLR     0x90.1
+   \   000025   00           NOP
+   \   000026   00           NOP
+   \   000027   D291         SETB    0x90.1
+   \   000029   00           NOP
+   \   00002A   00           NOP
+   \   00002B   53FEFD       ANL     0xfe,#0xfd
+   \   00002E   00           NOP
+   \   00002F   00           NOP
+   \   000030   A291         MOV     C,0x90.1
+   \   000032   E4           CLR     A
+   \   000033   92E0         MOV     0xE0 /* A   */.0,C
+   \   000035   FB           MOV     R3,A
+   \   000036   75..01       MOV     ?V0 + 2,#0x1
+   \   000039   75..00       MOV     ?V0 + 3,#0x0
+   \   00003C   EE           MOV     A,R6
+   \   00003D   78..         MOV     R0,#?V0 + 2
+   \   00003F   12....       LCALL   ?S_SHL
+   \   000042   AA..         MOV     R2,?V0 + 2
+   \   000044   EB           MOV     A,R3
+   \   000045   60C5         JZ      ??read_1820_1
+   \   000047   EA           MOV     A,R2
+   \   000048   42..         ORL     ?V0 + 0,A
+   \   00004A   80C4         SJMP    ??read_1820_2
+     86            
+     87            }  
+     88            return (temp);  
+   \                     ??read_1820_3:
+   \   00004C   A9..         MOV     R1,?V0 + 0
+   \   00004E   7F04         MOV     R7,#0x4
+   \   000050   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000053                REQUIRE _A_P1
+   \   000053                REQUIRE P1DIR
+     89          }  
+     90          //搜索ID
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     91          void get_id()
+   \                     get_id:
+     92          {     
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     93            init_1820();        //resert
+   \   000005                ; Setup parameters for call to function init_1820
+   \   000005   12....       LCALL   ??init_1820?relay
+     94            write_1820(0x33); 
+   \   000008                ; Setup parameters for call to function write_1820
+   \   000008   7933         MOV     R1,#0x33
+   \   00000A   12....       LCALL   ??write_1820?relay
+     95            
+     96            for(unsigned char ii=0;ii<8;ii++)
+   \   00000D   7E00         MOV     R6,#0x0
+   \   00000F   8017         SJMP    ??get_id_0
+     97            {
+     98              id[ii]=read_1820();
+   \                     ??get_id_1:
+   \   000011                ; Setup parameters for call to function read_1820
+   \   000011   12....       LCALL   ??read_1820?relay
+   \   000014   E9           MOV     A,R1
+   \   000015   C0E0         PUSH    A
+   \   000017   8E..         MOV     ?V0 + 0,R6
+   \   000019   E5..         MOV     A,?V0 + 0
+   \   00001B   24..         ADD     A,#(id & 0xff)
+   \   00001D   F582         MOV     DPL,A
+   \   00001F   E4           CLR     A
+   \   000020   34..         ADDC    A,#((id >> 8) & 0xff)
+   \   000022   F583         MOV     DPH,A
+   \   000024   D0E0         POP     A
+   \   000026   F0           MOVX    @DPTR,A
+     99            }
+   \   000027   0E           INC     R6
+   \                     ??get_id_0:
+   \   000028   EE           MOV     A,R6
+   \   000029   C3           CLR     C
+   \   00002A   9408         SUBB    A,#0x8
+   \   00002C   40E3         JC      ??get_id_1
+    100          }
+   \   00002E   7F02         MOV     R7,#0x2
+   \   000030   02....       LJMP    ?BANKED_LEAVE_XDATA
+    101          
+    102          /*功能匹配*/
+    103          UINT8 match_rom(UINT8 *rom);
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    104          UINT8 match_rom(UINT8 *rom)
+   \                     match_rom:
+    105          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    106            unsigned char i;
+    107            init_1820();
+   \   000009                ; Setup parameters for call to function init_1820
+   \   000009   12....       LCALL   ??init_1820?relay
+    108            write_1820(0x55);
+   \   00000C                ; Setup parameters for call to function write_1820
+   \   00000C   7955         MOV     R1,#0x55
+   \   00000E   12....       LCALL   ??write_1820?relay
+    109            for(i=8;i>0;i--)
+   \   000011   75..08       MOV     ?V0 + 0,#0x8
+   \   000014   801B         SJMP    ??match_rom_0
+    110            {
+    111                    write_1820(*(rom+i-1));
+   \                     ??match_rom_1:
+   \   000016                ; Setup parameters for call to function write_1820
+   \   000016   F5..         MOV     ?V0 + 2,A
+   \   000018   EE           MOV     A,R6
+   \   000019   25..         ADD     A,?V0 + 2
+   \   00001B   F8           MOV     R0,A
+   \   00001C   EF           MOV     A,R7
+   \   00001D   3400         ADDC    A,#0x0
+   \   00001F   F9           MOV     R1,A
+   \   000020   74FF         MOV     A,#-0x1
+   \   000022   28           ADD     A,R0
+   \   000023   F582         MOV     DPL,A
+   \   000025   74FF         MOV     A,#-0x1
+   \   000027   39           ADDC    A,R1
+   \   000028   F583         MOV     DPH,A
+   \   00002A   E0           MOVX    A,@DPTR
+   \   00002B   F9           MOV     R1,A
+   \   00002C   12....       LCALL   ??write_1820?relay
+    112            }
+   \   00002F   15..         DEC     ?V0 + 0
+   \                     ??match_rom_0:
+   \   000031   E5..         MOV     A,?V0 + 0
+   \   000033   70E1         JNZ     ??match_rom_1
+    113            return 1;
+   \   000035   7901         MOV     R1,#0x1
+   \   000037   7F04         MOV     R7,#0x4
+   \   000039   02....       LJMP    ?BANKED_LEAVE_XDATA
+    114          }
+    115           
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    116          void read_data(UINT8 * pSensorValue)
+   \                     read_data:
+    117          {
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+    118            UINT8 temh,teml; 
+    119            UINT8 a,b,c;
+    120            int j=0;
+    121          
+    122            init_1820();  //复位18b20  
+   \   000009                ; Setup parameters for call to function init_1820
+   \   000009   12....       LCALL   ??init_1820?relay
+    123            write_1820(0xcc);   // 发出转换命令 搜索器件 
+   \   00000C                ; Setup parameters for call to function write_1820
+   \   00000C   79CC         MOV     R1,#-0x34
+   \   00000E   12....       LCALL   ??write_1820?relay
+    124            write_1820(0x44);     //启动  
+   \   000011                ; Setup parameters for call to function write_1820
+   \   000011   7944         MOV     R1,#0x44
+   \   000013   12....       LCALL   ??write_1820?relay
+    125            //Delay_nus(50000);
+    126            for(j=20;j>1;j--)  
+   \   000016   7E14         MOV     R6,#0x14
+   \   000018   7F00         MOV     R7,#0x0
+   \   00001A   800F         SJMP    ??read_data_0
+    127              Delay_nus(500);
+   \                     ??read_data_1:
+   \   00001C                ; Setup parameters for call to function Delay_nus
+   \   00001C   7AF4         MOV     R2,#-0xc
+   \   00001E   7B01         MOV     R3,#0x1
+   \   000020   12....       LCALL   ??Delay_nus?relay
+   \   000023   EE           MOV     A,R6
+   \   000024   24FF         ADD     A,#-0x1
+   \   000026   1E           DEC     R6
+   \   000027   EF           MOV     A,R7
+   \   000028   34FF         ADDC    A,#-0x1
+   \   00002A   FF           MOV     R7,A
+   \                     ??read_data_0:
+   \   00002B   C3           CLR     C
+   \   00002C   EE           MOV     A,R6
+   \   00002D   9402         SUBB    A,#0x2
+   \   00002F   EF           MOV     A,R7
+   \   000030   9400         SUBB    A,#0x0
+   \   000032   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000034   65D0         XRL     A,PSW
+   \   000036   33           RLC     A
+   \   000037   50E3         JNC     ??read_data_1
+    128            init_1820();  
+   \   000039                ; Setup parameters for call to function init_1820
+   \   000039   12....       LCALL   ??init_1820?relay
+    129            write_1820(0xcc);
+   \   00003C                ; Setup parameters for call to function write_1820
+   \   00003C   79CC         MOV     R1,#-0x34
+   \   00003E   12....       LCALL   ??write_1820?relay
+    130            write_1820(0xbe); 
+   \   000041                ; Setup parameters for call to function write_1820
+   \   000041   79BE         MOV     R1,#-0x42
+   \   000043   12....       LCALL   ??write_1820?relay
+    131                 
+    132            teml=read_1820();  //读数据  
+   \   000046                ; Setup parameters for call to function read_1820
+   \   000046   12....       LCALL   ??read_1820?relay
+   \   000049   E9           MOV     A,R1
+   \   00004A   F5..         MOV     ?V0 + 2,A
+    133            temh=read_1820();  
+   \   00004C                ; Setup parameters for call to function read_1820
+   \   00004C   12....       LCALL   ??read_1820?relay
+   \   00004F   E9           MOV     A,R1
+   \   000050   FA           MOV     R2,A
+    134            if(temh&0x80)//判断正负
+   \   000051   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000053   5018         JNC     ??read_data_2
+    135            {
+    136              flag=1;
+   \   000055   7401         MOV     A,#0x1
+   \   000057   90....       MOV     DPTR,#flag
+   \   00005A   F0           MOVX    @DPTR,A
+    137              c=0;
+    138              c=c|temh;
+    139              c=c&0x00ff;
+    140              c=c<<8;
+    141              a=c;
+    142          
+    143              a=c|teml;
+    144          
+    145              a=(a^0xffff);//异或
+    146              a=a+1;  //取反加1
+   \   00005B   74FF         MOV     A,#-0x1
+   \   00005D   65..         XRL     A,?V0 + 2
+   \   00005F   04           INC     A
+   \   000060   FA           MOV     R2,A
+    147              teml=a&0x0f;
+   \   000061   740F         MOV     A,#0xf
+   \   000063   5A           ANL     A,R2
+   \   000064   F5..         MOV     ?V0 + 2,A
+    148              temh=a>>4;
+   \   000066   EA           MOV     A,R2
+   \   000067   C4           SWAP    A
+   \   000068   540F         ANL     A,#0xf
+   \   00006A   FA           MOV     R2,A
+   \   00006B   8018         SJMP    ??read_data_3
+    149            }
+    150            else
+    151            {
+    152              flag=0;   //为正
+   \                     ??read_data_2:
+   \   00006D   E4           CLR     A
+   \   00006E   90....       MOV     DPTR,#flag
+   \   000071   F0           MOVX    @DPTR,A
+    153              a=temh<<4;
+    154              a+=(teml&0xf0)>>4; //得到高位的值
+    155              b=teml&0x0f;
+    156              temh=a;
+   \   000072   E5..         MOV     A,?V0 + 2
+   \   000074   C4           SWAP    A
+   \   000075   540F         ANL     A,#0xf
+   \   000077   C0E0         PUSH    A
+   \   000079   EA           MOV     A,R2
+   \   00007A   C4           SWAP    A
+   \   00007B   54F0         ANL     A,#0xf0
+   \   00007D   FA           MOV     R2,A
+   \   00007E   D0E0         POP     A
+   \   000080   2A           ADD     A,R2
+   \   000081   FA           MOV     R2,A
+    157              teml=b&0x00ff;
+   \   000082   53..0F       ANL     ?V0 + 2,#0xf
+    158            }
+    159            pSensorValue[0]=teml;
+   \                     ??read_data_3:
+   \   000085   85..82       MOV     DPL,?V0 + 0
+   \   000088   85..83       MOV     DPH,?V0 + 1
+   \   00008B   E5..         MOV     A,?V0 + 2
+   \   00008D   F0           MOVX    @DPTR,A
+    160            pSensorValue[1]=temh;
+   \   00008E   EA           MOV     A,R2
+   \   00008F   A3           INC     DPTR
+   \   000090   F0           MOVX    @DPTR,A
+    161          }
+   \   000091   7F03         MOV     R7,#0x3
+   \   000093   02....       LJMP    ?BANKED_LEAVE_XDATA
+    162          
+    163              
+    164          ////////////处理数据部分/////////////////
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    165          void DataChange(UINT8 * pSensorValue,UINT8 * pChBuf)
+   \                     DataChange:
+    166          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   8A82         MOV     DPL,R2
+   \   000007   8B83         MOV     DPH,R3
+    167            UINT8 temh,teml;
+    168            //UINT8 ch[9];
+    169            UINT16 num;
+    170            //UINT8 i;
+    171            
+    172            teml=pSensorValue[0];
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   FA           MOV     R2,A
+    173            temh=pSensorValue[1];
+   \   00000B   A3           INC     DPTR
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   FB           MOV     R3,A
+    174            //i=(Temp_channel-0x31)*2;
+    175            pChBuf[0]='T';//当前显示的传感器的编号
+   \   00000E   7454         MOV     A,#0x54
+   \   000010   8C82         MOV     DPL,R4
+   \   000012   8D83         MOV     DPH,R5
+   \   000014   F0           MOVX    @DPTR,A
+    176            pChBuf[1]=':';
+   \   000015   743A         MOV     A,#0x3a
+   \   000017   A3           INC     DPTR
+   \   000018   F0           MOVX    @DPTR,A
+    177            num=teml*625;          //小数部分的取值每位代表0.0625（精度）
+    178            if(flag==1)            //判断正负温度
+   \   000019   EC           MOV     A,R4
+   \   00001A   2402         ADD     A,#0x2
+   \   00001C   F8           MOV     R0,A
+   \   00001D   ED           MOV     A,R5
+   \   00001E   3400         ADDC    A,#0x0
+   \   000020   F9           MOV     R1,A
+   \   000021   90....       MOV     DPTR,#flag
+   \   000024   E0           MOVX    A,@DPTR
+   \   000025   6401         XRL     A,#0x1
+   \   000027   7004         JNZ     ??DataChange_0
+    179            {
+    180              pChBuf[2]='-';              //+0x2d 为变"-"ASCII码
+   \   000029   742D         MOV     A,#0x2d
+   \   00002B   8002         SJMP    ??DataChange_1
+    181            }
+    182            else 
+    183              pChBuf[2]='+';   
+   \                     ??DataChange_0:
+   \   00002D   742B         MOV     A,#0x2b
+   \                     ??DataChange_1:
+   \   00002F   8882         MOV     DPL,R0
+   \   000031   8983         MOV     DPH,R1
+   \   000033   F0           MOVX    @DPTR,A
+    184            if(temh/100==0)
+   \   000034   EC           MOV     A,R4
+   \   000035   2403         ADD     A,#0x3
+   \   000037   F582         MOV     DPL,A
+   \   000039   ED           MOV     A,R5
+   \   00003A   3400         ADDC    A,#0x0
+   \   00003C   F583         MOV     DPH,A
+   \   00003E   75F064       MOV     B,#0x64
+   \   000041   EB           MOV     A,R3
+   \   000042   84           DIV     AB
+   \   000043   FE           MOV     R6,A
+   \   000044   7004         JNZ     ??DataChange_2
+    185              pChBuf[3]=' ';
+   \   000046   7420         MOV     A,#0x20
+   \   000048   8003         SJMP    ??DataChange_3
+    186            else
+    187              pChBuf[3]=temh/100+0x30;      //+0x30 为变 0~9 ASCII码
+   \                     ??DataChange_2:
+   \   00004A   7430         MOV     A,#0x30
+   \   00004C   2E           ADD     A,R6
+   \                     ??DataChange_3:
+   \   00004D   F0           MOVX    @DPTR,A
+    188            if((temh/10%10==0)&&(temh/100==0))
+   \   00004E   75F00A       MOV     B,#0xa
+   \   000051   EB           MOV     A,R3
+   \   000052   84           DIV     AB
+   \   000053   75F00A       MOV     B,#0xa
+   \   000056   84           DIV     AB
+   \   000057   AFF0         MOV     R7,B
+   \   000059   EF           MOV     A,R7
+   \   00005A   7007         JNZ     ??DataChange_4
+   \   00005C   EE           MOV     A,R6
+   \   00005D   7004         JNZ     ??DataChange_4
+    189             pChBuf[4]=' ';
+   \   00005F   7420         MOV     A,#0x20
+   \   000061   8003         SJMP    ??DataChange_5
+    190            else
+    191              pChBuf[4]=temh/10%10+0x30;
+   \                     ??DataChange_4:
+   \   000063   7430         MOV     A,#0x30
+   \   000065   2F           ADD     A,R7
+   \                     ??DataChange_5:
+   \   000066   8C82         MOV     DPL,R4
+   \   000068   8D83         MOV     DPH,R5
+   \   00006A   A3           INC     DPTR
+   \   00006B   A3           INC     DPTR
+   \   00006C   A3           INC     DPTR
+   \   00006D   A3           INC     DPTR
+   \   00006E   F0           MOVX    @DPTR,A
+    192            pChBuf[5]=temh%10+0x30;
+   \   00006F   EB           MOV     A,R3
+   \   000070   75F00A       MOV     B,#0xa
+   \   000073   84           DIV     AB
+   \   000074   E5F0         MOV     A,B
+   \   000076   2430         ADD     A,#0x30
+   \   000078   8C82         MOV     DPL,R4
+   \   00007A   8D83         MOV     DPH,R5
+   \   00007C   A3           INC     DPTR
+   \   00007D   A3           INC     DPTR
+   \   00007E   A3           INC     DPTR
+   \   00007F   A3           INC     DPTR
+   \   000080   A3           INC     DPTR
+   \   000081   F0           MOVX    @DPTR,A
+    193            pChBuf[6]='.';
+   \   000082   742E         MOV     A,#0x2e
+   \   000084   8C82         MOV     DPL,R4
+   \   000086   8D83         MOV     DPH,R5
+   \   000088   A3           INC     DPTR
+   \   000089   A3           INC     DPTR
+   \   00008A   A3           INC     DPTR
+   \   00008B   A3           INC     DPTR
+   \   00008C   A3           INC     DPTR
+   \   00008D   A3           INC     DPTR
+   \   00008E   F0           MOVX    @DPTR,A
+    194            pChBuf[7]=num/1000+0x30;//忽略小数点后1位的数
+   \   00008F   EA           MOV     A,R2
+   \   000090   F8           MOV     R0,A
+   \   000091   75F071       MOV     B,#0x71
+   \   000094   A4           MUL     AB
+   \   000095   C8           XCH     A,R0
+   \   000096   AAF0         MOV     R2,B
+   \   000098   75F002       MOV     B,#0x2
+   \   00009B   A4           MUL     AB
+   \   00009C   2A           ADD     A,R2
+   \   00009D   F9           MOV     R1,A
+   \   00009E   7AE8         MOV     R2,#-0x18
+   \   0000A0   7B03         MOV     R3,#0x3
+   \   0000A2   12....       LCALL   ?US_DIV_MOD
+   \   0000A5   E8           MOV     A,R0
+   \   0000A6   2430         ADD     A,#0x30
+   \   0000A8   8C82         MOV     DPL,R4
+   \   0000AA   8D83         MOV     DPH,R5
+   \   0000AC   A3           INC     DPTR
+   \   0000AD   A3           INC     DPTR
+   \   0000AE   A3           INC     DPTR
+   \   0000AF   A3           INC     DPTR
+   \   0000B0   A3           INC     DPTR
+   \   0000B1   A3           INC     DPTR
+   \   0000B2   A3           INC     DPTR
+   \   0000B3   F0           MOVX    @DPTR,A
+    195            pChBuf[8]='\0';
+   \   0000B4   E4           CLR     A
+   \   0000B5   8C82         MOV     DPL,R4
+   \   0000B7   8D83         MOV     DPH,R5
+   \   0000B9   A3           INC     DPTR
+   \   0000BA   A3           INC     DPTR
+   \   0000BB   A3           INC     DPTR
+   \   0000BC   A3           INC     DPTR
+   \   0000BD   A3           INC     DPTR
+   \   0000BE   A3           INC     DPTR
+   \   0000BF   A3           INC     DPTR
+   \   0000C0   A3           INC     DPTR
+   \   0000C1   F0           MOVX    @DPTR,A
+    196            //Print(i,15,ch,1);   //显示温度值
+    197            //Print(i,80,"℃",1); //显示摄氏度标示  ℃
+    198            //此处添加具体的显示代码
+    199            //LCD_write_english_string(8,1,(char *)ch);
+    200          }
+   \   0000C2   7F01         MOV     R7,#0x1
+   \   0000C4   02....       LJMP    ?BANKED_LEAVE_XDATA
+    201          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    202          void ds18b20_main()
+   \                     ds18b20_main:
+    203          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    204           
+    205            while(1)
+    206            {
+    207              read_data(sensor_data_value);// 读取温度
+   \                     ??ds18b20_main_0:
+   \   000004                ; Setup parameters for call to function read_data
+   \   000004   7A..         MOV     R2,#(sensor_data_value & 0xff)
+   \   000006   7B..         MOV     R3,#((sensor_data_value >> 8) & 0xff)
+   \   000008   12....       LCALL   ??read_data?relay
+    208              DataChange(sensor_data_value,ch); //数据处理
+   \   00000B                ; Setup parameters for call to function DataChange
+   \   00000B   7C..         MOV     R4,#(ch & 0xff)
+   \   00000D   7D..         MOV     R5,#((ch >> 8) & 0xff)
+   \   00000F   7A..         MOV     R2,#(sensor_data_value & 0xff)
+   \   000011   7B..         MOV     R3,#((sensor_data_value >> 8) & 0xff)
+   \   000013   12....       LCALL   ??DataChange?relay
+    209              //LCD_write_english_string(8,1,(char *)ch);
+    210              
+    211              Delay_nus(10000);
+   \   000016                ; Setup parameters for call to function Delay_nus
+   \   000016   7A10         MOV     R2,#0x10
+   \   000018   7B27         MOV     R3,#0x27
+   \   00001A   12....       LCALL   ??Delay_nus?relay
+   \   00001D   80E5         SJMP    ??ds18b20_main_0
+    212            }
+    213          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_nus?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_nus
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??init_1820?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    init_1820
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??write_1820?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    write_1820
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??read_1820?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    read_1820
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??get_id?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    get_id
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??match_rom?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    match_rom
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??read_data?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    read_data
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??DataChange?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DataChange
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ds18b20_main?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_main
+    214          
+    215          
+    216          
+
+   Maximum stack usage in bytes:
+
+     Function        ISTACK PSTACK XSTACK
+     --------        ------ ------ ------
+     DataChange          1      0      9
+     Delay_nus           0      0     12
+     ds18b20_main        2      0      0
+       -> read_data      4      0      0
+       -> DataChange     4      0      0
+       -> Delay_nus      4      0      0
+     get_id              1      0     10
+       -> init_1820      0      0     20
+       -> write_1820     0      0     20
+       -> read_1820      0      0     20
+     init_1820           2      0     12
+       -> Delay_nus      4      0      0
+       -> Delay_nus      4      0      0
+       -> Delay_nus      4      0      0
+     match_rom           0      0     12
+       -> init_1820      0      0     24
+       -> write_1820     0      0     24
+       -> write_1820     0      0     24
+     read_1820           0      0     23
+       -> Delay_nus      0      0     24
+     read_data           1      0     11
+       -> init_1820      0      0     22
+       -> write_1820     0      0     22
+       -> write_1820     0      0     22
+       -> Delay_nus      0      0     22
+       -> init_1820      0      0     22
+       -> write_1820     0      0     22
+       -> write_1820     0      0     22
+       -> read_1820      0      0     22
+       -> read_1820      0      0     22
+     write_1820          0      0     22
+       -> Delay_nus      0      0     20
+
+
+   Segment part sizes:
+
+     Function/Label       Bytes
+     --------------       -----
+     _A_P1                   1
+     P1DIR                   1
+     id                      8
+     sensor_data_value       2
+     ch                      9
+     flag                    1
+     Delay_nus              33
+     init_1820              67
+     write_1820             72
+     read_1820              83
+     get_id                 51
+     match_rom              60
+     read_data             150
+     DataChange            199
+     ds18b20_main           31
+     ??Delay_nus?relay       6
+     ??init_1820?relay       6
+     ??write_1820?relay      6
+     ??read_1820?relay       6
+     ??get_id?relay          6
+     ??match_rom?relay       6
+     ??read_data?relay       6
+     ??DataChange?relay      6
+     ??ds18b20_main?relay    6
+
+ 
+ 746 bytes in segment BANKED_CODE
+  54 bytes in segment BANK_RELAYS
+   2 bytes in segment SFR_AN
+  20 bytes in segment XDATA_Z
+ 
+ 800 bytes of CODE  memory
+   0 bytes of DATA  memory (+ 2 bytes shared)
+  20 bytes of XDATA memory
+
+Errors: none
+Warnings: none

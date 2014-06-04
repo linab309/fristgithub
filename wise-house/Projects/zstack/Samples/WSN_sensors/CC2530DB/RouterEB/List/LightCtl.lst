@@ -1,0 +1,3726 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Apr/2013  11:22:02 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\WSN_sensors\Source\LightCtl.c #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0 #
+#                          \Projects\zstack\Samples\WSN_sensors\CC2530DB\..\. #
+#                          .\..\Tools\CC2530DB\f8wRouter.cfg" (-DCPU32MHZ     #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DRTR_NWK -DBLINK_LEDS) -f "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\Tools\CC #
+#                          2530DB\f8wConfig.cfg" (-DSECURE=0                  #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\WSN_sensors\Source\LightCtl. #
+#                          c" -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D        #
+#                          MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC "C:\Texas   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\RouterEB\List\"   #
+#                          -lA "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3. #
+#                          0\Projects\zstack\Samples\WSN_sensors\CC2530DB\Rou #
+#                          terEB\List\" --diag_suppress Pe001,Pa010 -o        #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\WSN_sensors\CC2530DB\RouterE #
+#                          B\Obj\" -e --require_prototypes --no_unroll        #
+#                          --no_inline --no_tbaa --debug --core=plain         #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 8 -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\" -I "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\SOURCE\" -I    #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\WSN_sensors\CC2530DB\..\..\. #
+#                          .\ZMAIN\TI2530DB\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MT\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\HAL\INCLUDE\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\HAL\TARGET\CC2530EB\" -I "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\OSAL\INCLUDE\" -I "C:\Texas               #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\AF\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\NWK\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SEC\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SAPI\" -I "C:\Texas                 #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SYS\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\ZDO\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\ZMAC\F8W\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\ZMAC\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\SERVICES\SADDR\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\SERVICES\SDATA\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\INCLUDE\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\HIGH_LEVEL\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\WSN_sensors\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I      #
+#                          "D:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "D:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\" -Om #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\WSN_sensors\CC2530DB\RouterEB #
+#                          \List\LightCtl.lst                                 #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\WSN_sensors\CC2530DB\RouterEB #
+#                          \Obj\LightCtl.r51                                  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zstack\Samples\WSN_sensors\Source\LightCtl.c
+      1          /**************************************************************************************************
+      2            Filename:       LightCtl.c
+      3            Revised:        $Date: 2009-03-18 15:56:27 -0700 (Wed, 18 Mar 2009) $
+      4            Revision:       $Revision: 19453 $
+      5          
+      6            Description:    Generic Application (no Profile).
+      7          
+      8          
+      9            Copyright 2004-2009 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED 揂S IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41            This application isn't intended to do anything useful, it is
+     42            intended to be a simple example of an application's structure.
+     43          
+     44            This application sends "Hello World" to another "Generic"
+     45            application every 15 seconds.  The application will also
+     46            receive "Hello World" packets.
+     47          
+     48            The "Hello World" messages are sent/received as MSG type message.
+     49          
+     50            This applications doesn't have a profile, so it handles everything
+     51            directly - itself.
+     52          
+     53            Key control:
+     54              SW1:
+     55              SW2:  initiates end device binding
+     56              SW3:
+     57              SW4:  initiates a match description request
+     58          *********************************************************************/
+     59          
+     60          /*********************************************************************
+     61           * INCLUDES
+     62           */
+     63          #include "OSAL.h"
+     64          #include "AF.h"
+     65          #include "ZDApp.h"
+     66          #include "ZDObject.h"
+     67          #include "ZDProfile.h"
+     68          
+     69          #include "LightCtl.h"
+     70          #include "DebugTrace.h"
+     71          
+     72          #if !defined( WIN32 )
+     73            #include "OnBoard.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x88
+   \   union <unnamed> volatile __sfr _A_TCON
+   \                     _A_TCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb6
+   \   unsigned char volatile __sfr ADCCON3
+   \                     ADCCON3:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbb
+   \   unsigned char volatile __sfr ADCH
+   \                     ADCH:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+     74          #endif
+     75          
+     76          /* HAL */
+     77          #include "hal_lcd.h"
+     78          #include "hal_led.h"
+     79          #include "hal_adc.h"
+     80          #include "hal_key.h"
+     81          #include "hal_uart.h"
+     82          
+     83          #include "DS18B20.h"
+
+  typedef unsigned short      UINT16;
+                              ^
+"C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zstack\Samples\WSN_sensors\Source\DS18B20.h",18  Warning[Pe301]: 
+          typedef name has already been declared (with same type)
+
+  typedef signed short        INT16;
+                              ^
+"C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zstack\Samples\WSN_sensors\Source\DS18B20.h",23  Warning[Pe301]: 
+          typedef name has already been declared (with same type)
+     84          
+     85          /*********************************************************************
+     86           * MACROS
+     87           */
+     88          
+     89          /*********************************************************************
+     90           * CONSTANTS
+     91           */
+     92          
+     93          /*********************************************************************
+     94           * TYPEDEFS
+     95           */
+     96          #if !defined( SERIAL_APP_PORT )
+     97          #define SERIAL_APP_PORT  0
+     98          #endif
+     99          
+    100          #if !defined( SERIAL_APP_BAUD )
+    101          #define SERIAL_APP_BAUD  HAL_UART_BR_38400
+    102          //#define SERIAL_APP_BAUD  HAL_UART_BR_115200
+    103          #endif
+    104          
+    105          // When the Rx buf space is less than this threshold, invoke the Rx callback.
+    106          #if !defined( SERIAL_APP_THRESH )
+    107          #define SERIAL_APP_THRESH  64
+    108          #endif
+    109          
+    110          #if !defined( SERIAL_APP_RX_SZ )
+    111          #define SERIAL_APP_RX_SZ  128
+    112          #endif
+    113          
+    114          #if !defined( SERIAL_APP_TX_SZ )
+    115          #define SERIAL_APP_TX_SZ  128
+    116          #endif
+    117          
+    118          // Millisecs of idle time after a byte is received before invoking Rx callback.
+    119          #if !defined( SERIAL_APP_IDLE )
+    120          #define SERIAL_APP_IDLE  6
+    121          #endif
+    122          
+    123          // Loopback Rx bytes to Tx for throughput testing.
+    124          #if !defined( SERIAL_APP_LOOPBACK )
+    125          #define SERIAL_APP_LOOPBACK  FALSE
+    126          #endif
+    127          
+    128          // This is the max byte count per OTA message.
+    129          #if !defined( SERIAL_APP_TX_MAX )
+    130          #define SERIAL_APP_TX_MAX  10
+    131          #endif
+    132          
+    133          #define MAXSENSOR 4
+    134          
+    135          /*********************************************************************
+    136           * GLOBAL VARIABLES
+    137           */
+    138          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    139          static uint8 SerialApp_Buf[SERIAL_APP_TX_MAX];
+   \                     SerialApp_Buf:
+   \   000000                DS 10
+   \   00000A                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    140          static uint8 SerialApp_Len;
+   \                     SerialApp_Len:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    141          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    142          uint8 sensor_TempData[MAXSENSOR][2];
+   \                     sensor_TempData:
+   \   000000                DS 8
+   \   000008                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    143          uint8 sensor_Gas[MAXSENSOR];
+   \                     sensor_Gas:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    144          uint8 sensor_LightLevel[MAXSENSOR];
+   \                     sensor_LightLevel:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    145          uint8 sensor_LightOnOff[MAXSENSOR];
+   \                     sensor_LightOnOff:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    146          uint8 sensor_Alarm[MAXSENSOR];
+   \                     sensor_Alarm:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+    147          
+    148          //static uint8 SerialApp_RxSeq;
+    149          //static uint8 SerialApp_RspBuf[SERIAL_APP_RSP_CNT];
+    150          
+    151          
+    152          // This list should be filled with Application specific Cluster IDs.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    153          const cId_t LightCtl_ClusterList[LightCtl_MAX_CLUSTERS] =
+   \                     LightCtl_ClusterList:
+   \   000000   0100         DW 1
+    154          {
+    155            LightCtl_CLUSTERID
+    156          };
+    157          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    158          const SimpleDescriptionFormat_t LightCtl_SimpleDesc =
+   \                     LightCtl_SimpleDesc:
+   \   000000   0A           DB 10
+   \   000001   040F0100     DW 3844, 1
+   \   000005   0001         DB 0, 1
+   \   000007   ....         DW LightCtl_ClusterList
+   \   000009   01           DB 1
+   \   00000A   ....         DW LightCtl_ClusterList
+    159          {
+    160            LightCtl_ENDPOINT,              //  int Endpoint;
+    161            LightCtl_PROFID,                //  uint16 AppProfId[2];
+    162            LightCtl_DEVICEID,              //  uint16 AppDeviceId[2];
+    163            LightCtl_DEVICE_VERSION,        //  int   AppDevVer:4;
+    164            LightCtl_FLAGS,                 //  int   AppFlags:4;
+    165            LightCtl_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+    166            (cId_t *)LightCtl_ClusterList,  //  byte *pAppInClusterList;
+    167            LightCtl_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+    168            (cId_t *)LightCtl_ClusterList   //  byte *pAppInClusterList;
+    169          };
+    170          
+    171          // This is the Endpoint/Interface description.  It is defined here, but
+    172          // filled-in in LightCtl_Init().  Another way to go would be to fill
+    173          // in the structure here and make it a "const" (in code space).  The
+    174          // way it's defined in this sample app it is define in RAM.
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    175          endPointDesc_t LightCtl_epDesc;
+   \                     LightCtl_epDesc:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+    176          
+    177          /*********************************************************************
+    178           * EXTERNAL VARIABLES
+    179           */
+    180          
+    181          /*********************************************************************
+    182           * EXTERNAL FUNCTIONS
+    183           */
+    184          
+    185          /*********************************************************************
+    186           * LOCAL VARIABLES
+    187           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    188          byte LightCtl_TaskID;   // Task ID for internal task/event processing
+   \                     LightCtl_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    189                                    // This variable will be received when
+    190                                    // LightCtl_Init() is called.
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    191          devStates_t LightCtl_NwkState;
+   \                     LightCtl_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    192          
+    193          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    194          byte LightCtl_TransID;  // This is the unique message ID (counter)
+   \                     LightCtl_TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    195          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    196          afAddrType_t LightCtl_DstAddr;
+   \                     LightCtl_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    197          uint8 SensorID = 2; 
+   \                     SensorID:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for SensorID>`
+   \   000001                REQUIRE __INIT_XDATA_I
+    198          
+    199          /*********************************************************************
+    200           * LOCAL FUNCTIONS
+    201           */
+    202          void LightCtl_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
+    203          void LightCtl_HandleKeys( byte shift, byte keys );
+    204          void LightCtl_MessageMSGCB( afIncomingMSGPacket_t *pckt );
+    205          void LightCtl_SendTheMessage( void );
+    206          
+    207          /*********************************************************************
+    208           * NETWORK LAYER CALLBACKS
+    209           */
+    210          
+    211          /*********************************************************************
+    212           * PUBLIC FUNCTIONS
+    213           */
+    214          static void SerialApp_CallBack(uint8 port, uint8 event);
+    215          
+    216          uint8 hextoword1(uint8 t );
+    217          uint8 hextoword2(uint8 t);
+    218          void UartShowNtkInfo(bool flag,uint16 short_ddr,uint8 *pIeeeAddrBuf);
+    219          void AfSendNtkInfo(void);
+    220          void HalSendFrame(uint8 cmd,uint8 id,uint8 dataL,uint8 dataH);
+    221          
+    222          uint8 myApp_ReadGas( void );
+    223          uint8 myApp_ReadLightLevel( void );
+    224          uint8 myApp_ReadLightOnOff( void );
+    225          uint8 myApp_ReadAlarm( void );
+    226          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    227          uint8 hextoword1(uint8 t )
+   \                     hextoword1:
+    228          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    229            uint8 abc;
+    230            uint8 cba;
+    231            uint8 xx1;
+    232            abc=t;
+    233            cba=0xf0;
+    234            abc=(abc&cba)>>4;
+   \   000000   E9           MOV     A,R1
+   \   000001   C4           SWAP    A
+   \   000002   540F         ANL     A,#0xf
+   \   000004   FA           MOV     R2,A
+    235            if(abc<10)
+   \   000005   C3           CLR     C
+   \   000006   940A         SUBB    A,#0xa
+   \   000008   5004         JNC     ??hextoword1_0
+    236            {
+    237              xx1=abc+48;
+   \   00000A   7430         MOV     A,#0x30
+   \   00000C   8002         SJMP    ??hextoword1_1
+    238            }
+    239            else
+    240            {
+    241              xx1=abc+55;
+   \                     ??hextoword1_0:
+   \   00000E   7437         MOV     A,#0x37
+   \                     ??hextoword1_1:
+   \   000010   2A           ADD     A,R2
+   \   000011   F9           MOV     R1,A
+    242            }
+    243            return xx1;
+   \   000012   02....       LJMP    ?BRET
+    244          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    245          uint8 hextoword2(uint8 t)
+   \                     hextoword2:
+    246          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    247            uint8 abc;
+    248            uint8 cba;
+    249            uint8 xx2;
+    250            abc=t;
+    251            cba=0x0f;
+    252            abc=abc&cba;
+   \   000000   740F         MOV     A,#0xf
+   \   000002   59           ANL     A,R1
+   \   000003   FA           MOV     R2,A
+    253            if(abc<10)
+   \   000004   C3           CLR     C
+   \   000005   940A         SUBB    A,#0xa
+   \   000007   5004         JNC     ??hextoword2_0
+    254            {
+    255              xx2=abc+48;
+   \   000009   7430         MOV     A,#0x30
+   \   00000B   8002         SJMP    ??hextoword2_1
+    256            }
+    257            else
+    258            {
+    259              xx2=abc+55;
+   \                     ??hextoword2_0:
+   \   00000D   7437         MOV     A,#0x37
+   \                     ??hextoword2_1:
+   \   00000F   2A           ADD     A,R2
+   \   000010   F9           MOV     R1,A
+    260            }
+    261            return xx2;
+   \   000011   02....       LJMP    ?BRET
+    262          }
+    263          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    264          void UartShowNtkInfo(bool flag,uint16 short_ddr,uint8 *pIeeeAddrBuf)
+   \                     UartShowNtkInfo:
+    265          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 128
+   \   000005   7480         MOV     A,#-0x80
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+   \   00000C   8C..         MOV     ?V0 + 0,R4
+   \   00000E   8D..         MOV     ?V0 + 1,R5
+    266            //  显示网络地址变量
+    267              uint8 yy1;
+    268              uint8 yy2;
+    269              uint8 str_1[ ]="my short address is:";
+   \   000010   90....       MOV     DPTR,#`?<Constant "my short address is:">`
+   \   000013   C082         PUSH    DPL
+   \   000015   C083         PUSH    DPH
+   \   000017   746B         MOV     A,#0x6b
+   \   000019   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001C   AC82         MOV     R4,DPL
+   \   00001E   AD83         MOV     R5,DPH
+   \   000020   D083         POP     DPH
+   \   000022   D082         POP     DPL
+   \   000024   7415         MOV     A,#0x15
+   \   000026   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    270              uint8 str_2[ ]="build the network successfully";
+   \   000029   90....       MOV     DPTR,#`?<Constant "build the network suc...">`
+   \   00002C   C082         PUSH    DPL
+   \   00002E   C083         PUSH    DPH
+   \   000030   744C         MOV     A,#0x4c
+   \   000032   12....       LCALL   ?XSTACK_DISP0_8
+   \   000035   AC82         MOV     R4,DPL
+   \   000037   AD83         MOV     R5,DPH
+   \   000039   D083         POP     DPH
+   \   00003B   D082         POP     DPL
+   \   00003D   741F         MOV     A,#0x1f
+   \   00003F   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    271              uint8 str_5[ ]="join the network successfully ";
+   \   000042   90....       MOV     DPTR,#`?<Constant "join the network succ...">`
+   \   000045   C082         PUSH    DPL
+   \   000047   C083         PUSH    DPH
+   \   000049   742D         MOV     A,#0x2d
+   \   00004B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004E   AC82         MOV     R4,DPL
+   \   000050   AD83         MOV     R5,DPH
+   \   000052   D083         POP     DPH
+   \   000054   D082         POP     DPL
+   \   000056   741F         MOV     A,#0x1f
+   \   000058   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    272              uint8 str_3[ ]={'\n'};
+   \   00005B   90....       MOV     DPTR,#`?<Constant {10}>`
+   \   00005E   C082         PUSH    DPL
+   \   000060   C083         PUSH    DPH
+   \   000062   85..82       MOV     DPL,?XSP + 0
+   \   000065   85..83       MOV     DPH,?XSP + 1
+   \   000068   AC82         MOV     R4,DPL
+   \   00006A   AD83         MOV     R5,DPH
+   \   00006C   D083         POP     DPH
+   \   00006E   D082         POP     DPL
+   \   000070   7401         MOV     A,#0x1
+   \   000072   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    273              uint8 str_4[ ]="my ieee address is:";
+   \   000075   90....       MOV     DPTR,#`?<Constant "my ieee address is:">`
+   \   000078   C082         PUSH    DPL
+   \   00007A   C083         PUSH    DPH
+   \   00007C   7419         MOV     A,#0x19
+   \   00007E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000081   AC82         MOV     R4,DPL
+   \   000083   AD83         MOV     R5,DPH
+   \   000085   D083         POP     DPH
+   \   000087   D082         POP     DPL
+   \   000089   7414         MOV     A,#0x14
+   \   00008B   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+    274              uint8 shortaddr[7];
+    275              uint8 *pointer1;
+    276              uint8 *pointer2;
+    277              uint8 *pointer3;
+    278              uint8 *pointer4;
+    279              
+    280              //显示本地网络地址
+    281              //显示本地网络地址
+    282              //short_ddr=NLME_GetShortAddr();
+    283              yy1=(uint8)((short_ddr&0xff00)>>8);
+   \   00008E   EB           MOV     A,R3
+   \   00008F   F9           MOV     R1,A
+   \   000090   FF           MOV     R7,A
+    284              yy2=(uint8)short_ddr;
+   \   000091   EA           MOV     A,R2
+   \   000092   F5..         MOV     ?V0 + 2,A
+    285              shortaddr[0]=48;
+   \   000094   7430         MOV     A,#0x30
+   \   000096   C0E0         PUSH    A
+   \   000098   7401         MOV     A,#0x1
+   \   00009A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009D   D0E0         POP     A
+   \   00009F   F0           MOVX    @DPTR,A
+    286              shortaddr[1]=120;
+   \   0000A0   7478         MOV     A,#0x78
+   \   0000A2   C0E0         PUSH    A
+   \   0000A4   7402         MOV     A,#0x2
+   \   0000A6   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A9   D0E0         POP     A
+   \   0000AB   F0           MOVX    @DPTR,A
+    287              shortaddr[2]=hextoword1(yy1);
+   \   0000AC                ; Setup parameters for call to function hextoword1
+   \   0000AC   12....       LCALL   ??hextoword1?relay
+   \   0000AF   E9           MOV     A,R1
+   \   0000B0   C0E0         PUSH    A
+   \   0000B2   7403         MOV     A,#0x3
+   \   0000B4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B7   D0E0         POP     A
+   \   0000B9   F0           MOVX    @DPTR,A
+    288              shortaddr[3]=hextoword2(yy1);
+   \   0000BA                ; Setup parameters for call to function hextoword2
+   \   0000BA   EF           MOV     A,R7
+   \   0000BB   F9           MOV     R1,A
+   \   0000BC   12....       LCALL   ??hextoword2?relay
+   \   0000BF   E9           MOV     A,R1
+   \   0000C0   C0E0         PUSH    A
+   \   0000C2   7404         MOV     A,#0x4
+   \   0000C4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000C7   D0E0         POP     A
+   \   0000C9   F0           MOVX    @DPTR,A
+    289              shortaddr[4]=hextoword1(yy2);
+   \   0000CA                ; Setup parameters for call to function hextoword1
+   \   0000CA   A9..         MOV     R1,?V0 + 2
+   \   0000CC   12....       LCALL   ??hextoword1?relay
+   \   0000CF   E9           MOV     A,R1
+   \   0000D0   C0E0         PUSH    A
+   \   0000D2   7405         MOV     A,#0x5
+   \   0000D4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000D7   D0E0         POP     A
+   \   0000D9   F0           MOVX    @DPTR,A
+    290              shortaddr[5]=hextoword2(yy2);
+   \   0000DA                ; Setup parameters for call to function hextoword2
+   \   0000DA   A9..         MOV     R1,?V0 + 2
+   \   0000DC   12....       LCALL   ??hextoword2?relay
+   \   0000DF   E9           MOV     A,R1
+   \   0000E0   C0E0         PUSH    A
+   \   0000E2   7406         MOV     A,#0x6
+   \   0000E4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000E7   D0E0         POP     A
+   \   0000E9   F0           MOVX    @DPTR,A
+    291              shortaddr[6]='\n';
+   \   0000EA   740A         MOV     A,#0xa
+   \   0000EC   C0E0         PUSH    A
+   \   0000EE   7407         MOV     A,#0x7
+   \   0000F0   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000F3   D0E0         POP     A
+   \   0000F5   F0           MOVX    @DPTR,A
+    292              pointer1=&shortaddr[0];
+    293              pointer2=&str_1[0];
+    294              if(flag == 0x00)
+   \   0000F6   EE           MOV     A,R6
+   \   0000F7   7004         JNZ     ??UartShowNtkInfo_0
+    295              {
+    296                pointer3=&str_2[0];
+   \   0000F9   744C         MOV     A,#0x4c
+   \   0000FB   8002         SJMP    ??UartShowNtkInfo_1
+    297              }
+    298              else
+    299              {
+    300                pointer3=&str_5[0];
+   \                     ??UartShowNtkInfo_0:
+   \   0000FD   742D         MOV     A,#0x2d
+   \                     ??UartShowNtkInfo_1:
+   \   0000FF   12....       LCALL   ?XSTACK_DISP0_8
+   \   000102   AE82         MOV     R6,DPL
+   \   000104   AF83         MOV     R7,DPH
+    301              }
+    302              pointer4=&str_3[0];
+    303              HalUARTWrite(0,pointer4,1); 
+   \   000106                ; Setup parameters for call to function HalUARTWrite
+   \   000106   7C01         MOV     R4,#0x1
+   \   000108   7D00         MOV     R5,#0x0
+   \   00010A   85..82       MOV     DPL,?XSP + 0
+   \   00010D   85..83       MOV     DPH,?XSP + 1
+   \   000110   AA82         MOV     R2,DPL
+   \   000112   AB83         MOV     R3,DPH
+   \   000114   7900         MOV     R1,#0x0
+   \   000116   12....       LCALL   ??HalUARTWrite?relay
+    304              HalUARTWrite(0,pointer3,29);
+   \   000119                ; Setup parameters for call to function HalUARTWrite
+   \   000119   7C1D         MOV     R4,#0x1d
+   \   00011B   7D00         MOV     R5,#0x0
+   \   00011D   EE           MOV     A,R6
+   \   00011E   FA           MOV     R2,A
+   \   00011F   EF           MOV     A,R7
+   \   000120   FB           MOV     R3,A
+   \   000121   7900         MOV     R1,#0x0
+   \   000123   12....       LCALL   ??HalUARTWrite?relay
+    305              HalUARTWrite(0,pointer4,1);            
+   \   000126                ; Setup parameters for call to function HalUARTWrite
+   \   000126   7C01         MOV     R4,#0x1
+   \   000128   7D00         MOV     R5,#0x0
+   \   00012A   85..82       MOV     DPL,?XSP + 0
+   \   00012D   85..83       MOV     DPH,?XSP + 1
+   \   000130   AA82         MOV     R2,DPL
+   \   000132   AB83         MOV     R3,DPH
+   \   000134   7900         MOV     R1,#0x0
+   \   000136   12....       LCALL   ??HalUARTWrite?relay
+    306              HalUARTWrite(0,pointer2,20);            
+   \   000139                ; Setup parameters for call to function HalUARTWrite
+   \   000139   7C14         MOV     R4,#0x14
+   \   00013B   7D00         MOV     R5,#0x0
+   \   00013D   746B         MOV     A,#0x6b
+   \   00013F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000142   AA82         MOV     R2,DPL
+   \   000144   AB83         MOV     R3,DPH
+   \   000146   7900         MOV     R1,#0x0
+   \   000148   12....       LCALL   ??HalUARTWrite?relay
+    307              HalUARTWrite(0,pointer1,7);
+   \   00014B                ; Setup parameters for call to function HalUARTWrite
+   \   00014B   7C07         MOV     R4,#0x7
+   \   00014D   7D00         MOV     R5,#0x0
+   \   00014F   7401         MOV     A,#0x1
+   \   000151   12....       LCALL   ?XSTACK_DISP0_8
+   \   000154   AA82         MOV     R2,DPL
+   \   000156   AB83         MOV     R3,DPH
+   \   000158   7900         MOV     R1,#0x0
+   \   00015A   12....       LCALL   ??HalUARTWrite?relay
+    308            
+    309              
+    310              uint8 i;
+    311              uint8 *xad;
+    312              uint8 ieeeAddr_buf[Z_EXTADDR_LEN*2+1];
+    313            
+    314              // Display the extended address.
+    315              //xad = aExtendedAddress + Z_EXTADDR_LEN - 1;
+    316              xad = pIeeeAddrBuf;
+    317            
+    318              for (i = 0; i < Z_EXTADDR_LEN*2; xad--)
+   \   00015D   7A00         MOV     R2,#0x0
+   \   00015F   8026         SJMP    ??UartShowNtkInfo_2
+    319              {
+    320                uint8 ch;
+    321                ch = (*xad >> 4) & 0x0F;
+    322                ieeeAddr_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
+    323                ch = *xad & 0x0F;
+    324                ieeeAddr_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
+   \                     ??UartShowNtkInfo_3:
+   \   000161   7837         MOV     R0,#0x37
+   \                     ??UartShowNtkInfo_4:
+   \   000163   E8           MOV     A,R0
+   \   000164   2B           ADD     A,R3
+   \   000165   C0E0         PUSH    A
+   \   000167   7408         MOV     A,#0x8
+   \   000169   12....       LCALL   ?XSTACK_DISP0_8
+   \   00016C   E582         MOV     A,DPL
+   \   00016E   25..         ADD     A,?V0 + 2
+   \   000170   F582         MOV     DPL,A
+   \   000172   E583         MOV     A,DPH
+   \   000174   3400         ADDC    A,#0x0
+   \   000176   F583         MOV     DPH,A
+   \   000178   D0E0         POP     A
+   \   00017A   F0           MOVX    @DPTR,A
+   \   00017B   E5..         MOV     A,?V0 + 0
+   \   00017D   24FF         ADD     A,#-0x1
+   \   00017F   F5..         MOV     ?V0 + 0,A
+   \   000181   E5..         MOV     A,?V0 + 1
+   \   000183   34FF         ADDC    A,#-0x1
+   \   000185   F5..         MOV     ?V0 + 1,A
+   \                     ??UartShowNtkInfo_2:
+   \   000187   EA           MOV     A,R2
+   \   000188   C3           CLR     C
+   \   000189   9410         SUBB    A,#0x10
+   \   00018B   5047         JNC     ??UartShowNtkInfo_5
+   \   00018D   85..82       MOV     DPL,?V0 + 0
+   \   000190   85..83       MOV     DPH,?V0 + 1
+   \   000193   E0           MOVX    A,@DPTR
+   \   000194   C4           SWAP    A
+   \   000195   540F         ANL     A,#0xf
+   \   000197   FB           MOV     R3,A
+   \   000198   8A..         MOV     ?V0 + 2,R2
+   \   00019A   0A           INC     R2
+   \   00019B   C3           CLR     C
+   \   00019C   940A         SUBB    A,#0xa
+   \   00019E   5004         JNC     ??UartShowNtkInfo_6
+   \   0001A0   7830         MOV     R0,#0x30
+   \   0001A2   8002         SJMP    ??UartShowNtkInfo_7
+   \                     ??UartShowNtkInfo_6:
+   \   0001A4   7837         MOV     R0,#0x37
+   \                     ??UartShowNtkInfo_7:
+   \   0001A6   E8           MOV     A,R0
+   \   0001A7   2B           ADD     A,R3
+   \   0001A8   C0E0         PUSH    A
+   \   0001AA   7408         MOV     A,#0x8
+   \   0001AC   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001AF   E582         MOV     A,DPL
+   \   0001B1   25..         ADD     A,?V0 + 2
+   \   0001B3   F582         MOV     DPL,A
+   \   0001B5   E583         MOV     A,DPH
+   \   0001B7   3400         ADDC    A,#0x0
+   \   0001B9   F583         MOV     DPH,A
+   \   0001BB   D0E0         POP     A
+   \   0001BD   F0           MOVX    @DPTR,A
+   \   0001BE   85..82       MOV     DPL,?V0 + 0
+   \   0001C1   85..83       MOV     DPH,?V0 + 1
+   \   0001C4   E0           MOVX    A,@DPTR
+   \   0001C5   540F         ANL     A,#0xf
+   \   0001C7   FB           MOV     R3,A
+   \   0001C8   8A..         MOV     ?V0 + 2,R2
+   \   0001CA   0A           INC     R2
+   \   0001CB   C3           CLR     C
+   \   0001CC   940A         SUBB    A,#0xa
+   \   0001CE   5091         JNC     ??UartShowNtkInfo_3
+   \   0001D0   7830         MOV     R0,#0x30
+   \   0001D2   808F         SJMP    ??UartShowNtkInfo_4
+    325              }
+    326              ieeeAddr_buf[Z_EXTADDR_LEN*2] = '\0';
+   \                     ??UartShowNtkInfo_5:
+   \   0001D4   E4           CLR     A
+   \   0001D5   C0E0         PUSH    A
+   \   0001D7   7418         MOV     A,#0x18
+   \   0001D9   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001DC   D0E0         POP     A
+   \   0001DE   F0           MOVX    @DPTR,A
+    327              HalUARTWrite(0,str_4,19);
+   \   0001DF                ; Setup parameters for call to function HalUARTWrite
+   \   0001DF   7C13         MOV     R4,#0x13
+   \   0001E1   7D00         MOV     R5,#0x0
+   \   0001E3   7419         MOV     A,#0x19
+   \   0001E5   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001E8   AA82         MOV     R2,DPL
+   \   0001EA   AB83         MOV     R3,DPH
+   \   0001EC   7900         MOV     R1,#0x0
+   \   0001EE   12....       LCALL   ??HalUARTWrite?relay
+    328              HalUARTWrite(0,ieeeAddr_buf,Z_EXTADDR_LEN*2);
+   \   0001F1                ; Setup parameters for call to function HalUARTWrite
+   \   0001F1   7C10         MOV     R4,#0x10
+   \   0001F3   7D00         MOV     R5,#0x0
+   \   0001F5   7408         MOV     A,#0x8
+   \   0001F7   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001FA   AA82         MOV     R2,DPL
+   \   0001FC   AB83         MOV     R3,DPH
+   \   0001FE   7900         MOV     R1,#0x0
+   \   000200   12....       LCALL   ??HalUARTWrite?relay
+    329              HalUARTWrite(0,pointer4,1);
+   \   000203                ; Setup parameters for call to function HalUARTWrite
+   \   000203   7C01         MOV     R4,#0x1
+   \   000205   7D00         MOV     R5,#0x0
+   \   000207   85..82       MOV     DPL,?XSP + 0
+   \   00020A   85..83       MOV     DPH,?XSP + 1
+   \   00020D   AA82         MOV     R2,DPL
+   \   00020F   AB83         MOV     R3,DPH
+   \   000211   7900         MOV     R1,#0x0
+   \   000213   12....       LCALL   ??HalUARTWrite?relay
+    330          }
+   \   000216   7480         MOV     A,#-0x80
+   \   000218   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00021B   7F04         MOV     R7,#0x4
+   \   00021D   02....       LJMP    ?BANKED_LEAVE_XDATA
+    331          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    332          void AfSendNtkInfo(void)
+   \                     AfSendNtkInfo:
+    333          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 11
+   \   000005   74F5         MOV     A,#-0xb
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    334            LightCtl_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   00000A   7402         MOV     A,#0x2
+   \   00000C   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   00000F   F0           MOVX    @DPTR,A
+    335            LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   000010   740A         MOV     A,#0xa
+   \   000012   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   000015   F0           MOVX    @DPTR,A
+    336            LightCtl_DstAddr.addr.shortAddr = 0x0000;  //0x796F;0x0000
+   \   000016   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   000019   E4           CLR     A
+   \   00001A   F0           MOVX    @DPTR,A
+   \   00001B   A3           INC     DPTR
+   \   00001C   F0           MOVX    @DPTR,A
+    337            
+    338            uint16 short_ddr;
+    339            uint8 short_ddr_H;
+    340            uint8 short_ddr_L;
+    341            //  uint8 *pointer1;
+    342            uint8 tmpBuf[11];
+    343            
+    344            uint8 *xad;    
+    345            
+    346            short_ddr=NLME_GetShortAddr();
+   \   00001D                ; Setup parameters for call to function NLME_GetShortAddr
+   \   00001D   12....       LCALL   ??NLME_GetShortAddr?relay
+    347            short_ddr_H=(uint8)((short_ddr&0xff00)>>8);
+    348            short_ddr_L=(uint8)short_ddr;
+    349            
+    350            tmpBuf[0]=0x80;                           //一字节存放数据命令字
+   \   000020   7480         MOV     A,#-0x80
+   \   000022   85..82       MOV     DPL,?XSP + 0
+   \   000025   85..83       MOV     DPH,?XSP + 1
+   \   000028   F0           MOVX    @DPTR,A
+    351            tmpBuf[1]=short_ddr_H;              //一字节存放源地址高8位
+   \   000029   7401         MOV     A,#0x1
+   \   00002B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002E   EB           MOV     A,R3
+   \   00002F   F0           MOVX    @DPTR,A
+    352            tmpBuf[2]=short_ddr_L;              //一字节存放源地址低8位
+   \   000030   EA           MOV     A,R2
+   \   000031   C0E0         PUSH    A
+   \   000033   7402         MOV     A,#0x2
+   \   000035   12....       LCALL   ?XSTACK_DISP0_8
+   \   000038   D0E0         POP     A
+   \   00003A   F0           MOVX    @DPTR,A
+    353            
+    354            xad = NLME_GetExtAddr();
+   \   00003B                ; Setup parameters for call to function NLME_GetExtAddr
+   \   00003B   12....       LCALL   ??NLME_GetExtAddr?relay
+   \   00003E   8A..         MOV     ?V0 + 0,R2
+   \   000040   8B..         MOV     ?V0 + 1,R3
+   \   000042   A8..         MOV     R0,?V0 + 0
+   \   000044   A9..         MOV     R1,?V0 + 1
+    355            tmpBuf[3]=*xad++;
+   \   000046   8882         MOV     DPL,R0
+   \   000048   8983         MOV     DPH,R1
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   C0E0         PUSH    A
+   \   00004D   7403         MOV     A,#0x3
+   \   00004F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000052   D0E0         POP     A
+   \   000054   F0           MOVX    @DPTR,A
+   \   000055   8882         MOV     DPL,R0
+   \   000057   8983         MOV     DPH,R1
+   \   000059   A3           INC     DPTR
+   \   00005A   A882         MOV     R0,DPL
+   \   00005C   A983         MOV     R1,DPH
+    356            tmpBuf[4]=*xad++;
+   \   00005E   E0           MOVX    A,@DPTR
+   \   00005F   C0E0         PUSH    A
+   \   000061   7404         MOV     A,#0x4
+   \   000063   12....       LCALL   ?XSTACK_DISP0_8
+   \   000066   D0E0         POP     A
+   \   000068   F0           MOVX    @DPTR,A
+   \   000069   8882         MOV     DPL,R0
+   \   00006B   8983         MOV     DPH,R1
+   \   00006D   A3           INC     DPTR
+   \   00006E   08           INC     R0
+   \   00006F   A983         MOV     R1,DPH
+    357            tmpBuf[5]=*xad++;
+   \   000071   E0           MOVX    A,@DPTR
+   \   000072   C0E0         PUSH    A
+   \   000074   7405         MOV     A,#0x5
+   \   000076   12....       LCALL   ?XSTACK_DISP0_8
+   \   000079   D0E0         POP     A
+   \   00007B   F0           MOVX    @DPTR,A
+   \   00007C   8882         MOV     DPL,R0
+   \   00007E   8983         MOV     DPH,R1
+   \   000080   A3           INC     DPTR
+   \   000081   08           INC     R0
+   \   000082   A983         MOV     R1,DPH
+    358            tmpBuf[6]=*xad++;
+   \   000084   E0           MOVX    A,@DPTR
+   \   000085   C0E0         PUSH    A
+   \   000087   7406         MOV     A,#0x6
+   \   000089   12....       LCALL   ?XSTACK_DISP0_8
+   \   00008C   D0E0         POP     A
+   \   00008E   F0           MOVX    @DPTR,A
+   \   00008F   8882         MOV     DPL,R0
+   \   000091   8983         MOV     DPH,R1
+   \   000093   A3           INC     DPTR
+   \   000094   08           INC     R0
+   \   000095   A983         MOV     R1,DPH
+    359            tmpBuf[7]=*xad++;
+   \   000097   E0           MOVX    A,@DPTR
+   \   000098   C0E0         PUSH    A
+   \   00009A   7407         MOV     A,#0x7
+   \   00009C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009F   D0E0         POP     A
+   \   0000A1   F0           MOVX    @DPTR,A
+   \   0000A2   8882         MOV     DPL,R0
+   \   0000A4   8983         MOV     DPH,R1
+   \   0000A6   A3           INC     DPTR
+   \   0000A7   08           INC     R0
+   \   0000A8   A983         MOV     R1,DPH
+    360            tmpBuf[8]=*xad++;
+   \   0000AA   E0           MOVX    A,@DPTR
+   \   0000AB   C0E0         PUSH    A
+   \   0000AD   7408         MOV     A,#0x8
+   \   0000AF   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B2   D0E0         POP     A
+   \   0000B4   F0           MOVX    @DPTR,A
+   \   0000B5   8882         MOV     DPL,R0
+   \   0000B7   8983         MOV     DPH,R1
+   \   0000B9   A3           INC     DPTR
+   \   0000BA   08           INC     R0
+   \   0000BB   A983         MOV     R1,DPH
+    361            tmpBuf[9]=*xad++;
+   \   0000BD   E0           MOVX    A,@DPTR
+   \   0000BE   C0E0         PUSH    A
+   \   0000C0   7409         MOV     A,#0x9
+   \   0000C2   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000C5   D0E0         POP     A
+   \   0000C7   F0           MOVX    @DPTR,A
+   \   0000C8   8882         MOV     DPL,R0
+   \   0000CA   8983         MOV     DPH,R1
+   \   0000CC   A3           INC     DPTR
+    362            tmpBuf[10]=*xad;
+   \   0000CD   E0           MOVX    A,@DPTR
+   \   0000CE   C0E0         PUSH    A
+   \   0000D0   740A         MOV     A,#0xa
+   \   0000D2   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000D5   D0E0         POP     A
+   \   0000D7   F0           MOVX    @DPTR,A
+    363            
+    364            LightCtl_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   0000D8   7402         MOV     A,#0x2
+   \   0000DA   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   0000DD   F0           MOVX    @DPTR,A
+    365            LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   0000DE   740A         MOV     A,#0xa
+   \   0000E0   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   0000E3   F0           MOVX    @DPTR,A
+    366            LightCtl_DstAddr.addr.shortAddr = 0x00;
+   \   0000E4   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   0000E7   E4           CLR     A
+   \   0000E8   F0           MOVX    @DPTR,A
+   \   0000E9   A3           INC     DPTR
+   \   0000EA   F0           MOVX    @DPTR,A
+    367            
+    368            if ( AF_DataRequest( &LightCtl_DstAddr,
+    369                           (endPointDesc_t *)&LightCtl_epDesc,
+    370                            LightCtl_CLUSTERID,
+    371                            11, tmpBuf,
+    372                            &LightCtl_TransID, 
+    373                            AF_DISCV_ROUTE, 
+    374                            AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+   \   0000EB                ; Setup parameters for call to function AF_DataRequest
+   \   0000EB   75..1E       MOV     ?V0 + 0,#0x1e
+   \   0000EE   78..         MOV     R0,#?V0 + 0
+   \   0000F0   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000F3   75....       MOV     ?V0 + 0,#(LightCtl_TransID & 0xff)
+   \   0000F6   75....       MOV     ?V0 + 1,#((LightCtl_TransID >> 8) & 0xff)
+   \   0000F9   78..         MOV     R0,#?V0 + 0
+   \   0000FB   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000FE   7403         MOV     A,#0x3
+   \   000100   12....       LCALL   ?XSTACK_DISP0_8
+   \   000103   8582..       MOV     ?V0 + 0,DPL
+   \   000106   8583..       MOV     ?V0 + 1,DPH
+   \   000109   78..         MOV     R0,#?V0 + 0
+   \   00010B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00010E   75..0B       MOV     ?V0 + 0,#0xb
+   \   000111   75..00       MOV     ?V0 + 1,#0x0
+   \   000114   78..         MOV     R0,#?V0 + 0
+   \   000116   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000119   75..01       MOV     ?V0 + 0,#0x1
+   \   00011C   78..         MOV     R0,#?V0 + 0
+   \   00011E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000121   7920         MOV     R1,#0x20
+   \   000123   7C..         MOV     R4,#(LightCtl_epDesc & 0xff)
+   \   000125   7D..         MOV     R5,#((LightCtl_epDesc >> 8) & 0xff)
+   \   000127   7A..         MOV     R2,#(LightCtl_DstAddr & 0xff)
+   \   000129   7B..         MOV     R3,#((LightCtl_DstAddr >> 8) & 0xff)
+   \   00012B   12....       LCALL   ??AF_DataRequest?relay
+   \   00012E   7409         MOV     A,#0x9
+   \   000130   12....       LCALL   ?DEALLOC_XSTACK8
+    375            {
+    376            ;
+    377            }
+    378            else
+    379            {
+    380            ;
+    381            }
+    382          }
+   \   000133   740B         MOV     A,#0xb
+   \   000135   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000138   7F02         MOV     R7,#0x2
+   \   00013A   02....       LJMP    ?BANKED_LEAVE_XDATA
+    383          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    384          void HalSendFrame(uint8 cmd,uint8 id,uint8 dataL,uint8 dataH)
+   \                     HalSendFrame:
+    385          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 8
+   \   000004   74F8         MOV     A,#-0x8
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    386            uint8 Ackbuf[8];
+    387            
+    388            Ackbuf[0] = 0xef;
+   \   000009   74EF         MOV     A,#-0x11
+   \   00000B   85..82       MOV     DPL,?XSP + 0
+   \   00000E   85..83       MOV     DPH,?XSP + 1
+   \   000011   F0           MOVX    @DPTR,A
+    389            Ackbuf[1] = cmd;
+   \   000012   E9           MOV     A,R1
+   \   000013   C0E0         PUSH    A
+   \   000015   7401         MOV     A,#0x1
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   D0E0         POP     A
+   \   00001C   F0           MOVX    @DPTR,A
+    390            Ackbuf[2] = id;
+   \   00001D   EA           MOV     A,R2
+   \   00001E   C0E0         PUSH    A
+   \   000020   7402         MOV     A,#0x2
+   \   000022   12....       LCALL   ?XSTACK_DISP0_8
+   \   000025   D0E0         POP     A
+   \   000027   F0           MOVX    @DPTR,A
+    391            Ackbuf[3] = dataL;
+   \   000028   EB           MOV     A,R3
+   \   000029   C0E0         PUSH    A
+   \   00002B   7403         MOV     A,#0x3
+   \   00002D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000030   D0E0         POP     A
+   \   000032   F0           MOVX    @DPTR,A
+    392            Ackbuf[4] = dataH;
+   \   000033   EC           MOV     A,R4
+   \   000034   C0E0         PUSH    A
+   \   000036   7404         MOV     A,#0x4
+   \   000038   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003B   D0E0         POP     A
+   \   00003D   F0           MOVX    @DPTR,A
+    393            Ackbuf[5] = Ackbuf[1]+Ackbuf[2]+Ackbuf[3]+Ackbuf[4];
+   \   00003E   C082         PUSH    DPL
+   \   000040   C083         PUSH    DPH
+   \   000042   7403         MOV     A,#0x3
+   \   000044   12....       LCALL   ?XSTACK_DISP0_8
+   \   000047   C082         PUSH    DPL
+   \   000049   C083         PUSH    DPH
+   \   00004B   7402         MOV     A,#0x2
+   \   00004D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000050   E0           MOVX    A,@DPTR
+   \   000051   C0E0         PUSH    A
+   \   000053   7401         MOV     A,#0x1
+   \   000055   12....       LCALL   ?XSTACK_DISP0_8
+   \   000058   D0E0         POP     A
+   \   00005A   FA           MOV     R2,A
+   \   00005B   E0           MOVX    A,@DPTR
+   \   00005C   2A           ADD     A,R2
+   \   00005D   D083         POP     DPH
+   \   00005F   D082         POP     DPL
+   \   000061   FA           MOV     R2,A
+   \   000062   E0           MOVX    A,@DPTR
+   \   000063   2A           ADD     A,R2
+   \   000064   D083         POP     DPH
+   \   000066   D082         POP     DPL
+   \   000068   FA           MOV     R2,A
+   \   000069   E0           MOVX    A,@DPTR
+   \   00006A   2A           ADD     A,R2
+   \   00006B   C0E0         PUSH    A
+   \   00006D   7405         MOV     A,#0x5
+   \   00006F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000072   D0E0         POP     A
+   \   000074   F0           MOVX    @DPTR,A
+    394            Ackbuf[6] = 0xfe;
+   \   000075   74FE         MOV     A,#-0x2
+   \   000077   C0E0         PUSH    A
+   \   000079   7406         MOV     A,#0x6
+   \   00007B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00007E   D0E0         POP     A
+   \   000080   F0           MOVX    @DPTR,A
+    395            HalUARTWrite ( SERIAL_APP_PORT, Ackbuf, 7);
+   \   000081                ; Setup parameters for call to function HalUARTWrite
+   \   000081   7C07         MOV     R4,#0x7
+   \   000083   7D00         MOV     R5,#0x0
+   \   000085   85..82       MOV     DPL,?XSP + 0
+   \   000088   85..83       MOV     DPH,?XSP + 1
+   \   00008B   AA82         MOV     R2,DPL
+   \   00008D   AB83         MOV     R3,DPH
+   \   00008F   7900         MOV     R1,#0x0
+   \   000091   12....       LCALL   ??HalUARTWrite?relay
+    396          }
+   \   000094   7408         MOV     A,#0x8
+   \   000096   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000099   D083         POP     DPH
+   \   00009B   D082         POP     DPL
+   \   00009D   02....       LJMP    ?BRET
+    397          
+    398          /*********************************************************************
+    399           * @fn      LightCtl_Init
+    400           *
+    401           * @brief   Initialization function for the Generic App Task.
+    402           *          This is called during initialization and should contain
+    403           *          any application specific initialization (ie. hardware
+    404           *          initialization/setup, table initialization, power up
+    405           *          notificaiton ... ).
+    406           *
+    407           * @param   task_id - the ID assigned by OSAL.  This ID should be
+    408           *                    used to send messages and set timers.
+    409           *
+    410           * @return  none
+    411           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    412          void LightCtl_Init( byte task_id )
+   \                     LightCtl_Init:
+    413          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 29
+   \   000004   74E3         MOV     A,#-0x1d
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    414            LightCtl_TaskID = task_id;
+   \   000009   E9           MOV     A,R1
+   \   00000A   90....       MOV     DPTR,#LightCtl_TaskID
+   \   00000D   F0           MOVX    @DPTR,A
+    415            LightCtl_NwkState = DEV_INIT;
+   \   00000E   7401         MOV     A,#0x1
+   \   000010   90....       MOV     DPTR,#LightCtl_NwkState
+   \   000013   F0           MOVX    @DPTR,A
+    416            LightCtl_TransID = 0;
+   \   000014   E4           CLR     A
+   \   000015   90....       MOV     DPTR,#LightCtl_TransID
+   \   000018   F0           MOVX    @DPTR,A
+    417          
+    418            // Device hardware initialization can be added here or in main() (Zmain.c).
+    419            // If the hardware is application specific - add it here.
+    420            // If the hardware is other parts of the device add it in main().
+    421          
+    422            LightCtl_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   000019   7402         MOV     A,#0x2
+   \   00001B   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   00001E   F0           MOVX    @DPTR,A
+    423            LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   00001F   740A         MOV     A,#0xa
+   \   000021   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   000024   F0           MOVX    @DPTR,A
+    424            LightCtl_DstAddr.addr.shortAddr = 0x00;
+   \   000025   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   000028   E4           CLR     A
+   \   000029   F0           MOVX    @DPTR,A
+   \   00002A   A3           INC     DPTR
+   \   00002B   F0           MOVX    @DPTR,A
+    425          
+    426            // Fill out the endpoint description.
+    427            LightCtl_epDesc.endPoint = LightCtl_ENDPOINT;
+   \   00002C   740A         MOV     A,#0xa
+   \   00002E   90....       MOV     DPTR,#LightCtl_epDesc
+   \   000031   F0           MOVX    @DPTR,A
+    428            LightCtl_epDesc.task_id = &LightCtl_TaskID;
+   \   000032   90....       MOV     DPTR,#(LightCtl_epDesc + 1)
+   \   000035   74..         MOV     A,#(LightCtl_TaskID & 0xff)
+   \   000037   F0           MOVX    @DPTR,A
+   \   000038   A3           INC     DPTR
+   \   000039   74..         MOV     A,#((LightCtl_TaskID >> 8) & 0xff)
+   \   00003B   F0           MOVX    @DPTR,A
+    429            LightCtl_epDesc.simpleDesc
+    430                      = (SimpleDescriptionFormat_t *)&LightCtl_SimpleDesc;
+   \   00003C   90....       MOV     DPTR,#(LightCtl_epDesc + 3)
+   \   00003F   74..         MOV     A,#(LightCtl_SimpleDesc & 0xff)
+   \   000041   F0           MOVX    @DPTR,A
+   \   000042   A3           INC     DPTR
+   \   000043   74..         MOV     A,#((LightCtl_SimpleDesc >> 8) & 0xff)
+   \   000045   F0           MOVX    @DPTR,A
+    431            LightCtl_epDesc.latencyReq = noLatencyReqs;
+   \   000046   E4           CLR     A
+   \   000047   90....       MOV     DPTR,#(LightCtl_epDesc + 5)
+   \   00004A   F0           MOVX    @DPTR,A
+    432          
+    433            // Register the endpoint description with the AF
+    434            afRegister( &LightCtl_epDesc );
+   \   00004B                ; Setup parameters for call to function afRegister
+   \   00004B   7A..         MOV     R2,#(LightCtl_epDesc & 0xff)
+   \   00004D   7B..         MOV     R3,#((LightCtl_epDesc >> 8) & 0xff)
+   \   00004F   12....       LCALL   ??afRegister?relay
+    435          
+    436            // Register for all key events - This app will handle all key events
+    437            RegisterForKeys( LightCtl_TaskID );
+   \   000052                ; Setup parameters for call to function RegisterForKeys
+   \   000052   90....       MOV     DPTR,#LightCtl_TaskID
+   \   000055   E0           MOVX    A,@DPTR
+   \   000056   F9           MOV     R1,A
+   \   000057   12....       LCALL   ??RegisterForKeys?relay
+    438            
+    439            //--------------------------------config uart------------------------------------------
+    440            halUARTCfg_t uartConfig;
+    441          
+    442            uartConfig.configured           = TRUE;              // 2x30 don't care - see uart driver.
+   \   00005A   7401         MOV     A,#0x1
+   \   00005C   85..82       MOV     DPL,?XSP + 0
+   \   00005F   85..83       MOV     DPH,?XSP + 1
+   \   000062   F0           MOVX    @DPTR,A
+    443            uartConfig.baudRate             = SERIAL_APP_BAUD;
+   \   000063   7402         MOV     A,#0x2
+   \   000065   C0E0         PUSH    A
+   \   000067   7401         MOV     A,#0x1
+   \   000069   12....       LCALL   ?XSTACK_DISP0_8
+   \   00006C   D0E0         POP     A
+   \   00006E   F0           MOVX    @DPTR,A
+    444            uartConfig.flowControl          = TRUE;
+   \   00006F   7401         MOV     A,#0x1
+   \   000071   C0E0         PUSH    A
+   \   000073   7402         MOV     A,#0x2
+   \   000075   12....       LCALL   ?XSTACK_DISP0_8
+   \   000078   D0E0         POP     A
+   \   00007A   F0           MOVX    @DPTR,A
+    445            uartConfig.flowControlThreshold = SERIAL_APP_THRESH; // 2x30 don't care - see uart driver.
+   \   00007B   7403         MOV     A,#0x3
+   \   00007D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000080   7440         MOV     A,#0x40
+   \   000082   F0           MOVX    @DPTR,A
+   \   000083   A3           INC     DPTR
+   \   000084   E4           CLR     A
+   \   000085   F0           MOVX    @DPTR,A
+    446            uartConfig.rx.maxBufSize        = SERIAL_APP_RX_SZ;  // 2x30 don't care - see uart driver.
+   \   000086   740A         MOV     A,#0xa
+   \   000088   12....       LCALL   ?XSTACK_DISP0_8
+   \   00008B   7480         MOV     A,#-0x80
+   \   00008D   F0           MOVX    @DPTR,A
+   \   00008E   A3           INC     DPTR
+   \   00008F   E4           CLR     A
+   \   000090   F0           MOVX    @DPTR,A
+    447            uartConfig.tx.maxBufSize        = SERIAL_APP_TX_SZ;  // 2x30 don't care - see uart driver.
+   \   000091   7412         MOV     A,#0x12
+   \   000093   12....       LCALL   ?XSTACK_DISP0_8
+   \   000096   7480         MOV     A,#-0x80
+   \   000098   F0           MOVX    @DPTR,A
+   \   000099   A3           INC     DPTR
+   \   00009A   E4           CLR     A
+   \   00009B   F0           MOVX    @DPTR,A
+    448            uartConfig.idleTimeout          = SERIAL_APP_IDLE;   // 2x30 don't care - see uart driver.
+   \   00009C   7406         MOV     A,#0x6
+   \   00009E   C0E0         PUSH    A
+   \   0000A0   7405         MOV     A,#0x5
+   \   0000A2   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A5   D0E0         POP     A
+   \   0000A7   F0           MOVX    @DPTR,A
+    449            uartConfig.intEnable            = TRUE;              // 2x30 don't care - see uart driver.
+   \   0000A8   7401         MOV     A,#0x1
+   \   0000AA   C0E0         PUSH    A
+   \   0000AC   7416         MOV     A,#0x16
+   \   0000AE   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B1   D0E0         POP     A
+   \   0000B3   F0           MOVX    @DPTR,A
+    450            uartConfig.callBackFunc         = SerialApp_CallBack;
+   \   0000B4   741B         MOV     A,#0x1b
+   \   0000B6   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B9   74..         MOV     A,#(??SerialApp_CallBack?relay & 0xff)
+   \   0000BB   F0           MOVX    @DPTR,A
+   \   0000BC   A3           INC     DPTR
+   \   0000BD   74..         MOV     A,#((??SerialApp_CallBack?relay >> 8) & 0xff)
+   \   0000BF   F0           MOVX    @DPTR,A
+    451            HalUARTOpen (SERIAL_APP_PORT, &uartConfig);
+   \   0000C0                ; Setup parameters for call to function HalUARTOpen
+   \   0000C0   85..82       MOV     DPL,?XSP + 0
+   \   0000C3   85..83       MOV     DPH,?XSP + 1
+   \   0000C6   AA82         MOV     R2,DPL
+   \   0000C8   AB83         MOV     R3,DPH
+   \   0000CA   7900         MOV     R1,#0x0
+   \   0000CC   12....       LCALL   ??HalUARTOpen?relay
+    452          
+    453          #if defined ( LCD_SUPPORTED )
+    454            HalLcdWriteString( "SerialApp", HAL_LCD_LINE_2 );
+   \   0000CF                ; Setup parameters for call to function HalLcdWriteString
+   \   0000CF   7902         MOV     R1,#0x2
+   \   0000D1   7A..         MOV     R2,#(`?<Constant "SerialApp">` & 0xff)
+   \   0000D3   7B..         MOV     R3,#((`?<Constant "SerialApp">` >> 8) & 0xff)
+   \   0000D5   12....       LCALL   ??HalLcdWriteString?relay
+    455          #endif
+    456          
+    457            // Update the display
+    458          #if defined ( LCD_SUPPORTED )
+    459              HalLcdWriteString( "LightCtl", HAL_LCD_LINE_1 );
+   \   0000D8                ; Setup parameters for call to function HalLcdWriteString
+   \   0000D8   7901         MOV     R1,#0x1
+   \   0000DA   7A..         MOV     R2,#(`?<Constant "LightCtl">` & 0xff)
+   \   0000DC   7B..         MOV     R3,#((`?<Constant "LightCtl">` >> 8) & 0xff)
+   \   0000DE   12....       LCALL   ??HalLcdWriteString?relay
+    460          #endif
+    461              
+    462            //ZDO_RegisterForZDOMsg( LightCtl_TaskID, End_Device_Bind_rsp );
+    463            //ZDO_RegisterForZDOMsg( LightCtl_TaskID, Match_Desc_rsp );
+    464          }
+   \   0000E1   741D         MOV     A,#0x1d
+   \   0000E3   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000E6   D083         POP     DPH
+   \   0000E8   D082         POP     DPL
+   \   0000EA   02....       LJMP    ?BRET
+    465          
+    466          /*********************************************************************
+    467           * @fn      LightCtl_ProcessEvent
+    468           *
+    469           * @brief   Generic Application Task event processor.  This function
+    470           *          is called to process all events for the task.  Events
+    471           *          include timers, messages and any other user defined events.
+    472           *
+    473           * @param   task_id  - The OSAL assigned task ID.
+    474           * @param   events - events to process.  This is a bit map and can
+    475           *                   contain more than one event.
+    476           *
+    477           * @return  none
+    478           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    479          UINT16 LightCtl_ProcessEvent( byte task_id, UINT16 events )
+   \                     LightCtl_ProcessEvent:
+    480          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    481            afIncomingMSGPacket_t *MSGpkt;
+    482            afDataConfirm_t *afDataConfirm;
+    483          
+    484            // Data Confirmation message fields
+    485            byte sentEP;
+    486            ZStatus_t sentStatus;
+    487            byte sentTransID;       // This should match the value sent
+    488            (void)task_id;  // Intentionally unreferenced parameter
+    489          
+    490            if ( events & SYS_EVENT_MSG )
+   \   000009   7480         MOV     A,#-0x80
+   \   00000B   5F           ANL     A,R7
+   \   00000C   F9           MOV     R1,A
+   \   00000D   E4           CLR     A
+   \   00000E   7001         JNZ     ??LightCtl_ProcessEvent_0
+   \   000010   E9           MOV     A,R1
+   \                     ??LightCtl_ProcessEvent_0:
+   \   000011   607D         JZ      ??LightCtl_ProcessEvent_1
+    491            {
+    492              MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( LightCtl_TaskID );
+   \   000013                ; Setup parameters for call to function osal_msg_receive
+   \   000013   8025         SJMP    ??LightCtl_ProcessEvent_2
+    493              while ( MSGpkt )
+    494              {
+    495                switch ( MSGpkt->hdr.event )
+    496                {
+    497                  case ZDO_CB_MSG:
+    498                    //LightCtl_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt );
+    499                    break;
+    500                    
+    501                  case KEY_CHANGE:
+    502                    LightCtl_HandleKeys( ((keyChange_t *)MSGpkt)->state, ((keyChange_t *)MSGpkt)->keys );
+    503                    break;
+    504          
+    505                  case AF_DATA_CONFIRM_CMD:
+    506                    // This message is received as a confirmation of a data packet sent.
+    507                    // The status is of ZStatus_t type [defined in ZComDef.h]
+    508                    // The message fields are defined in AF.h
+    509                    afDataConfirm = (afDataConfirm_t *)MSGpkt;
+    510                    sentEP = afDataConfirm->endpoint;
+    511                    sentStatus = afDataConfirm->hdr.status;
+    512                    sentTransID = afDataConfirm->transID;
+    513                    (void)sentEP;
+    514                    (void)sentTransID;
+    515          
+    516                    // Action taken when confirmation is received.
+    517                    if ( sentStatus != ZSuccess )
+    518                    {
+    519                      // The data wasn't delivered -- Do something
+    520                    }
+    521                    break;
+    522          
+    523                  case AF_INCOMING_MSG_CMD:
+    524                    LightCtl_MessageMSGCB( MSGpkt );
+    525                    break;
+    526          
+    527                  case ZDO_STATE_CHANGE:
+    528                    LightCtl_NwkState = (devStates_t)(MSGpkt->hdr.status);
+   \                     ??LightCtl_ProcessEvent_3:
+   \   000015   85..82       MOV     DPL,?V0 + 0
+   \   000018   85..83       MOV     DPH,?V0 + 1
+   \   00001B   A3           INC     DPTR
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   90....       MOV     DPTR,#LightCtl_NwkState
+   \   000020   F0           MOVX    @DPTR,A
+    529                    if ( (LightCtl_NwkState == DEV_ZB_COORD)
+    530                        || (LightCtl_NwkState == DEV_ROUTER)
+    531                        || (LightCtl_NwkState == DEV_END_DEVICE) )
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   6409         XRL     A,#0x9
+   \   000024   600A         JZ      ??LightCtl_ProcessEvent_4
+   \   000026   E0           MOVX    A,@DPTR
+   \   000027   6407         XRL     A,#0x7
+   \   000029   6005         JZ      ??LightCtl_ProcessEvent_4
+   \   00002B   E0           MOVX    A,@DPTR
+   \   00002C   6406         XRL     A,#0x6
+   \   00002E   7003         JNZ     ??LightCtl_ProcessEvent_5
+    532                    {
+    533                      #if defined(ZDO_COORDINATOR)
+    534                      
+    535                       UartShowNtkInfo(0,NLME_GetShortAddr(),aExtendedAddress + Z_EXTADDR_LEN - 1); 
+    536                      
+    537                      #else 
+    538                      
+    539                      AfSendNtkInfo();
+   \                     ??LightCtl_ProcessEvent_4:
+   \   000030                ; Setup parameters for call to function AfSendNtkInfo
+   \   000030   12....       LCALL   ??AfSendNtkInfo?relay
+    540                        
+    541                      #endif
+    542                      
+    543                    }
+    544                    break;
+    545          
+    546                  default:
+    547                    break;
+    548                }
+    549          
+    550                // Release the memory
+    551                osal_msg_deallocate( (uint8 *)MSGpkt );
+   \                     ??LightCtl_ProcessEvent_5:
+   \   000033                ; Setup parameters for call to function osal_msg_deallocate
+   \   000033   AA..         MOV     R2,?V0 + 0
+   \   000035   AB..         MOV     R3,?V0 + 1
+   \   000037   12....       LCALL   ??osal_msg_deallocate?relay
+    552          
+    553                // Next
+    554                MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( LightCtl_TaskID );
+   \   00003A                ; Setup parameters for call to function osal_msg_receive
+   \                     ??LightCtl_ProcessEvent_2:
+   \   00003A   90....       MOV     DPTR,#LightCtl_TaskID
+   \   00003D   E0           MOVX    A,@DPTR
+   \   00003E   F9           MOV     R1,A
+   \   00003F   12....       LCALL   ??osal_msg_receive?relay
+   \   000042   8A..         MOV     ?V0 + 0,R2
+   \   000044   8B..         MOV     ?V0 + 1,R3
+   \   000046   E5..         MOV     A,?V0 + 0
+   \   000048   7002         JNZ     ??LightCtl_ProcessEvent_6
+   \   00004A   E5..         MOV     A,?V0 + 1
+   \                     ??LightCtl_ProcessEvent_6:
+   \   00004C   603A         JZ      ??LightCtl_ProcessEvent_7
+   \   00004E   85..82       MOV     DPL,?V0 + 0
+   \   000051   85..83       MOV     DPH,?V0 + 1
+   \   000054   E0           MOVX    A,@DPTR
+   \   000055   12....       LCALL   ?UC_SWITCH_SPARSE
+   \                     `?<Jumptable for LightCtl_ProcessEvent>_0`:
+   \   000058   00           DB        0
+   \   000059   03           DB        3
+   \   00005A   1A           DB        26
+   \   00005B   ....         DW        ??LightCtl_ProcessEvent_8
+   \   00005D   C0           DB        192
+   \   00005E   ....         DW        ??LightCtl_ProcessEvent_9
+   \   000060   D1           DB        209
+   \   000061   ....         DW        ??LightCtl_ProcessEvent_3
+   \   000063   ....         DW        ??LightCtl_ProcessEvent_5
+   \                     ??LightCtl_ProcessEvent_9:
+   \   000065                ; Setup parameters for call to function LightCtl_HandleKeys
+   \   000065   85..82       MOV     DPL,?V0 + 0
+   \   000068   85..83       MOV     DPH,?V0 + 1
+   \   00006B   A3           INC     DPTR
+   \   00006C   A3           INC     DPTR
+   \   00006D   A3           INC     DPTR
+   \   00006E   E0           MOVX    A,@DPTR
+   \   00006F   FA           MOV     R2,A
+   \   000070   85..82       MOV     DPL,?V0 + 0
+   \   000073   85..83       MOV     DPH,?V0 + 1
+   \   000076   A3           INC     DPTR
+   \   000077   A3           INC     DPTR
+   \   000078   E0           MOVX    A,@DPTR
+   \   000079   F9           MOV     R1,A
+   \   00007A   12....       LCALL   ??LightCtl_HandleKeys?relay
+   \   00007D   80B4         SJMP    ??LightCtl_ProcessEvent_5
+   \                     ??LightCtl_ProcessEvent_8:
+   \   00007F                ; Setup parameters for call to function LightCtl_MessageMSGCB
+   \   00007F   AA..         MOV     R2,?V0 + 0
+   \   000081   AB..         MOV     R3,?V0 + 1
+   \   000083   12....       LCALL   ??LightCtl_MessageMSGCB?relay
+   \   000086   80AB         SJMP    ??LightCtl_ProcessEvent_5
+    555              }
+    556          
+    557              // return unprocessed events
+    558              return (events ^ SYS_EVENT_MSG);
+   \                     ??LightCtl_ProcessEvent_7:
+   \   000088   EE           MOV     A,R6
+   \   000089   FA           MOV     R2,A
+   \   00008A   7480         MOV     A,#-0x80
+   \   00008C   6F           XRL     A,R7
+   \                     ??LightCtl_ProcessEvent_10:
+   \   00008D   FB           MOV     R3,A
+   \   00008E   8023         SJMP    ??LightCtl_ProcessEvent_11
+    559            }
+    560          
+    561            // Send a message out - This event is generated by a timer
+    562            //  (setup in LightCtl_Init()).
+    563            if ( events & LightCtl_SEND_MSG_EVT )  //在此事件中可以定时向协调器发送节点传感器参数信息
+   \                     ??LightCtl_ProcessEvent_1:
+   \   000090   EE           MOV     A,R6
+   \   000091   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000093   501A         JNC     ??LightCtl_ProcessEvent_12
+    564            {
+    565              // Send "the" message
+    566              LightCtl_SendTheMessage();
+   \   000095                ; Setup parameters for call to function LightCtl_SendTheMessage
+   \   000095   12....       LCALL   ??LightCtl_SendTheMessage?relay
+    567          
+    568              // Setup to send message again
+    569              osal_start_timerEx( LightCtl_TaskID,
+    570                                  LightCtl_SEND_MSG_EVT,
+    571                                LightCtl_SEND_MSG_TIMEOUT );
+   \   000098                ; Setup parameters for call to function osal_start_timerEx
+   \   000098   7C64         MOV     R4,#0x64
+   \   00009A   7D00         MOV     R5,#0x0
+   \   00009C   7A01         MOV     R2,#0x1
+   \   00009E   7B00         MOV     R3,#0x0
+   \   0000A0   90....       MOV     DPTR,#LightCtl_TaskID
+   \   0000A3   E0           MOVX    A,@DPTR
+   \   0000A4   F9           MOV     R1,A
+   \   0000A5   12....       LCALL   ??osal_start_timerEx?relay
+    572          
+    573              // return unprocessed events
+    574              return (events ^ LightCtl_SEND_MSG_EVT);
+   \   0000A8   7401         MOV     A,#0x1
+   \   0000AA   6E           XRL     A,R6
+   \   0000AB   FA           MOV     R2,A
+   \   0000AC   EF           MOV     A,R7
+   \   0000AD   80DE         SJMP    ??LightCtl_ProcessEvent_10
+    575            }
+    576           
+    577          /*  
+    578            //对接收的串口数据进行处理
+    579            if ( events & UART_RX_CB_EVT )  //串口数据处理
+    580            { 
+    581          
+    582              //SampleApp_SPI_SendData( databuf, rxlen+1+2 );  
+    583              return (events ^ UART_RX_CB_EVT);
+    584            }
+    585          */
+    586          
+    587            // Discard unknown events
+    588            return 0;
+   \                     ??LightCtl_ProcessEvent_12:
+   \   0000AF   7A00         MOV     R2,#0x0
+   \   0000B1   7B00         MOV     R3,#0x0
+   \                     ??LightCtl_ProcessEvent_11:
+   \   0000B3   7F04         MOV     R7,#0x4
+   \   0000B5   02....       LJMP    ?BANKED_LEAVE_XDATA
+    589          }
+    590          
+    591          
+    592          /*********************************************************************
+    593           * @fn      LightCtl_HandleKeys
+    594           *
+    595           * @brief   Handles all key events for this device.
+    596           *
+    597           * @param   shift - true if in shift/alt.
+    598           * @param   keys - bit field for key events. Valid entries:
+    599           *                 HAL_KEY_SW_4
+    600           *                 HAL_KEY_SW_3
+    601           *                 HAL_KEY_SW_2
+    602           *                 HAL_KEY_SW_1
+    603           *
+    604           * @return  none
+    605           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    606          void LightCtl_HandleKeys( byte shift, byte keys )
+   \                     LightCtl_HandleKeys:
+    607          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 5
+   \   000005   74FB         MOV     A,#-0x5
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+    608            //zAddrType_t dstAddr;
+    609            
+    610            // Shift is used to make each button/switch dual purpose.
+    611            if ( shift )
+   \   00000C   E9           MOV     A,R1
+   \   00000D   6003         JZ      $+5
+   \   00000F   02....       LJMP    ??LightCtl_HandleKeys_0 & 0xFFFF
+    612            {
+    613              if ( keys & HAL_KEY_SW_1 )
+    614              {
+    615              }
+    616              if ( keys & HAL_KEY_SW_2 )
+    617              {
+    618              }
+    619              if ( keys & HAL_KEY_SW_3 )
+    620              {
+    621              }
+    622              if ( keys & HAL_KEY_SW_4 )
+    623              {
+    624              }
+    625            }
+    626            else
+    627            {
+    628              if ( keys & HAL_KEY_SW_1 )  //数据发送测试
+   \   000012   EE           MOV     A,R6
+   \   000013   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000015   4003         JC      $+5
+   \   000017   02....       LJMP    ??LightCtl_HandleKeys_1 & 0xFFFF
+    629              {
+    630                HalLedBlink ( HAL_LED_1, 5, 50, 100 );
+   \   00001A                ; Setup parameters for call to function HalLedBlink
+   \   00001A   7C64         MOV     R4,#0x64
+   \   00001C   7D00         MOV     R5,#0x0
+   \   00001E   7B32         MOV     R3,#0x32
+   \   000020   7A05         MOV     R2,#0x5
+   \   000022   7901         MOV     R1,#0x1
+   \   000024   12....       LCALL   ??HalLedBlink?relay
+    631                
+    632                static byte cnt=0;
+    633                
+    634                byte sendBuf[2];
+    635                
+    636                sendBuf[0] = 0x81;
+   \   000027   7481         MOV     A,#-0x7f
+   \   000029   C0E0         PUSH    A
+   \   00002B   7403         MOV     A,#0x3
+   \   00002D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000030   D0E0         POP     A
+   \   000032   F0           MOVX    @DPTR,A
+    637                sendBuf[1] = cnt;
+   \   000033   90....       MOV     DPTR,#??cnt
+   \   000036   E0           MOVX    A,@DPTR
+   \   000037   C0E0         PUSH    A
+   \   000039   7404         MOV     A,#0x4
+   \   00003B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003E   D0E0         POP     A
+   \   000040   F0           MOVX    @DPTR,A
+    638                
+    639          
+    640                LightCtl_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   000041   7402         MOV     A,#0x2
+   \   000043   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   000046   F0           MOVX    @DPTR,A
+    641                LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   000047   740A         MOV     A,#0xa
+   \   000049   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   00004C   F0           MOVX    @DPTR,A
+    642                LightCtl_DstAddr.addr.shortAddr = 0x00;
+   \   00004D   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   000050   E4           CLR     A
+   \   000051   F0           MOVX    @DPTR,A
+   \   000052   A3           INC     DPTR
+   \   000053   F0           MOVX    @DPTR,A
+    643                
+    644                if ( AF_DataRequest( &LightCtl_DstAddr, &LightCtl_epDesc,
+    645                                     LightCtl_CLUSTERID,
+    646                                     2,
+    647                                     (byte *)sendBuf,
+    648                                     &LightCtl_TransID,
+    649                                     AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+   \   000054                ; Setup parameters for call to function AF_DataRequest
+   \   000054   75..1E       MOV     ?V0 + 0,#0x1e
+   \   000057   78..         MOV     R0,#?V0 + 0
+   \   000059   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00005C   75....       MOV     ?V0 + 0,#(LightCtl_TransID & 0xff)
+   \   00005F   75....       MOV     ?V0 + 1,#((LightCtl_TransID >> 8) & 0xff)
+   \   000062   78..         MOV     R0,#?V0 + 0
+   \   000064   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000067   7406         MOV     A,#0x6
+   \   000069   12....       LCALL   ?XSTACK_DISP0_8
+   \   00006C   8582..       MOV     ?V0 + 0,DPL
+   \   00006F   8583..       MOV     ?V0 + 1,DPH
+   \   000072   78..         MOV     R0,#?V0 + 0
+   \   000074   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000077   75..02       MOV     ?V0 + 0,#0x2
+   \   00007A   75..00       MOV     ?V0 + 1,#0x0
+   \   00007D   78..         MOV     R0,#?V0 + 0
+   \   00007F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000082   75..01       MOV     ?V0 + 0,#0x1
+   \   000085   78..         MOV     R0,#?V0 + 0
+   \   000087   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00008A   7920         MOV     R1,#0x20
+   \   00008C   7C..         MOV     R4,#(LightCtl_epDesc & 0xff)
+   \   00008E   7D..         MOV     R5,#((LightCtl_epDesc >> 8) & 0xff)
+   \   000090   7A..         MOV     R2,#(LightCtl_DstAddr & 0xff)
+   \   000092   7B..         MOV     R3,#((LightCtl_DstAddr >> 8) & 0xff)
+   \   000094   12....       LCALL   ??AF_DataRequest?relay
+   \   000097   7409         MOV     A,#0x9
+   \   000099   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00009C   E9           MOV     A,R1
+   \   00009D   7023         JNZ     ??LightCtl_HandleKeys_1
+    650                {
+    651                  // Successfully requested to be sent.
+    652                  HalLcdWriteValue( cnt, 16, HAL_LCD_LINE_2 );
+   \   00009F                ; Setup parameters for call to function HalLcdWriteValue
+   \   00009F   75..02       MOV     ?V0 + 0,#0x2
+   \   0000A2   78..         MOV     R0,#?V0 + 0
+   \   0000A4   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000A7   7910         MOV     R1,#0x10
+   \   0000A9   90....       MOV     DPTR,#??cnt
+   \   0000AC   E0           MOVX    A,@DPTR
+   \   0000AD   FA           MOV     R2,A
+   \   0000AE   7B00         MOV     R3,#0x0
+   \   0000B0   7C00         MOV     R4,#0x0
+   \   0000B2   7D00         MOV     R5,#0x0
+   \   0000B4   12....       LCALL   ??HalLcdWriteValue?relay
+   \   0000B7   7401         MOV     A,#0x1
+   \   0000B9   12....       LCALL   ?DEALLOC_XSTACK8
+    653                  
+    654                  cnt++;
+   \   0000BC   90....       MOV     DPTR,#??cnt
+   \   0000BF   E0           MOVX    A,@DPTR
+   \   0000C0   04           INC     A
+   \   0000C1   F0           MOVX    @DPTR,A
+    655                }
+    656                
+    657              }
+    658          
+    659              if ( keys & HAL_KEY_SW_2 )  //传感器节点 按下SW2则开始像网关定期发送数据包
+   \                     ??LightCtl_HandleKeys_1:
+   \   0000C2   EE           MOV     A,R6
+   \   0000C3   A2E1         MOV     C,0xE0 /* A   */.1
+   \   0000C5   5034         JNC     ??LightCtl_HandleKeys_2
+    660              {     
+    661                static bool sendFlag = 0;
+    662                
+    663                if(sendFlag == 0)
+   \   0000C7   90....       MOV     DPTR,#??sendFlag
+   \   0000CA   E0           MOVX    A,@DPTR
+   \   0000CB   701A         JNZ     ??LightCtl_HandleKeys_3
+    664                {
+    665                  sendFlag = 1;
+   \   0000CD   7401         MOV     A,#0x1
+   \   0000CF   F0           MOVX    @DPTR,A
+    666                  HalLedSet ( HAL_LED_1, HAL_LED_MODE_ON );
+   \   0000D0                ; Setup parameters for call to function HalLedSet
+   \   0000D0   FA           MOV     R2,A
+   \   0000D1   F9           MOV     R1,A
+   \   0000D2   12....       LCALL   ??HalLedSet?relay
+    667                  osal_start_timerEx( LightCtl_TaskID,
+    668                                          LightCtl_SEND_MSG_EVT,
+    669                                        LightCtl_SEND_MSG_TIMEOUT );
+   \   0000D5                ; Setup parameters for call to function osal_start_timerEx
+   \   0000D5   7C64         MOV     R4,#0x64
+   \   0000D7   7D00         MOV     R5,#0x0
+   \   0000D9   7A01         MOV     R2,#0x1
+   \   0000DB   7B00         MOV     R3,#0x0
+   \   0000DD   90....       MOV     DPTR,#LightCtl_TaskID
+   \   0000E0   E0           MOVX    A,@DPTR
+   \   0000E1   F9           MOV     R1,A
+   \   0000E2   12....       LCALL   ??osal_start_timerEx?relay
+   \   0000E5   8014         SJMP    ??LightCtl_HandleKeys_2
+    670                }
+    671                else
+    672                {      
+    673                  sendFlag = 0;
+   \                     ??LightCtl_HandleKeys_3:
+   \   0000E7   E4           CLR     A
+   \   0000E8   F0           MOVX    @DPTR,A
+    674                  HalLedSet ( HAL_LED_1, HAL_LED_MODE_OFF );
+   \   0000E9                ; Setup parameters for call to function HalLedSet
+   \   0000E9   FA           MOV     R2,A
+   \   0000EA   7901         MOV     R1,#0x1
+   \   0000EC   12....       LCALL   ??HalLedSet?relay
+    675                  osal_stop_timerEx(LightCtl_TaskID,LightCtl_SEND_MSG_EVT);
+   \   0000EF                ; Setup parameters for call to function osal_stop_timerEx
+   \   0000EF   7A01         MOV     R2,#0x1
+   \   0000F1   7B00         MOV     R3,#0x0
+   \   0000F3   90....       MOV     DPTR,#LightCtl_TaskID
+   \   0000F6   E0           MOVX    A,@DPTR
+   \   0000F7   F9           MOV     R1,A
+   \   0000F8   12....       LCALL   ??osal_stop_timerEx?relay
+    676                }
+    677              }
+    678          
+    679              if ( keys & HAL_KEY_SW_3 )
+   \                     ??LightCtl_HandleKeys_2:
+   \   0000FB   EE           MOV     A,R6
+   \   0000FC   A2E4         MOV     C,0xE0 /* A   */.4
+   \   0000FE   4003         JC      $+5
+   \   000100   02....       LJMP    ??LightCtl_HandleKeys_4 & 0xFFFF
+    680              {
+    681                HalLedBlink ( HAL_LED_1, 5, 50, 100 );
+   \   000103                ; Setup parameters for call to function HalLedBlink
+   \   000103   7C64         MOV     R4,#0x64
+   \   000105   7D00         MOV     R5,#0x0
+   \   000107   7B32         MOV     R3,#0x32
+   \   000109   7A05         MOV     R2,#0x5
+   \   00010B   7901         MOV     R1,#0x1
+   \   00010D   12....       LCALL   ??HalLedBlink?relay
+    682                
+    683                char sendBuf[3];
+    684                sendBuf[0]=0x83;
+   \   000110   7483         MOV     A,#-0x7d
+   \   000112   85..82       MOV     DPL,?XSP + 0
+   \   000115   85..83       MOV     DPH,?XSP + 1
+   \   000118   F0           MOVX    @DPTR,A
+    685                sendBuf[1] = 0x02;
+   \   000119   7402         MOV     A,#0x2
+   \   00011B   C0E0         PUSH    A
+   \   00011D   7401         MOV     A,#0x1
+   \   00011F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000122   D0E0         POP     A
+   \   000124   F0           MOVX    @DPTR,A
+    686                sendBuf[2] = 0x00;
+   \   000125   E4           CLR     A
+   \   000126   C0E0         PUSH    A
+   \   000128   7402         MOV     A,#0x2
+   \   00012A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00012D   D0E0         POP     A
+   \   00012F   F0           MOVX    @DPTR,A
+    687                
+    688                LightCtl_DstAddr.addrMode = (afAddrMode_t)AddrBroadcast;
+   \   000130   740F         MOV     A,#0xf
+   \   000132   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   000135   F0           MOVX    @DPTR,A
+    689                LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   000136   740A         MOV     A,#0xa
+   \   000138   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   00013B   F0           MOVX    @DPTR,A
+    690                LightCtl_DstAddr.addr.shortAddr = 0xffff;
+   \   00013C   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   00013F   74FF         MOV     A,#-0x1
+   \   000141   F0           MOVX    @DPTR,A
+   \   000142   A3           INC     DPTR
+   \   000143   F0           MOVX    @DPTR,A
+    691                
+    692                
+    693                if ( AF_DataRequest( &LightCtl_DstAddr, &LightCtl_epDesc,
+    694                                     LightCtl_CLUSTERID,
+    695                                     3,
+    696                                     (byte *)sendBuf,
+    697                                     &LightCtl_TransID,
+    698                                     AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+   \   000144                ; Setup parameters for call to function AF_DataRequest
+   \   000144   75..1E       MOV     ?V0 + 0,#0x1e
+   \   000147   78..         MOV     R0,#?V0 + 0
+   \   000149   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00014C   75....       MOV     ?V0 + 0,#(LightCtl_TransID & 0xff)
+   \   00014F   75....       MOV     ?V0 + 1,#((LightCtl_TransID >> 8) & 0xff)
+   \   000152   78..         MOV     R0,#?V0 + 0
+   \   000154   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000157   7403         MOV     A,#0x3
+   \   000159   12....       LCALL   ?XSTACK_DISP0_8
+   \   00015C   8582..       MOV     ?V0 + 0,DPL
+   \   00015F   8583..       MOV     ?V0 + 1,DPH
+   \   000162   78..         MOV     R0,#?V0 + 0
+   \   000164   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000167   75..03       MOV     ?V0 + 0,#0x3
+   \   00016A   75..00       MOV     ?V0 + 1,#0x0
+   \   00016D   78..         MOV     R0,#?V0 + 0
+   \   00016F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000172   75..01       MOV     ?V0 + 0,#0x1
+   \   000175   78..         MOV     R0,#?V0 + 0
+   \   000177   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00017A   7920         MOV     R1,#0x20
+   \   00017C   7C..         MOV     R4,#(LightCtl_epDesc & 0xff)
+   \   00017E   7D..         MOV     R5,#((LightCtl_epDesc >> 8) & 0xff)
+   \   000180   7A..         MOV     R2,#(LightCtl_DstAddr & 0xff)
+   \   000182   7B..         MOV     R3,#((LightCtl_DstAddr >> 8) & 0xff)
+   \   000184   12....       LCALL   ??AF_DataRequest?relay
+   \   000187   7409         MOV     A,#0x9
+   \   000189   12....       LCALL   ?DEALLOC_XSTACK8
+    699                {
+    700                }
+    701                else
+    702                {} 
+    703                HalLcdWriteString("turn off led3", HAL_LCD_LINE_2 );
+   \   00018C                ; Setup parameters for call to function HalLcdWriteString
+   \   00018C   7902         MOV     R1,#0x2
+   \   00018E   7A..         MOV     R2,#(`?<Constant "turn off led3">` & 0xff)
+   \   000190   7B..         MOV     R3,#((`?<Constant "turn off led3">` >> 8) & 0xff)
+   \   000192   12....       LCALL   ??HalLcdWriteString?relay
+    704              }
+    705          
+    706              if ( keys & HAL_KEY_SW_4 )
+   \                     ??LightCtl_HandleKeys_4:
+   \   000195   EE           MOV     A,R6
+   \   000196   A2E3         MOV     C,0xE0 /* A   */.3
+   \   000198   4003         JC      $+5
+   \   00019A   02....       LJMP    ??LightCtl_HandleKeys_0 & 0xFFFF
+    707              {
+    708                HalLedBlink ( HAL_LED_1, 5, 50, 100 );
+   \   00019D                ; Setup parameters for call to function HalLedBlink
+   \   00019D   7C64         MOV     R4,#0x64
+   \   00019F   7D00         MOV     R5,#0x0
+   \   0001A1   7B32         MOV     R3,#0x32
+   \   0001A3   7A05         MOV     R2,#0x5
+   \   0001A5   7901         MOV     R1,#0x1
+   \   0001A7   12....       LCALL   ??HalLedBlink?relay
+    709                
+    710                char sendBuf[3];
+    711                sendBuf[0]=0x83;
+   \   0001AA   7483         MOV     A,#-0x7d
+   \   0001AC   85..82       MOV     DPL,?XSP + 0
+   \   0001AF   85..83       MOV     DPH,?XSP + 1
+   \   0001B2   F0           MOVX    @DPTR,A
+    712                sendBuf[1] = 0x02;
+   \   0001B3   7402         MOV     A,#0x2
+   \   0001B5   C0E0         PUSH    A
+   \   0001B7   7401         MOV     A,#0x1
+   \   0001B9   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001BC   D0E0         POP     A
+   \   0001BE   F0           MOVX    @DPTR,A
+    713                sendBuf[2] = 0x01;
+   \   0001BF   7401         MOV     A,#0x1
+   \   0001C1   C0E0         PUSH    A
+   \   0001C3   7402         MOV     A,#0x2
+   \   0001C5   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001C8   D0E0         POP     A
+   \   0001CA   F0           MOVX    @DPTR,A
+    714                
+    715                LightCtl_DstAddr.addrMode = (afAddrMode_t)AddrBroadcast;
+   \   0001CB   740F         MOV     A,#0xf
+   \   0001CD   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   0001D0   F0           MOVX    @DPTR,A
+    716                LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   0001D1   740A         MOV     A,#0xa
+   \   0001D3   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   0001D6   F0           MOVX    @DPTR,A
+    717                LightCtl_DstAddr.addr.shortAddr = 0xffff;
+   \   0001D7   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   0001DA   74FF         MOV     A,#-0x1
+   \   0001DC   F0           MOVX    @DPTR,A
+   \   0001DD   A3           INC     DPTR
+   \   0001DE   F0           MOVX    @DPTR,A
+    718                
+    719                
+    720                if ( AF_DataRequest( &LightCtl_DstAddr, &LightCtl_epDesc,
+    721                                     LightCtl_CLUSTERID,
+    722                                     3,
+    723                                     (byte *)sendBuf,
+    724                                     &LightCtl_TransID,
+    725                                     AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+   \   0001DF                ; Setup parameters for call to function AF_DataRequest
+   \   0001DF   75..1E       MOV     ?V0 + 0,#0x1e
+   \   0001E2   78..         MOV     R0,#?V0 + 0
+   \   0001E4   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0001E7   75....       MOV     ?V0 + 0,#(LightCtl_TransID & 0xff)
+   \   0001EA   75....       MOV     ?V0 + 1,#((LightCtl_TransID >> 8) & 0xff)
+   \   0001ED   78..         MOV     R0,#?V0 + 0
+   \   0001EF   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0001F2   7403         MOV     A,#0x3
+   \   0001F4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0001F7   8582..       MOV     ?V0 + 0,DPL
+   \   0001FA   8583..       MOV     ?V0 + 1,DPH
+   \   0001FD   78..         MOV     R0,#?V0 + 0
+   \   0001FF   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000202   75..03       MOV     ?V0 + 0,#0x3
+   \   000205   75..00       MOV     ?V0 + 1,#0x0
+   \   000208   78..         MOV     R0,#?V0 + 0
+   \   00020A   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00020D   75..01       MOV     ?V0 + 0,#0x1
+   \   000210   78..         MOV     R0,#?V0 + 0
+   \   000212   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000215   7920         MOV     R1,#0x20
+   \   000217   7C..         MOV     R4,#(LightCtl_epDesc & 0xff)
+   \   000219   7D..         MOV     R5,#((LightCtl_epDesc >> 8) & 0xff)
+   \   00021B   7A..         MOV     R2,#(LightCtl_DstAddr & 0xff)
+   \   00021D   7B..         MOV     R3,#((LightCtl_DstAddr >> 8) & 0xff)
+   \   00021F   12....       LCALL   ??AF_DataRequest?relay
+   \   000222   7409         MOV     A,#0x9
+   \   000224   12....       LCALL   ?DEALLOC_XSTACK8
+    726                {
+    727                }
+    728                else
+    729                {} 
+    730                HalLcdWriteString("turn on led3", HAL_LCD_LINE_2 );
+   \   000227                ; Setup parameters for call to function HalLcdWriteString
+   \   000227   7902         MOV     R1,#0x2
+   \   000229   7A..         MOV     R2,#(`?<Constant "turn on led3">` & 0xff)
+   \   00022B   7B..         MOV     R3,#((`?<Constant "turn on led3">` >> 8) & 0xff)
+   \   00022D   12....       LCALL   ??HalLcdWriteString?relay
+    731                
+    732              }
+    733            }
+    734          }
+   \                     ??LightCtl_HandleKeys_0:
+   \   000230   7405         MOV     A,#0x5
+   \   000232   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000235   7F02         MOV     R7,#0x2
+   \   000237   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??cnt:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??sendFlag:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    735          
+    736          /*********************************************************************
+    737           * LOCAL FUNCTIONS
+    738           */
+    739          
+    740          /*********************************************************************
+    741           * @fn      LightCtl_MessageMSGCB
+    742           *
+    743           * @brief   Data message processor callback.  This function processes
+    744           *          any incoming data - probably from other devices.  So, based
+    745           *          on cluster ID, perform the intended action.
+    746           *
+    747           * @param   none
+    748           *
+    749           * @return  none
+    750           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    751          void LightCtl_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+   \                     LightCtl_MessageMSGCB:
+    752          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    753            //uint16 flashTime;
+    754            uint16 short_ddr;
+                          ^
+Warning[Pe177]: variable "short_ddr" was declared but never referenced
+    755            
+    756            //uint16 short_ddr;
+    757            uint8 short_ddr_H;
+                         ^
+Warning[Pe177]: variable "short_ddr_H" was declared but never referenced
+    758            uint8 short_ddr_L;
+                         ^
+Warning[Pe177]: variable "short_ddr_L" was declared but never referenced
+    759            uint8 *pIeeeAddr;  
+                          ^
+Warning[Pe177]: variable "pIeeeAddr" was declared but never referenced
+    760            uint8 i=0;
+                         ^
+Warning[Pe177]: variable "i" was declared but never referenced
+    761            
+    762            
+    763            switch ( pkt->clusterId )
+   \   000004   8A82         MOV     DPL,R2
+   \   000006   8B83         MOV     DPH,R3
+   \   000008   A3           INC     DPTR
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   6401         XRL     A,#0x1
+   \   00000F   7002         JNZ     ??LightCtl_MessageMSGCB_0
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \                     ??LightCtl_MessageMSGCB_0:
+   \   000013   704B         JNZ     ??LightCtl_MessageMSGCB_1
+    764            {
+    765              case LightCtl_CLUSTERID:
+    766          
+    767              switch(pkt->cmd.Data[0]) //简单协议命令字解析
+   \   000015   EA           MOV     A,R2
+   \   000016   2421         ADD     A,#0x21
+   \   000018   F8           MOV     R0,A
+   \   000019   EB           MOV     A,R3
+   \   00001A   3400         ADDC    A,#0x0
+   \   00001C   F9           MOV     R1,A
+   \   00001D   8882         MOV     DPL,R0
+   \   00001F   8983         MOV     DPH,R1
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   FA           MOV     R2,A
+   \   000023   A3           INC     DPTR
+   \   000024   E0           MOVX    A,@DPTR
+   \   000025   F583         MOV     DPH,A
+   \   000027   8A82         MOV     DPL,R2
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   6483         XRL     A,#0x83
+   \   00002C   7032         JNZ     ??LightCtl_MessageMSGCB_1
+    768              {
+    769          #if defined(ZDO_COORDINATOR)
+    770              case 0x80://上报节点短地址和IEEE地址
+    771                  short_ddr_H=pkt->cmd.Data[1];
+    772                  short_ddr_L=pkt->cmd.Data[2];
+    773                  
+    774                  short_ddr=(short_ddr_H<<8)|short_ddr_L;
+    775                  
+    776                  pIeeeAddr = &pkt->cmd.Data[3];
+    777                  
+    778                  UartShowNtkInfo(1,short_ddr,pIeeeAddr + Z_EXTADDR_LEN - 1);
+    779                break;
+    780                
+    781              case 0x81://按键发送数字测试
+    782                  HalLcdWriteValue( pkt->cmd.Data[1], 16, HAL_LCD_LINE_2 );
+    783                break;
+    784                
+    785              case 0x82://LightCtl_SendTheMessage事件--->网关接收传感器发来的数据包
+    786                sensor_TempData[pkt->cmd.Data[1]-1][0] = pkt->cmd.Data[2];
+    787                sensor_TempData[pkt->cmd.Data[1]-1][1] = pkt->cmd.Data[3];
+    788                
+    789                sensor_Gas[pkt->cmd.Data[1]-1] = pkt->cmd.Data[4];
+    790                sensor_LightLevel[pkt->cmd.Data[1]-1] = pkt->cmd.Data[5];
+    791                sensor_LightOnOff[pkt->cmd.Data[1]-1] = pkt->cmd.Data[6];
+    792                sensor_Alarm[pkt->cmd.Data[1]-1] = pkt->cmd.Data[7];
+    793                
+    794                for(i=0;i<MAXSENSOR;i++)
+    795                {
+    796                  HalSendFrame(0x85,i+1,sensor_Alarm[i],0x00);
+    797                  Delay_nus(10);
+    798                }   
+    799                
+    800                break;
+    801          #else  //
+    802              case 0x83:  //开关灯设备
+    803          
+    804                if(SensorID == pkt->cmd.Data[1])
+   \   00002E   90....       MOV     DPTR,#SensorID
+   \   000031   E0           MOVX    A,@DPTR
+   \   000032   FA           MOV     R2,A
+   \   000033   8882         MOV     DPL,R0
+   \   000035   8983         MOV     DPH,R1
+   \   000037   E0           MOVX    A,@DPTR
+   \   000038   FB           MOV     R3,A
+   \   000039   A3           INC     DPTR
+   \   00003A   E0           MOVX    A,@DPTR
+   \   00003B   F583         MOV     DPH,A
+   \   00003D   8B82         MOV     DPL,R3
+   \   00003F   A3           INC     DPTR
+   \   000040   E0           MOVX    A,@DPTR
+   \   000041   6A           XRL     A,R2
+   \   000042   701C         JNZ     ??LightCtl_MessageMSGCB_1
+    805                {
+    806                  if(pkt->cmd.Data[2] == 0)
+   \   000044   8882         MOV     DPL,R0
+   \   000046   8983         MOV     DPH,R1
+   \   000048   E0           MOVX    A,@DPTR
+   \   000049   F8           MOV     R0,A
+   \   00004A   A3           INC     DPTR
+   \   00004B   E0           MOVX    A,@DPTR
+   \   00004C   F583         MOV     DPH,A
+   \   00004E   8882         MOV     DPL,R0
+   \   000050   A3           INC     DPTR
+   \   000051   A3           INC     DPTR
+   \   000052   E0           MOVX    A,@DPTR
+   \   000053   7004         JNZ     ??LightCtl_MessageMSGCB_2
+    807                    HalLedSet ( HAL_LED_3, HAL_LED_MODE_OFF );
+   \   000055                ; Setup parameters for call to function HalLedSet
+   \   000055   7A00         MOV     R2,#0x0
+   \   000057   8002         SJMP    ??LightCtl_MessageMSGCB_3
+    808                  else
+    809                    HalLedSet ( HAL_LED_3, HAL_LED_MODE_ON );
+   \                     ??LightCtl_MessageMSGCB_2:
+   \   000059                ; Setup parameters for call to function HalLedSet
+   \   000059   7A01         MOV     R2,#0x1
+   \                     ??LightCtl_MessageMSGCB_3:
+   \   00005B   7904         MOV     R1,#0x4
+   \   00005D   12....       LCALL   ??HalLedSet?relay
+    810                }
+    811                
+    812                
+    813                break;
+    814                
+    815          #endif
+    816                
+    817              default :
+    818                break;
+    819              }
+    820                
+    821                break;
+    822            }
+    823          }
+   \                     ??LightCtl_MessageMSGCB_1:
+   \   000060   D083         POP     DPH
+   \   000062   D082         POP     DPL
+   \   000064   02....       LJMP    ?BRET
+    824          
+    825          /*********************************************************************
+    826           * @fn      LightCtl_SendTheMessage
+    827           *
+    828           * @brief   Send "the" message.
+    829           *
+    830           * @param   none
+    831           *
+    832           * @return  none
+    833           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    834          void LightCtl_SendTheMessage( void )
+   \                     LightCtl_SendTheMessage:
+    835          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 8
+   \   000005   74F8         MOV     A,#-0x8
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    836            UINT8 theMessageData[8];
+    837          
+    838            theMessageData[0] = 0x82;                   //一字节存放命令字
+   \   00000A   7482         MOV     A,#-0x7e
+   \   00000C   85..82       MOV     DPL,?XSP + 0
+   \   00000F   85..83       MOV     DPH,?XSP + 1
+   \   000012   F0           MOVX    @DPTR,A
+    839            theMessageData[1] = SensorID;                   //一字节存放ID
+   \   000013   90....       MOV     DPTR,#SensorID
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   C0E0         PUSH    A
+   \   000019   7401         MOV     A,#0x1
+   \   00001B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001E   D0E0         POP     A
+   \   000020   F0           MOVX    @DPTR,A
+    840            //获取温度值 2字节
+    841            read_data(&theMessageData[2]); 
+   \   000021                ; Setup parameters for call to function read_data
+   \   000021   7402         MOV     A,#0x2
+   \   000023   12....       LCALL   ?XSTACK_DISP0_8
+   \   000026   AA82         MOV     R2,DPL
+   \   000028   AB83         MOV     R3,DPH
+   \   00002A   12....       LCALL   ??read_data?relay
+    842            //获取气体含量1字节
+    843            theMessageData[4] = myApp_ReadGas();
+   \   00002D                ; Setup parameters for call to function myApp_ReadGas
+   \   00002D   12....       LCALL   ??myApp_ReadGas?relay
+   \   000030   E9           MOV     A,R1
+   \   000031   C0E0         PUSH    A
+   \   000033   7404         MOV     A,#0x4
+   \   000035   12....       LCALL   ?XSTACK_DISP0_8
+   \   000038   D0E0         POP     A
+   \   00003A   F0           MOVX    @DPTR,A
+    844            //获取光强含量 1字节
+    845            theMessageData[5] = myApp_ReadLightLevel();
+   \   00003B                ; Setup parameters for call to function myApp_ReadLightLevel
+   \   00003B   12....       LCALL   ??myApp_ReadLightLevel?relay
+   \   00003E   E9           MOV     A,R1
+   \   00003F   C0E0         PUSH    A
+   \   000041   7405         MOV     A,#0x5
+   \   000043   12....       LCALL   ?XSTACK_DISP0_8
+   \   000046   D0E0         POP     A
+   \   000048   F0           MOVX    @DPTR,A
+    846            //获取灯设备状态 0->off 1->on
+    847            theMessageData[6] = myApp_ReadLightOnOff();
+   \   000049                ; Setup parameters for call to function myApp_ReadLightOnOff
+   \   000049   12....       LCALL   ??myApp_ReadLightOnOff?relay
+   \   00004C   E9           MOV     A,R1
+   \   00004D   C0E0         PUSH    A
+   \   00004F   7406         MOV     A,#0x6
+   \   000051   12....       LCALL   ?XSTACK_DISP0_8
+   \   000054   D0E0         POP     A
+   \   000056   F0           MOVX    @DPTR,A
+    848            //获取报警信号
+    849            theMessageData[7] = myApp_ReadAlarm();
+   \   000057                ; Setup parameters for call to function myApp_ReadAlarm
+   \   000057   12....       LCALL   ??myApp_ReadAlarm?relay
+   \   00005A   E9           MOV     A,R1
+   \   00005B   C0E0         PUSH    A
+   \   00005D   7407         MOV     A,#0x7
+   \   00005F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000062   D0E0         POP     A
+   \   000064   F0           MOVX    @DPTR,A
+    850            
+    851            //DataChange(&theMessageData[2],ch); //数据处理           
+    852            //HalLcdWriteString("temp is:", HAL_LCD_LINE_1 );
+    853            //HalLcdWriteString( (char *)ch, HAL_LCD_LINE_2 ); 
+    854            
+    855            LightCtl_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   000065   7402         MOV     A,#0x2
+   \   000067   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   00006A   F0           MOVX    @DPTR,A
+    856            LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   00006B   740A         MOV     A,#0xa
+   \   00006D   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   000070   F0           MOVX    @DPTR,A
+    857            LightCtl_DstAddr.addr.shortAddr = 0x00;  
+   \   000071   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   000074   E4           CLR     A
+   \   000075   F0           MOVX    @DPTR,A
+   \   000076   A3           INC     DPTR
+   \   000077   F0           MOVX    @DPTR,A
+    858          
+    859            if ( AF_DataRequest( &LightCtl_DstAddr, &LightCtl_epDesc,
+    860                                 LightCtl_CLUSTERID,
+    861                                 //(byte)osal_strlen( theMessageData ) + 1,
+    862                                 8,
+    863                                 (byte *)&theMessageData,
+    864                                 &LightCtl_TransID,
+    865                                 AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+   \   000078                ; Setup parameters for call to function AF_DataRequest
+   \   000078   75..1E       MOV     ?V0 + 0,#0x1e
+   \   00007B   78..         MOV     R0,#?V0 + 0
+   \   00007D   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000080   75....       MOV     ?V0 + 0,#(LightCtl_TransID & 0xff)
+   \   000083   75....       MOV     ?V0 + 1,#((LightCtl_TransID >> 8) & 0xff)
+   \   000086   78..         MOV     R0,#?V0 + 0
+   \   000088   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00008B   7403         MOV     A,#0x3
+   \   00008D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000090   8582..       MOV     ?V0 + 0,DPL
+   \   000093   8583..       MOV     ?V0 + 1,DPH
+   \   000096   78..         MOV     R0,#?V0 + 0
+   \   000098   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00009B   75..08       MOV     ?V0 + 0,#0x8
+   \   00009E   75..00       MOV     ?V0 + 1,#0x0
+   \   0000A1   78..         MOV     R0,#?V0 + 0
+   \   0000A3   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000A6   75..01       MOV     ?V0 + 0,#0x1
+   \   0000A9   78..         MOV     R0,#?V0 + 0
+   \   0000AB   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000AE   7920         MOV     R1,#0x20
+   \   0000B0   7C..         MOV     R4,#(LightCtl_epDesc & 0xff)
+   \   0000B2   7D..         MOV     R5,#((LightCtl_epDesc >> 8) & 0xff)
+   \   0000B4   7A..         MOV     R2,#(LightCtl_DstAddr & 0xff)
+   \   0000B6   7B..         MOV     R3,#((LightCtl_DstAddr >> 8) & 0xff)
+   \   0000B8   12....       LCALL   ??AF_DataRequest?relay
+   \   0000BB   7409         MOV     A,#0x9
+   \   0000BD   12....       LCALL   ?DEALLOC_XSTACK8
+    866            {
+    867              // Successfully requested to be sent.
+    868            }
+    869            else
+    870            {
+    871              // Error occurred in request to send.
+    872            }
+    873          }
+   \   0000C0   7408         MOV     A,#0x8
+   \   0000C2   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000C5   7F02         MOV     R7,#0x2
+   \   0000C7   02....       LJMP    ?BANKED_LEAVE_XDATA
+    874          
+    875          /*********************************************************************
+    876           * @fn      SerialApp_CallBack
+    877           *
+    878           * @brief   Send data OTA.
+    879           *
+    880           * @param   port - UART port.
+    881           * @param   event - the UART port event flag.
+    882           *
+    883           * @return  none
+    884           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    885          static void SerialApp_CallBack(uint8 port, uint8 event)
+   \                     SerialApp_CallBack:
+    886          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 3
+   \   000005   74FD         MOV     A,#-0x3
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    887            (void)port;
+    888          
+    889            uint8 checksum = 0;
+    890            int i=0;
+    891            char sendBuf[3];
+    892            
+    893            if ((event & (HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT)) &&
+    894          #if SERIAL_APP_LOOPBACK
+    895                (SerialApp_Len < SERIAL_APP_TX_MAX))
+    896          #else
+    897                !SerialApp_Len)
+   \   00000A   7407         MOV     A,#0x7
+   \   00000C   5A           ANL     A,R2
+   \   00000D   7003         JNZ     $+5
+   \   00000F   02....       LJMP    ??SerialApp_CallBack_0 & 0xFFFF
+   \   000012   90....       MOV     DPTR,#SerialApp_Len
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   6003         JZ      $+5
+   \   000018   02....       LJMP    ??SerialApp_CallBack_0 & 0xFFFF
+    898          #endif
+    899            {
+    900              if (!SerialApp_Len && 
+    901                (SerialApp_Len = HalUARTRead(SERIAL_APP_PORT, SerialApp_Buf, SERIAL_APP_TX_MAX)))
+   \   00001B                ; Setup parameters for call to function HalUARTRead
+   \   00001B   7C0A         MOV     R4,#0xa
+   \   00001D   7D00         MOV     R5,#0x0
+   \   00001F   7A..         MOV     R2,#(SerialApp_Buf & 0xff)
+   \   000021   7B..         MOV     R3,#((SerialApp_Buf >> 8) & 0xff)
+   \   000023   7900         MOV     R1,#0x0
+   \   000025   12....       LCALL   ??HalUARTRead?relay
+   \   000028   EA           MOV     A,R2
+   \   000029   90....       MOV     DPTR,#SerialApp_Len
+   \   00002C   F0           MOVX    @DPTR,A
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   7003         JNZ     $+5
+   \   000030   02....       LJMP    ??SerialApp_CallBack_0 & 0xFFFF
+    902              {
+    903                // Pre-pend sequence number to the Tx message.
+    904                SerialApp_Len = 0;
+   \   000033   E4           CLR     A
+   \   000034   F0           MOVX    @DPTR,A
+    905                checksum = SerialApp_Buf[1]+SerialApp_Buf[2]+SerialApp_Buf[3];
+   \   000035   90....       MOV     DPTR,#(SerialApp_Buf + 1)
+   \   000038   E0           MOVX    A,@DPTR
+   \   000039   FB           MOV     R3,A
+   \   00003A   90....       MOV     DPTR,#(SerialApp_Buf + 3)
+   \   00003D   C082         PUSH    DPL
+   \   00003F   C083         PUSH    DPH
+   \   000041   90....       MOV     DPTR,#(SerialApp_Buf + 2)
+   \   000044   E0           MOVX    A,@DPTR
+   \   000045   2B           ADD     A,R3
+   \   000046   D083         POP     DPH
+   \   000048   D082         POP     DPL
+   \   00004A   FA           MOV     R2,A
+   \   00004B   E0           MOVX    A,@DPTR
+   \   00004C   2A           ADD     A,R2
+   \   00004D   FA           MOV     R2,A
+    906          
+    907          /*      
+    908                //回显数据(测试用)
+    909                word_buffer[0]='l';
+    910                word_buffer[1]='e';
+    911                word_buffer[2]='n';
+    912                word_buffer[3]=':';  
+    913                word_buffer[4]='1';
+    914                word_buffer[5]='2';
+    915                word_buffer[6]='3';
+    916                word_buffer[7]='\n';
+    917                pointer1=word_buffer; 
+    918                HalUARTWrite ( SERIAL_APP_PORT, pointer1, 8 );
+    919          */
+    920                
+    921                
+    922                if((SerialApp_Buf[0] == 0xef)&&(SerialApp_Buf[5] == 0xfe)&&(SerialApp_Buf[4] == checksum))
+   \   00004E   90....       MOV     DPTR,#SerialApp_Buf
+   \   000051   E0           MOVX    A,@DPTR
+   \   000052   64EF         XRL     A,#0xef
+   \   000054   6003         JZ      $+5
+   \   000056   02....       LJMP    ??SerialApp_CallBack_0 & 0xFFFF
+   \   000059   90....       MOV     DPTR,#(SerialApp_Buf + 5)
+   \   00005C   E0           MOVX    A,@DPTR
+   \   00005D   64FE         XRL     A,#0xfe
+   \   00005F   6003         JZ      $+5
+   \   000061   02....       LJMP    ??SerialApp_CallBack_0 & 0xFFFF
+   \   000064   90....       MOV     DPTR,#(SerialApp_Buf + 4)
+   \   000067   E0           MOVX    A,@DPTR
+   \   000068   6A           XRL     A,R2
+   \   000069   6003         JZ      $+5
+   \   00006B   02....       LJMP    ??SerialApp_CallBack_0 & 0xFFFF
+    923                {
+    924                  switch(SerialApp_Buf[1]) //解析命令字
+   \   00006E   EB           MOV     A,R3
+   \   00006F   12....       LCALL   ?UC_SWITCH_DENSE
+   \                     `?<Jumptable for SerialApp_CallBack>_0`:
+   \   000072   C0           DB        192
+   \   000073   05           DB        5
+   \   000074   ....         DW        ??SerialApp_CallBack_0
+   \   000076   ....         DW        ??SerialApp_CallBack_1
+   \   000078   ....         DW        ??SerialApp_CallBack_2
+   \   00007A   ....         DW        ??SerialApp_CallBack_3
+   \   00007C   ....         DW        ??SerialApp_CallBack_4
+   \   00007E   ....         DW        ??SerialApp_CallBack_5
+   \   000080   ....         DW        ??SerialApp_CallBack_6
+    925                  {
+    926                    case 0xc0://全部查询            
+    927                      for(i=0;i<MAXSENSOR;i++)
+   \                     ??SerialApp_CallBack_1:
+   \   000082   7E00         MOV     R6,#0x0
+   \   000084   7F00         MOV     R7,#0x0
+   \   000086   8037         SJMP    ??SerialApp_CallBack_7
+    928                      {
+    929                        HalSendFrame(0x81,i+1,sensor_TempData[i][0],sensor_TempData[i][1]);
+   \                     ??SerialApp_CallBack_8:
+   \   000088   EE           MOV     A,R6
+   \   000089   F8           MOV     R0,A
+   \   00008A   EF           MOV     A,R7
+   \   00008B   F9           MOV     R1,A
+   \   00008C   E8           MOV     A,R0
+   \   00008D   C3           CLR     C
+   \   00008E   33           RLC     A
+   \   00008F   F8           MOV     R0,A
+   \   000090   E9           MOV     A,R1
+   \   000091   33           RLC     A
+   \   000092   F9           MOV     R1,A
+   \   000093   E8           MOV     A,R0
+   \   000094   24..         ADD     A,#(sensor_TempData & 0xff)
+   \   000096   F8           MOV     R0,A
+   \   000097   E9           MOV     A,R1
+   \   000098   34..         ADDC    A,#((sensor_TempData >> 8) & 0xff)
+   \   00009A   F9           MOV     R1,A
+   \   00009B                ; Setup parameters for call to function HalSendFrame
+   \   00009B   8882         MOV     DPL,R0
+   \   00009D   8983         MOV     DPH,R1
+   \   00009F   A3           INC     DPTR
+   \   0000A0   E0           MOVX    A,@DPTR
+   \   0000A1   FC           MOV     R4,A
+   \   0000A2   8882         MOV     DPL,R0
+   \   0000A4   8983         MOV     DPH,R1
+   \   0000A6   E0           MOVX    A,@DPTR
+   \   0000A7   FB           MOV     R3,A
+   \   0000A8   EE           MOV     A,R6
+   \   0000A9   04           INC     A
+   \   0000AA   FA           MOV     R2,A
+   \   0000AB   7981         MOV     R1,#-0x7f
+   \   0000AD   12....       LCALL   ??HalSendFrame?relay
+    930                        Delay_nus(10);
+   \   0000B0                ; Setup parameters for call to function Delay_nus
+   \   0000B0   7A0A         MOV     R2,#0xa
+   \   0000B2   7B00         MOV     R3,#0x0
+   \   0000B4   12....       LCALL   ??Delay_nus?relay
+    931                      } 
+   \   0000B7   EE           MOV     A,R6
+   \   0000B8   2401         ADD     A,#0x1
+   \   0000BA   0E           INC     R6
+   \   0000BB   EF           MOV     A,R7
+   \   0000BC   3400         ADDC    A,#0x0
+   \   0000BE   FF           MOV     R7,A
+   \                     ??SerialApp_CallBack_7:
+   \   0000BF   C3           CLR     C
+   \   0000C0   EE           MOV     A,R6
+   \   0000C1   9404         SUBB    A,#0x4
+   \   0000C3   EF           MOV     A,R7
+   \   0000C4   9400         SUBB    A,#0x0
+   \   0000C6   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   0000C8   65D0         XRL     A,PSW
+   \   0000CA   33           RLC     A
+   \   0000CB   40BB         JC      ??SerialApp_CallBack_8
+    932                      
+    933                      Delay_nus(20);
+   \   0000CD                ; Setup parameters for call to function Delay_nus
+   \   0000CD   7A14         MOV     R2,#0x14
+   \   0000CF   7B00         MOV     R3,#0x0
+   \   0000D1   12....       LCALL   ??Delay_nus?relay
+    934                      
+    935                      for(i=0;i<MAXSENSOR;i++)
+   \   0000D4   7E00         MOV     R6,#0x0
+   \   0000D6   7F00         MOV     R7,#0x0
+   \   0000D8   8025         SJMP    ??SerialApp_CallBack_9
+    936                      {
+    937                        HalSendFrame(0x82,i+1,sensor_Gas[i],0x00);
+   \                     ??SerialApp_CallBack_10:
+   \   0000DA                ; Setup parameters for call to function HalSendFrame
+   \   0000DA   7C00         MOV     R4,#0x0
+   \   0000DC   EE           MOV     A,R6
+   \   0000DD   24..         ADD     A,#(sensor_Gas & 0xff)
+   \   0000DF   F582         MOV     DPL,A
+   \   0000E1   EF           MOV     A,R7
+   \   0000E2   34..         ADDC    A,#((sensor_Gas >> 8) & 0xff)
+   \   0000E4   F583         MOV     DPH,A
+   \   0000E6   E0           MOVX    A,@DPTR
+   \   0000E7   FB           MOV     R3,A
+   \   0000E8   EE           MOV     A,R6
+   \   0000E9   04           INC     A
+   \   0000EA   FA           MOV     R2,A
+   \   0000EB   7982         MOV     R1,#-0x7e
+   \   0000ED   12....       LCALL   ??HalSendFrame?relay
+    938                        Delay_nus(10);
+   \   0000F0                ; Setup parameters for call to function Delay_nus
+   \   0000F0   7A0A         MOV     R2,#0xa
+   \   0000F2   7B00         MOV     R3,#0x0
+   \   0000F4   12....       LCALL   ??Delay_nus?relay
+    939                      } 
+   \   0000F7   EE           MOV     A,R6
+   \   0000F8   2401         ADD     A,#0x1
+   \   0000FA   0E           INC     R6
+   \   0000FB   EF           MOV     A,R7
+   \   0000FC   3400         ADDC    A,#0x0
+   \   0000FE   FF           MOV     R7,A
+   \                     ??SerialApp_CallBack_9:
+   \   0000FF   C3           CLR     C
+   \   000100   EE           MOV     A,R6
+   \   000101   9404         SUBB    A,#0x4
+   \   000103   EF           MOV     A,R7
+   \   000104   9400         SUBB    A,#0x0
+   \   000106   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000108   65D0         XRL     A,PSW
+   \   00010A   33           RLC     A
+   \   00010B   40CD         JC      ??SerialApp_CallBack_10
+    940                      
+    941                      Delay_nus(20);
+   \   00010D                ; Setup parameters for call to function Delay_nus
+   \   00010D   7A14         MOV     R2,#0x14
+   \   00010F   7B00         MOV     R3,#0x0
+   \   000111   12....       LCALL   ??Delay_nus?relay
+    942                      
+    943                      for(i=0;i<MAXSENSOR;i++)
+   \   000114   7E00         MOV     R6,#0x0
+   \   000116   7F00         MOV     R7,#0x0
+   \   000118   8025         SJMP    ??SerialApp_CallBack_11
+    944                      {
+    945                        HalSendFrame(0x83,i+1,sensor_LightLevel[i],0x00);
+   \                     ??SerialApp_CallBack_12:
+   \   00011A                ; Setup parameters for call to function HalSendFrame
+   \   00011A   7C00         MOV     R4,#0x0
+   \   00011C   EE           MOV     A,R6
+   \   00011D   24..         ADD     A,#(sensor_LightLevel & 0xff)
+   \   00011F   F582         MOV     DPL,A
+   \   000121   EF           MOV     A,R7
+   \   000122   34..         ADDC    A,#((sensor_LightLevel >> 8) & 0xff)
+   \   000124   F583         MOV     DPH,A
+   \   000126   E0           MOVX    A,@DPTR
+   \   000127   FB           MOV     R3,A
+   \   000128   EE           MOV     A,R6
+   \   000129   04           INC     A
+   \   00012A   FA           MOV     R2,A
+   \   00012B   7983         MOV     R1,#-0x7d
+   \   00012D   12....       LCALL   ??HalSendFrame?relay
+    946                        Delay_nus(10);
+   \   000130                ; Setup parameters for call to function Delay_nus
+   \   000130   7A0A         MOV     R2,#0xa
+   \   000132   7B00         MOV     R3,#0x0
+   \   000134   12....       LCALL   ??Delay_nus?relay
+    947                      }
+   \   000137   EE           MOV     A,R6
+   \   000138   2401         ADD     A,#0x1
+   \   00013A   0E           INC     R6
+   \   00013B   EF           MOV     A,R7
+   \   00013C   3400         ADDC    A,#0x0
+   \   00013E   FF           MOV     R7,A
+   \                     ??SerialApp_CallBack_11:
+   \   00013F   C3           CLR     C
+   \   000140   EE           MOV     A,R6
+   \   000141   9404         SUBB    A,#0x4
+   \   000143   EF           MOV     A,R7
+   \   000144   9400         SUBB    A,#0x0
+   \   000146   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000148   65D0         XRL     A,PSW
+   \   00014A   33           RLC     A
+   \   00014B   40CD         JC      ??SerialApp_CallBack_12
+    948                      
+    949                      Delay_nus(20);
+   \   00014D                ; Setup parameters for call to function Delay_nus
+   \   00014D   7A14         MOV     R2,#0x14
+   \   00014F   7B00         MOV     R3,#0x0
+   \   000151   12....       LCALL   ??Delay_nus?relay
+    950                      
+    951                      for(i=0;i<MAXSENSOR;i++)
+   \   000154   7E00         MOV     R6,#0x0
+   \   000156   7F00         MOV     R7,#0x0
+   \   000158   8025         SJMP    ??SerialApp_CallBack_13
+    952                      {
+    953                        HalSendFrame(0x84,i+1,sensor_LightOnOff[i],0x00);
+   \                     ??SerialApp_CallBack_14:
+   \   00015A                ; Setup parameters for call to function HalSendFrame
+   \   00015A   7C00         MOV     R4,#0x0
+   \   00015C   EE           MOV     A,R6
+   \   00015D   24..         ADD     A,#(sensor_LightOnOff & 0xff)
+   \   00015F   F582         MOV     DPL,A
+   \   000161   EF           MOV     A,R7
+   \   000162   34..         ADDC    A,#((sensor_LightOnOff >> 8) & 0xff)
+   \   000164   F583         MOV     DPH,A
+   \   000166   E0           MOVX    A,@DPTR
+   \   000167   FB           MOV     R3,A
+   \   000168   EE           MOV     A,R6
+   \   000169   04           INC     A
+   \   00016A   FA           MOV     R2,A
+   \   00016B   7984         MOV     R1,#-0x7c
+   \   00016D   12....       LCALL   ??HalSendFrame?relay
+    954                        Delay_nus(10);
+   \   000170                ; Setup parameters for call to function Delay_nus
+   \   000170   7A0A         MOV     R2,#0xa
+   \   000172   7B00         MOV     R3,#0x0
+   \   000174   12....       LCALL   ??Delay_nus?relay
+    955                      }   
+   \   000177   EE           MOV     A,R6
+   \   000178   2401         ADD     A,#0x1
+   \   00017A   0E           INC     R6
+   \   00017B   EF           MOV     A,R7
+   \   00017C   3400         ADDC    A,#0x0
+   \   00017E   FF           MOV     R7,A
+   \                     ??SerialApp_CallBack_13:
+   \   00017F   C3           CLR     C
+   \   000180   EE           MOV     A,R6
+   \   000181   9404         SUBB    A,#0x4
+   \   000183   EF           MOV     A,R7
+   \   000184   9400         SUBB    A,#0x0
+   \   000186   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000188   65D0         XRL     A,PSW
+   \   00018A   33           RLC     A
+   \   00018B   40CD         JC      ??SerialApp_CallBack_14
+    956                      
+    957                      Delay_nus(20);
+   \   00018D                ; Setup parameters for call to function Delay_nus
+   \   00018D   7A14         MOV     R2,#0x14
+   \   00018F   7B00         MOV     R3,#0x0
+   \   000191   12....       LCALL   ??Delay_nus?relay
+    958                      
+    959                      //发送完毕应答
+    960                      HalSendFrame(0x8F,0x00,0x00,0x00);  
+   \   000194                ; Setup parameters for call to function HalSendFrame
+   \                     ??SerialApp_CallBack_15:
+   \   000194   7C00         MOV     R4,#0x0
+   \   000196   7B00         MOV     R3,#0x0
+   \   000198   7A00         MOV     R2,#0x0
+   \   00019A   798F         MOV     R1,#-0x71
+   \   00019C   12....       LCALL   ??HalSendFrame?relay
+   \   00019F   02....       LJMP    ??SerialApp_CallBack_0 & 0xFFFF
+    961                      
+    962                      break;
+    963                      
+    964                    case 0xC1://read tempture
+    965                      //read_data(sensor_TempData[0]);
+    966                      DataChange(sensor_TempData[0],ch); //数据处理
+   \                     ??SerialApp_CallBack_2:
+   \   0001A2                ; Setup parameters for call to function DataChange
+   \   0001A2   7C..         MOV     R4,#(ch & 0xff)
+   \   0001A4   7D..         MOV     R5,#((ch >> 8) & 0xff)
+   \   0001A6   7A..         MOV     R2,#(sensor_TempData & 0xff)
+   \   0001A8   7B..         MOV     R3,#((sensor_TempData >> 8) & 0xff)
+   \   0001AA   12....       LCALL   ??DataChange?relay
+    967                      
+    968                      HalLcdWriteString("Rcv temp is:", HAL_LCD_LINE_1 );
+   \   0001AD                ; Setup parameters for call to function HalLcdWriteString
+   \   0001AD   7901         MOV     R1,#0x1
+   \   0001AF   7A..         MOV     R2,#(`?<Constant "Rcv temp is:">` & 0xff)
+   \   0001B1   7B..         MOV     R3,#((`?<Constant "Rcv temp is:">` >> 8) & 0xff)
+   \   0001B3   12....       LCALL   ??HalLcdWriteString?relay
+    969                      HalLcdWriteString( (char *)ch, HAL_LCD_LINE_2 );
+   \   0001B6                ; Setup parameters for call to function HalLcdWriteString
+   \   0001B6   7902         MOV     R1,#0x2
+   \   0001B8   7A..         MOV     R2,#(ch & 0xff)
+   \   0001BA   7B..         MOV     R3,#((ch >> 8) & 0xff)
+   \   0001BC   12....       LCALL   ??HalLcdWriteString?relay
+    970                       
+    971                      for(i=0;i<MAXSENSOR;i++)
+   \   0001BF   7E00         MOV     R6,#0x0
+   \   0001C1   7F00         MOV     R7,#0x0
+   \   0001C3   8037         SJMP    ??SerialApp_CallBack_16
+    972                      {
+    973                        HalSendFrame(0x81,i+1,sensor_TempData[i][0],sensor_TempData[i][1]);
+   \                     ??SerialApp_CallBack_17:
+   \   0001C5   EE           MOV     A,R6
+   \   0001C6   F8           MOV     R0,A
+   \   0001C7   EF           MOV     A,R7
+   \   0001C8   F9           MOV     R1,A
+   \   0001C9   E8           MOV     A,R0
+   \   0001CA   C3           CLR     C
+   \   0001CB   33           RLC     A
+   \   0001CC   F8           MOV     R0,A
+   \   0001CD   E9           MOV     A,R1
+   \   0001CE   33           RLC     A
+   \   0001CF   F9           MOV     R1,A
+   \   0001D0   E8           MOV     A,R0
+   \   0001D1   24..         ADD     A,#(sensor_TempData & 0xff)
+   \   0001D3   F8           MOV     R0,A
+   \   0001D4   E9           MOV     A,R1
+   \   0001D5   34..         ADDC    A,#((sensor_TempData >> 8) & 0xff)
+   \   0001D7   F9           MOV     R1,A
+   \   0001D8                ; Setup parameters for call to function HalSendFrame
+   \   0001D8   8882         MOV     DPL,R0
+   \   0001DA   8983         MOV     DPH,R1
+   \   0001DC   A3           INC     DPTR
+   \   0001DD   E0           MOVX    A,@DPTR
+   \   0001DE   FC           MOV     R4,A
+   \   0001DF   8882         MOV     DPL,R0
+   \   0001E1   8983         MOV     DPH,R1
+   \   0001E3   E0           MOVX    A,@DPTR
+   \   0001E4   FB           MOV     R3,A
+   \   0001E5   EE           MOV     A,R6
+   \   0001E6   04           INC     A
+   \   0001E7   FA           MOV     R2,A
+   \   0001E8   7981         MOV     R1,#-0x7f
+   \   0001EA   12....       LCALL   ??HalSendFrame?relay
+    974                        Delay_nus(10);
+   \   0001ED                ; Setup parameters for call to function Delay_nus
+   \   0001ED   7A0A         MOV     R2,#0xa
+   \   0001EF   7B00         MOV     R3,#0x0
+   \   0001F1   12....       LCALL   ??Delay_nus?relay
+    975                      }         
+   \   0001F4   EE           MOV     A,R6
+   \   0001F5   2401         ADD     A,#0x1
+   \   0001F7   0E           INC     R6
+   \   0001F8   EF           MOV     A,R7
+   \   0001F9   3400         ADDC    A,#0x0
+   \   0001FB   FF           MOV     R7,A
+   \                     ??SerialApp_CallBack_16:
+   \   0001FC   C3           CLR     C
+   \   0001FD   EE           MOV     A,R6
+   \   0001FE   9404         SUBB    A,#0x4
+   \   000200   EF           MOV     A,R7
+   \   000201   9400         SUBB    A,#0x0
+   \   000203   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000205   65D0         XRL     A,PSW
+   \   000207   33           RLC     A
+   \   000208   40BB         JC      ??SerialApp_CallBack_17
+    976                      
+    977                      //发送完毕应答
+    978                      HalSendFrame(0x8F,0x00,0x00,0x00);           
+   \                     ??SerialApp_CallBack_18:
+   \   00020A                ; Setup parameters for call to function HalSendFrame
+   \   00020A   8088         SJMP    ??SerialApp_CallBack_15
+    979                      
+    980                      break;
+    981                      
+    982                    case 0xC2://read sensor_Gas
+    983                      
+    984                      for(i=0;i<MAXSENSOR;i++)
+   \                     ??SerialApp_CallBack_3:
+   \   00020C   7E00         MOV     R6,#0x0
+   \   00020E   7F00         MOV     R7,#0x0
+   \                     ??SerialApp_CallBack_19:
+   \   000210   C3           CLR     C
+   \   000211   EE           MOV     A,R6
+   \   000212   9404         SUBB    A,#0x4
+   \   000214   EF           MOV     A,R7
+   \   000215   9400         SUBB    A,#0x0
+   \   000217   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000219   65D0         XRL     A,PSW
+   \   00021B   33           RLC     A
+   \   00021C   50EC         JNC     ??SerialApp_CallBack_18
+    985                      {
+    986                        HalSendFrame(0x82,i+1,sensor_Gas[i],0x00);
+   \   00021E                ; Setup parameters for call to function HalSendFrame
+   \   00021E   7C00         MOV     R4,#0x0
+   \   000220   EE           MOV     A,R6
+   \   000221   24..         ADD     A,#(sensor_Gas & 0xff)
+   \   000223   F582         MOV     DPL,A
+   \   000225   EF           MOV     A,R7
+   \   000226   34..         ADDC    A,#((sensor_Gas >> 8) & 0xff)
+   \   000228   F583         MOV     DPH,A
+   \   00022A   E0           MOVX    A,@DPTR
+   \   00022B   FB           MOV     R3,A
+   \   00022C   EE           MOV     A,R6
+   \   00022D   04           INC     A
+   \   00022E   FA           MOV     R2,A
+   \   00022F   7982         MOV     R1,#-0x7e
+   \   000231   12....       LCALL   ??HalSendFrame?relay
+    987                        Delay_nus(10);
+   \   000234                ; Setup parameters for call to function Delay_nus
+   \   000234   7A0A         MOV     R2,#0xa
+   \   000236   7B00         MOV     R3,#0x0
+   \   000238   12....       LCALL   ??Delay_nus?relay
+    988                      }         
+   \   00023B   EE           MOV     A,R6
+   \   00023C   2401         ADD     A,#0x1
+   \   00023E   0E           INC     R6
+   \   00023F   EF           MOV     A,R7
+   \   000240   3400         ADDC    A,#0x0
+   \   000242   FF           MOV     R7,A
+   \   000243   80CB         SJMP    ??SerialApp_CallBack_19
+    989                      
+    990                      //发送完毕应答
+    991                      HalSendFrame(0x8F,0x00,0x00,0x00);           
+    992                      
+    993                      break;
+    994                      
+    995                    case 0xC3://read sensor_LightLevel
+    996                      
+    997                      for(i=0;i<MAXSENSOR;i++)
+   \                     ??SerialApp_CallBack_4:
+   \   000245   7E00         MOV     R6,#0x0
+   \   000247   7F00         MOV     R7,#0x0
+   \                     ??SerialApp_CallBack_20:
+   \   000249   C3           CLR     C
+   \   00024A   EE           MOV     A,R6
+   \   00024B   9404         SUBB    A,#0x4
+   \   00024D   EF           MOV     A,R7
+   \   00024E   9400         SUBB    A,#0x0
+   \   000250   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000252   65D0         XRL     A,PSW
+   \   000254   33           RLC     A
+   \   000255   50B3         JNC     ??SerialApp_CallBack_18
+    998                      {
+    999                        HalSendFrame(0x83,i+1,sensor_LightLevel[i],0x00);
+   \   000257                ; Setup parameters for call to function HalSendFrame
+   \   000257   7C00         MOV     R4,#0x0
+   \   000259   EE           MOV     A,R6
+   \   00025A   24..         ADD     A,#(sensor_LightLevel & 0xff)
+   \   00025C   F582         MOV     DPL,A
+   \   00025E   EF           MOV     A,R7
+   \   00025F   34..         ADDC    A,#((sensor_LightLevel >> 8) & 0xff)
+   \   000261   F583         MOV     DPH,A
+   \   000263   E0           MOVX    A,@DPTR
+   \   000264   FB           MOV     R3,A
+   \   000265   EE           MOV     A,R6
+   \   000266   04           INC     A
+   \   000267   FA           MOV     R2,A
+   \   000268   7983         MOV     R1,#-0x7d
+   \   00026A   12....       LCALL   ??HalSendFrame?relay
+   1000                        Delay_nus(10);
+   \   00026D                ; Setup parameters for call to function Delay_nus
+   \   00026D   7A0A         MOV     R2,#0xa
+   \   00026F   7B00         MOV     R3,#0x0
+   \   000271   12....       LCALL   ??Delay_nus?relay
+   1001                      }         
+   \   000274   EE           MOV     A,R6
+   \   000275   2401         ADD     A,#0x1
+   \   000277   0E           INC     R6
+   \   000278   EF           MOV     A,R7
+   \   000279   3400         ADDC    A,#0x0
+   \   00027B   FF           MOV     R7,A
+   \   00027C   80CB         SJMP    ??SerialApp_CallBack_20
+   1002                      
+   1003                      //发送完毕应答
+   1004                      HalSendFrame(0x8F,0x00,0x00,0x00);           
+   1005                      
+   1006                      break;        
+   1007                    
+   1008                      
+   1009                    case 0xC4://read sensor_LightOnOff
+   1010                      
+   1011                      for(i=0;i<MAXSENSOR;i++)
+   \                     ??SerialApp_CallBack_5:
+   \   00027E   7E00         MOV     R6,#0x0
+   \   000280   7F00         MOV     R7,#0x0
+   \   000282   8023         SJMP    ??SerialApp_CallBack_21
+   1012                      {
+   1013                        HalSendFrame(0x84,i+1,sensor_LightOnOff[i],0x00);
+   \                     ??SerialApp_CallBack_22:
+   \   000284                ; Setup parameters for call to function HalSendFrame
+   \   000284   EE           MOV     A,R6
+   \   000285   24..         ADD     A,#(sensor_LightOnOff & 0xff)
+   \   000287   F582         MOV     DPL,A
+   \   000289   EF           MOV     A,R7
+   \   00028A   34..         ADDC    A,#((sensor_LightOnOff >> 8) & 0xff)
+   \   00028C   F583         MOV     DPH,A
+   \   00028E   E0           MOVX    A,@DPTR
+   \   00028F   FB           MOV     R3,A
+   \   000290   EE           MOV     A,R6
+   \   000291   04           INC     A
+   \   000292   FA           MOV     R2,A
+   \   000293   7984         MOV     R1,#-0x7c
+   \   000295   12....       LCALL   ??HalSendFrame?relay
+   1014                        Delay_nus(10);
+   \   000298                ; Setup parameters for call to function Delay_nus
+   \   000298   7A0A         MOV     R2,#0xa
+   \   00029A   7B00         MOV     R3,#0x0
+   \   00029C   12....       LCALL   ??Delay_nus?relay
+   1015                      }         
+   \   00029F   EE           MOV     A,R6
+   \   0002A0   2401         ADD     A,#0x1
+   \   0002A2   0E           INC     R6
+   \   0002A3   EF           MOV     A,R7
+   \   0002A4   3400         ADDC    A,#0x0
+   \   0002A6   FF           MOV     R7,A
+   \                     ??SerialApp_CallBack_21:
+   \   0002A7   C3           CLR     C
+   \   0002A8   EE           MOV     A,R6
+   \   0002A9   9404         SUBB    A,#0x4
+   \   0002AB   EF           MOV     A,R7
+   \   0002AC   9400         SUBB    A,#0x0
+   \   0002AE   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   0002B0   65D0         XRL     A,PSW
+   \   0002B2   33           RLC     A
+   \   0002B3   7C00         MOV     R4,#0x0
+   \   0002B5   40CD         JC      ??SerialApp_CallBack_22
+   1016                      
+   1017                      //发送完毕应答
+   1018                      HalSendFrame(0x8F,0x00,0x00,0x00);    
+   \   0002B7                ; Setup parameters for call to function HalSendFrame
+   \   0002B7   7B00         MOV     R3,#0x0
+   \   0002B9   7A00         MOV     R2,#0x0
+   \   0002BB   798F         MOV     R1,#-0x71
+   \   0002BD   12....       LCALL   ??HalSendFrame?relay
+   1019                    
+   1020                    case 0xC5://turn on off lights
+   1021                      
+   1022                      
+   1023                      sendBuf[0]=0x83;
+   \                     ??SerialApp_CallBack_6:
+   \   0002C0   7483         MOV     A,#-0x7d
+   \   0002C2   85..82       MOV     DPL,?XSP + 0
+   \   0002C5   85..83       MOV     DPH,?XSP + 1
+   \   0002C8   F0           MOVX    @DPTR,A
+   1024                      sendBuf[1] = SerialApp_Buf[2];
+   \   0002C9   90....       MOV     DPTR,#(SerialApp_Buf + 2)
+   \   0002CC   E0           MOVX    A,@DPTR
+   \   0002CD   C0E0         PUSH    A
+   \   0002CF   7401         MOV     A,#0x1
+   \   0002D1   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002D4   D0E0         POP     A
+   \   0002D6   F0           MOVX    @DPTR,A
+   1025                      sendBuf[2] = SerialApp_Buf[3];
+   \   0002D7   90....       MOV     DPTR,#(SerialApp_Buf + 3)
+   \   0002DA   E0           MOVX    A,@DPTR
+   \   0002DB   C0E0         PUSH    A
+   \   0002DD   7402         MOV     A,#0x2
+   \   0002DF   12....       LCALL   ?XSTACK_DISP0_8
+   \   0002E2   D0E0         POP     A
+   \   0002E4   F0           MOVX    @DPTR,A
+   1026                      
+   1027                      LightCtl_DstAddr.addrMode = (afAddrMode_t)AddrBroadcast;
+   \   0002E5   740F         MOV     A,#0xf
+   \   0002E7   90....       MOV     DPTR,#(LightCtl_DstAddr + 8)
+   \   0002EA   F0           MOVX    @DPTR,A
+   1028                      LightCtl_DstAddr.endPoint = LightCtl_ENDPOINT;
+   \   0002EB   740A         MOV     A,#0xa
+   \   0002ED   90....       MOV     DPTR,#(LightCtl_DstAddr + 9)
+   \   0002F0   F0           MOVX    @DPTR,A
+   1029                      LightCtl_DstAddr.addr.shortAddr = 0xffff;
+   \   0002F1   90....       MOV     DPTR,#LightCtl_DstAddr
+   \   0002F4   74FF         MOV     A,#-0x1
+   \   0002F6   F0           MOVX    @DPTR,A
+   \   0002F7   A3           INC     DPTR
+   \   0002F8   F0           MOVX    @DPTR,A
+   1030                      
+   1031                      
+   1032                      if ( AF_DataRequest( &LightCtl_DstAddr, &LightCtl_epDesc,
+   1033                                           LightCtl_CLUSTERID,
+   1034                                           3,
+   1035                                           (byte *)sendBuf,
+   1036                                           &LightCtl_TransID,
+   1037                                           AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+   \   0002F9                ; Setup parameters for call to function AF_DataRequest
+   \   0002F9   75..1E       MOV     ?V0 + 0,#0x1e
+   \   0002FC   78..         MOV     R0,#?V0 + 0
+   \   0002FE   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000301   75....       MOV     ?V0 + 0,#(LightCtl_TransID & 0xff)
+   \   000304   75....       MOV     ?V0 + 1,#((LightCtl_TransID >> 8) & 0xff)
+   \   000307   78..         MOV     R0,#?V0 + 0
+   \   000309   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00030C   7403         MOV     A,#0x3
+   \   00030E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000311   8582..       MOV     ?V0 + 0,DPL
+   \   000314   8583..       MOV     ?V0 + 1,DPH
+   \   000317   78..         MOV     R0,#?V0 + 0
+   \   000319   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00031C   75..03       MOV     ?V0 + 0,#0x3
+   \   00031F   75..00       MOV     ?V0 + 1,#0x0
+   \   000322   78..         MOV     R0,#?V0 + 0
+   \   000324   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000327   75..01       MOV     ?V0 + 0,#0x1
+   \   00032A   78..         MOV     R0,#?V0 + 0
+   \   00032C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00032F   7920         MOV     R1,#0x20
+   \   000331   7C..         MOV     R4,#(LightCtl_epDesc & 0xff)
+   \   000333   7D..         MOV     R5,#((LightCtl_epDesc >> 8) & 0xff)
+   \   000335   7A..         MOV     R2,#(LightCtl_DstAddr & 0xff)
+   \   000337   7B..         MOV     R3,#((LightCtl_DstAddr >> 8) & 0xff)
+   \   000339   12....       LCALL   ??AF_DataRequest?relay
+   \   00033C   7409         MOV     A,#0x9
+   \   00033E   12....       LCALL   ?DEALLOC_XSTACK8
+   1038                      {
+   1039                      }
+   1040                      else
+   1041                      {} 
+   1042                      
+   1043                      break;
+   1044                      
+   1045                  }
+   1046                  
+   1047                }
+   1048                  
+   1049              }
+   1050            }
+   1051            
+   1052          }
+   \                     ??SerialApp_CallBack_0:
+   \   000341   7403         MOV     A,#0x3
+   \   000343   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000346   7F02         MOV     R7,#0x2
+   \   000348   02....       LJMP    ?BANKED_LEAVE_XDATA
+   1053          
+   1054          
+   1055          #define HAL_ADC_REF_125V    0x00    /* Internal 1.25V Reference */
+   1056          #define HAL_ADC_DEC_064     0x00    /* Decimate by 64 : 8-bit resolution */
+   1057          #define HAL_ADC_DEC_128     0x10    /* Decimate by 128 : 10-bit resolution */
+   1058          #define HAL_ADC_DEC_512     0x30    /* Decimate by 512 : 14-bit resolution */
+   1059          #define HAL_ADC_CHN_VDD3    0x0f    /* Input channel: VDD/3 */
+   1060          #define HAL_ADC_CHN_TEMP    0x0e    /* Temperature sensor */
+   1061          
+   1062          
+   1063          /******************************************************************************
+   1064           * @fn          myApp_ReadGas
+   1065           *
+   1066           * @brief       瓦斯传感器使用p07口
+   1067           *
+   1068           * @param
+   1069           *
+   1070           * @return
+   1071           ******************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1072          uint8 myApp_ReadGas( void )
+   \                     myApp_ReadGas:
+   1073          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+   1074            uint8 value;
+   1075            
+   1076            //P07设为输入
+   1077            P0DIR &= ~0x80;  // 设置P0.7为输入方式
+   \   000000   53FD7F       ANL     0xfd,#0x7f
+   1078            asm("NOP");asm("NOP");
+   \   000003   00           NOP
+   \   000004   00           NOP
+   1079          
+   1080            /* Clear ADC interrupt flag */
+   1081            ADCIF = 0;
+   \   000005   C28D         CLR     0x88.5
+   1082          
+   1083            ADCCON3 = (0x80 | HAL_ADC_DEC_064 | HAL_ADC_CHANNEL_7);
+   \   000007   75B687       MOV     0xb6,#-0x79
+   1084          
+   1085            /* Wait for the conversion to finish */
+   1086            while ( !ADCIF );
+   \                     ??myApp_ReadGas_0:
+   \   00000A   A28D         MOV     C,0x88.5
+   \   00000C   50FC         JNC     ??myApp_ReadGas_0
+   1087            
+   1088            asm("NOP");asm("NOP");
+   \   00000E   00           NOP
+   \   00000F   00           NOP
+   1089          
+   1090            /* Get the result */
+   1091            value = ADCH;
+   \   000010   E5BB         MOV     A,0xbb
+   \   000012   F9           MOV     R1,A
+   1092            
+   1093            return value;
+   \   000013   02....       LJMP    ?BRET
+   \   000016                REQUIRE _A_TCON
+   \   000016                REQUIRE ADCCON3
+   \   000016                REQUIRE ADCH
+   \   000016                REQUIRE P0DIR
+   1094          }
+   1095          
+   1096          /******************************************************************************
+   1097           * @fn          myApp_ReadGas
+   1098           *
+   1099           * @brief       瓦斯传感器使用p01口
+   1100           *
+   1101           * @param
+   1102           *
+   1103           * @return
+   1104           ******************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1105          uint8 myApp_ReadLightLevel( void )
+   \                     myApp_ReadLightLevel:
+   1106          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+   1107            uint8 value;
+   1108            
+   1109            //P01设为输入
+   1110            P0DIR &= ~0x02;  // 设置P0.1为输入方式
+   \   000000   53FDFD       ANL     0xfd,#0xfd
+   1111            
+   1112            asm("NOP");asm("NOP");
+   \   000003   00           NOP
+   \   000004   00           NOP
+   1113          
+   1114            /* Clear ADC interrupt flag */
+   1115            ADCIF = 0;
+   \   000005   C28D         CLR     0x88.5
+   1116          
+   1117            ADCCON3 = (0x80 | HAL_ADC_DEC_064 | HAL_ADC_CHANNEL_1);
+   \   000007   75B681       MOV     0xb6,#-0x7f
+   1118          
+   1119            /* Wait for the conversion to finish */
+   1120            while ( !ADCIF );
+   \                     ??myApp_ReadLightLevel_0:
+   \   00000A   A28D         MOV     C,0x88.5
+   \   00000C   50FC         JNC     ??myApp_ReadLightLevel_0
+   1121            
+   1122            asm("NOP");asm("NOP");
+   \   00000E   00           NOP
+   \   00000F   00           NOP
+   1123          
+   1124            /* Get the result */
+   1125            value = ADCH;
+   \   000010   E5BB         MOV     A,0xbb
+   \   000012   F9           MOV     R1,A
+   1126            
+   1127            return value;
+   \   000013   02....       LJMP    ?BRET
+   \   000016                REQUIRE _A_TCON
+   \   000016                REQUIRE ADCCON3
+   \   000016                REQUIRE ADCH
+   \   000016                REQUIRE P0DIR
+   1128          }
+   1129          
+   1130          /******************************************************************************
+   1131           * @fn          myApp_ReadLightOnOff
+   1132           *
+   1133           * @brief       灯控使用P11
+   1134           *
+   1135           * @param
+   1136           *
+   1137           * @return
+   1138           ******************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1139          uint8 myApp_ReadLightOnOff( void )
+   \                     myApp_ReadLightOnOff:
+   1140          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+   1141            uint8 value;
+   1142            
+   1143            if(P1_4 == 0)
+   1144            {
+   1145              value = 0;
+   \   000000   A294         MOV     C,0x90.4
+   \   000002   5004         JNC     ??myApp_ReadLightOnOff_0
+   \   000004   D2F0         SETB    B.0
+   \   000006   8002         SJMP    ??myApp_ReadLightOnOff_1
+   \                     ??myApp_ReadLightOnOff_0:
+   \   000008   C2F0         CLR     B.0
+   \                     ??myApp_ReadLightOnOff_1:
+   \   00000A   A2F0         MOV     C,B.0
+   \   00000C   E4           CLR     A
+   \   00000D   92E0         MOV     0xE0 /* A   */.0,C
+   \   00000F   F9           MOV     R1,A
+   1146            }
+   1147            else
+   1148            {
+   1149              value = 1;
+   1150            }
+   1151            
+   1152            return value;
+   \   000010   02....       LJMP    ?BRET
+   \   000013                REQUIRE _A_P1
+   1153          }
+   1154          
+   1155          /******************************************************************************
+   1156           * @fn          myApp_ReadAlarm
+   1157           *
+   1158           * @brief       灯控使用P11
+   1159           *
+   1160           * @param
+   1161           *
+   1162           * @return
+   1163           ******************************************************************************/
+   1164          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1165          uint8 myApp_ReadAlarm( void )
+   \                     myApp_ReadAlarm:
+   1166          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+   1167            uint8 value;
+   1168            
+   1169            if(P0_5 == 0)
+   1170            {
+   1171              value = 0;
+   \   000000   A285         MOV     C,0x80.5
+   \   000002   5004         JNC     ??myApp_ReadAlarm_0
+   \   000004   D2F0         SETB    B.0
+   \   000006   8002         SJMP    ??myApp_ReadAlarm_1
+   \                     ??myApp_ReadAlarm_0:
+   \   000008   C2F0         CLR     B.0
+   \                     ??myApp_ReadAlarm_1:
+   \   00000A   A2F0         MOV     C,B.0
+   \   00000C   E4           CLR     A
+   \   00000D   92E0         MOV     0xE0 /* A   */.0,C
+   \   00000F   F9           MOV     R1,A
+   1172            }
+   1173            else
+   1174            {
+   1175              value = 1;
+   1176            }
+   1177            
+   1178            return value;
+   \   000010   02....       LJMP    ?BRET
+   \   000013                REQUIRE _A_P0
+   1179          }
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for SensorID>`:
+   \   000000   02           DB 2
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??hextoword1?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    hextoword1
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??hextoword2?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    hextoword2
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??UartShowNtkInfo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    UartShowNtkInfo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??AfSendNtkInfo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    AfSendNtkInfo
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalSendFrame?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalSendFrame
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LightCtl_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LightCtl_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LightCtl_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LightCtl_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LightCtl_HandleKeys?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LightCtl_HandleKeys
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LightCtl_MessageMSGCB?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LightCtl_MessageMSGCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LightCtl_SendTheMessage?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LightCtl_SendTheMessage
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SerialApp_CallBack?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SerialApp_CallBack
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??myApp_ReadGas?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    myApp_ReadGas
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??myApp_ReadLightLevel?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    myApp_ReadLightLevel
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??myApp_ReadLightOnOff?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    myApp_ReadLightOnOff
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??myApp_ReadAlarm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    myApp_ReadAlarm
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "my short address is:">`:
+   \   000000   6D792073     DB "my short address is:"
+   \            686F7274
+   \            20616464
+   \            72657373
+   \            2069733A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "build the network suc...">`:
+   \   000000   6275696C     DB "build the network successfully"
+   \            64207468
+   \            65206E65
+   \            74776F72
+   \            6B207375
+   \            63636573
+   \            7366756C
+   \            6C7900  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "join the network succ...">`:
+   \   000000   6A6F696E     DB "join the network successfully "
+   \            20746865
+   \            206E6574
+   \            776F726B
+   \            20737563
+   \            63657373
+   \            66756C6C
+   \            792000  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {10}>`:
+   \   000000   0A           DB 10
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "my ieee address is:">`:
+   \   000000   6D792069     DB "my ieee address is:"
+   \            65656520
+   \            61646472
+   \            65737320
+   \            69733A00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "SerialApp">`:
+   \   000000   53657269     DB "SerialApp"
+   \            616C4170
+   \            7000    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "LightCtl">`:
+   \   000000   4C696768     DB "LightCtl"
+   \            7443746C
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "turn off led3">`:
+   \   000000   7475726E     DB "turn off led3"
+   \            206F6666
+   \            206C6564
+   \            3300    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "turn on led3">`:
+   \   000000   7475726E     DB "turn on led3"
+   \            206F6E20
+   \            6C656433
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Rcv temp is:">`:
+   \   000000   52637620     DB "Rcv temp is:"
+   \            74656D70
+   \            2069733A
+   \            00      
+   1180          
+   1181          /*********************************************************************
+   1182          *********************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function                     ISTACK PSTACK XSTACK
+     --------                     ------ ------ ------
+     AfSendNtkInfo                    1      0     42
+       -> NLME_GetShortAddr           0      0     42
+       -> NLME_GetExtAddr             0      0     42
+       -> AF_DataRequest              0      0     60
+     HalSendFrame                     7      0     21
+       -> HalUARTWrite                4      0     16
+     LightCtl_HandleKeys              1      0     36
+       -> HalLedBlink                 0      0     30
+       -> AF_DataRequest              0      0     48
+       -> HalLcdWriteValue            0      0     32
+       -> HalLedSet                   0      0     30
+       -> osal_start_timerEx          0      0     30
+       -> HalLedSet                   0      0     30
+       -> osal_stop_timerEx           0      0     30
+       -> HalLedBlink                 0      0     30
+       -> AF_DataRequest              0      0     48
+       -> HalLcdWriteString           0      0     30
+       -> HalLedBlink                 0      0     30
+       -> AF_DataRequest              0      0     48
+       -> HalLcdWriteString           0      0     30
+     LightCtl_Init                    3      0     29
+       -> afRegister                  4      0     58
+       -> RegisterForKeys             4      0     58
+       -> HalUARTOpen                 4      0     58
+       -> HalLcdWriteString           4      0     58
+       -> HalLcdWriteString           4      0     58
+     LightCtl_MessageMSGCB            2      0     12
+       -> HalLedSet                   4      0      0
+       -> HalLedSet                   4      0      0
+     LightCtl_ProcessEvent            0      0     12
+       -> osal_msg_receive            0      0     24
+       -> AfSendNtkInfo               0      0     24
+       -> osal_msg_deallocate         0      0     24
+       -> osal_msg_receive            0      0     24
+       -> LightCtl_HandleKeys         0      0     24
+       -> LightCtl_MessageMSGCB       0      0     24
+       -> LightCtl_SendTheMessage     0      0     24
+       -> osal_start_timerEx          0      0     24
+     LightCtl_SendTheMessage          1      0     39
+       -> read_data                   0      0     36
+       -> myApp_ReadGas               0      0     36
+       -> myApp_ReadLightLevel        0      0     36
+       -> myApp_ReadLightOnOff        0      0     36
+       -> myApp_ReadAlarm             0      0     36
+       -> AF_DataRequest              0      0     54
+     SerialApp_CallBack               2      0     22
+       -> HalUARTRead                 0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> DataChange                  0      0     26
+       -> HalLcdWriteString           0      0     26
+       -> HalLcdWriteString           0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> Delay_nus                   0      0     26
+       -> HalSendFrame                0      0     26
+       -> AF_DataRequest              0      0     44
+     UartShowNtkInfo                  2      0    140
+       -> hextoword1                  0      0    280
+       -> hextoword2                  0      0    280
+       -> hextoword1                  0      0    280
+       -> hextoword2                  0      0    280
+       -> HalUARTWrite                0      0    280
+       -> HalUARTWrite                0      0    280
+       -> HalUARTWrite                0      0    280
+       -> HalUARTWrite                0      0    280
+       -> HalUARTWrite                0      0    280
+       -> HalUARTWrite                0      0    280
+       -> HalUARTWrite                0      0    280
+       -> HalUARTWrite                0      0    280
+     hextoword1                       0      0    140
+     hextoword2                       0      0    140
+     myApp_ReadAlarm                  0      0     18
+     myApp_ReadGas                    0      0     18
+     myApp_ReadLightLevel             0      0     18
+     myApp_ReadLightOnOff             0      0     18
+
+
+   Segment part sizes:
+
+     Function/Label                         Bytes
+     --------------                         -----
+     _A_P0                                     1
+     _A_TCON                                   1
+     _A_P1                                     1
+     ADCCON3                                   1
+     ADCH                                      1
+     P0DIR                                     1
+     SerialApp_Buf                            10
+     SerialApp_Len                             1
+     sensor_TempData                           8
+     sensor_Gas                                4
+     sensor_LightLevel                         4
+     sensor_LightOnOff                         4
+     sensor_Alarm                              4
+     LightCtl_ClusterList                      2
+     LightCtl_SimpleDesc                      12
+     LightCtl_epDesc                           6
+     LightCtl_TaskID                           1
+     LightCtl_NwkState                         1
+     LightCtl_TransID                          1
+     LightCtl_DstAddr                         12
+     SensorID                                  1
+     hextoword1                               21
+     hextoword2                               20
+     UartShowNtkInfo                         544
+     AfSendNtkInfo                           317
+     HalSendFrame                            160
+     LightCtl_Init                           237
+     LightCtl_ProcessEvent                   184
+     LightCtl_HandleKeys                     570
+     cnt                                       1
+     sendFlag                                  1
+     LightCtl_MessageMSGCB                   103
+     LightCtl_SendTheMessage                 202
+     SerialApp_CallBack                      843
+     myApp_ReadGas                            22
+     myApp_ReadLightLevel                     22
+     myApp_ReadLightOnOff                     19
+     myApp_ReadAlarm                          19
+     ?<Initializer for SensorID>               1
+     ??hextoword1?relay                        6
+     ??hextoword2?relay                        6
+     ??UartShowNtkInfo?relay                   6
+     ??AfSendNtkInfo?relay                     6
+     ??HalSendFrame?relay                      6
+     ??LightCtl_Init?relay                     6
+     ??LightCtl_ProcessEvent?relay             6
+     ??LightCtl_HandleKeys?relay               6
+     ??LightCtl_MessageMSGCB?relay             6
+     ??LightCtl_SendTheMessage?relay           6
+     ??SerialApp_CallBack?relay                6
+     ??myApp_ReadGas?relay                     6
+     ??myApp_ReadLightLevel?relay              6
+     ??myApp_ReadLightOnOff?relay              6
+     ??myApp_ReadAlarm?relay                   6
+     ?<Constant "my short address is:">       21
+     ?<Constant "build the network suc...">   31
+     ?<Constant "join the network succ...">   31
+     ?<Constant {10}>                          1
+     ?<Constant "my ieee address is:">        20
+     ?<Constant "SerialApp">                  10
+     ?<Constant "LightCtl">                    9
+     ?<Constant "turn off led3">              14
+     ?<Constant "turn on led3">               13
+     ?<Constant "Rcv temp is:">               13
+
+ 
+ 3 283 bytes in segment BANKED_CODE
+    90 bytes in segment BANK_RELAYS
+     6 bytes in segment SFR_AN
+     1 byte  in segment XDATA_I
+     1 byte  in segment XDATA_ID
+   177 bytes in segment XDATA_ROM_C
+    58 bytes in segment XDATA_Z
+ 
+ 3 374 bytes of CODE  memory
+   177 bytes of CONST memory
+     0 bytes of DATA  memory (+ 6 bytes shared)
+    59 bytes of XDATA memory
+
+Errors: none
+Warnings: 7

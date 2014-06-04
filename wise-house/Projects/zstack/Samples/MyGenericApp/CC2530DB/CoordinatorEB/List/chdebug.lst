@@ -1,0 +1,1437 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.20.2.41139 for 8051             02/Apr/2014  09:55:59 #
+# Copyright 2004-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#                                                                             #
+#    Source file        =  E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \Source\chdebug.c                                  #
+#    Command line       =  -f E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg  #
+#                          (-DCPU32MHZ -DROOT=__near_func                     #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg #
+#                           (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0     #
+#                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800          #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=TRUE -DPOLL_RATE=1000         #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 E:\wise-house\Projects\zsta #
+#                          ck\Samples\MyGenericApp\Source\chdebug.c -D        #
+#                          ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC  #
+#                          -D LCD_SUPPORTED=DEBUG -D NV_RESTORE=1 -lC         #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\CoordinatorEB\List\ -lA                  #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\CoordinatorEB\List\ --diag_suppress      #
+#                          Pe001,Pa010 -o E:\wise-house\Projects\zstack\Sampl #
+#                          es\MyGenericApp\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --debug --core=plain --dptr=16,1                   #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\ -I E:\wise-house\Projects\zstack\Sam #
+#                          ples\MyGenericApp\CC2530DB\..\Source\ -I           #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\..\..\..\ZMain\TI2530DB\ -I              #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\..\..\..\..\..\Components\hal\include\   #
+#                          -I E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\..\..\..\..\..\Components\hal\target\ #
+#                          CC2530EB\ -I E:\wise-house\Projects\zstack\Samples #
+#                          \MyGenericApp\CC2530DB\..\..\..\..\..\Components\m #
+#                          ac\include\ -I E:\wise-house\Projects\zstack\Sampl #
+#                          es\MyGenericApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\high_level\ -I E:\wise-house\Projects\zstack\ #
+#                          Samples\MyGenericApp\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\mac\low_level\srf04\ -I                      #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\..\..\..\..\..\Components\mac\low_level\ #
+#                          srf04\single_chip\ -I E:\wise-house\Projects\zstac #
+#                          k\Samples\MyGenericApp\CC2530DB\..\..\..\..\..\Com #
+#                          ponents\mt\ -I E:\wise-house\Projects\zstack\Sampl #
+#                          es\MyGenericApp\CC2530DB\..\..\..\..\..\Components #
+#                          \osal\include\ -I E:\wise-house\Projects\zstack\Sa #
+#                          mples\MyGenericApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\services\saddr\ -I E:\wise-house\Projects\zsta #
+#                          ck\Samples\MyGenericApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\services\sdata\ -I                        #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\..\..\..\..\..\Components\stack\af\ -I   #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\..\..\..\..\..\Components\stack\nwk\ -I  #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\..\..\..\..\..\Components\stack\sapi\    #
+#                          -I E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\..\..\..\..\..\Components\stack\sec\  #
+#                          -I E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\..\..\..\..\..\Components\stack\sys\  #
+#                          -I E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\..\..\..\..\..\Components\stack\zdo\  #
+#                          -I E:\wise-house\Projects\zstack\Samples\MyGeneric #
+#                          App\CC2530DB\..\..\..\..\..\Components\zmac\ -I    #
+#                          E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\..\..\..\..\..\Components\zmac\f8w\ -Ohz #
+#    List file          =  E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\CoordinatorEB\List\chdebug.lst           #
+#    Object file        =  E:\wise-house\Projects\zstack\Samples\MyGenericApp #
+#                          \CC2530DB\CoordinatorEB\Obj\chdebug.r51            #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\wise-house\Projects\zstack\Samples\MyGenericApp\Source\chdebug.c
+      1          
+      2          #include "chdebug.h"
+      3          
+      4          #ifdef DEBUG_CH
+      5          #define CSR_MODE                   0x80
+      6          #define CSR_RE                     0x40
+      7          #define CSR_SLAVE                  0x20
+      8          #define CSR_FE                     0x10
+      9          #define CSR_ERR                    0x08
+     10          #define CSR_RX_BYTE                0x04
+     11          #define CSR_TX_BYTE                0x02
+     12          #define CSR_ACTIVE                 0x01
+     13          
+     14          // UxUCR - USART UART Control Register.
+     15          #define UCR_FLUSH                  0x80
+     16          #define UCR_FLOW                   0x40
+     17          #define UCR_D9                     0x20
+     18          #define UCR_BIT9                   0x10
+     19          #define UCR_PARITY                 0x08
+     20          #define UCR_SPB                    0x04
+     21          #define UCR_STOP                   0x02
+     22          #define UCR_START                  0x01
+     23          
+     24          #define UTX0IE                     0x04
+     25          #define UTX1IE                     0x08
+     26          
+     27          #define P2DIR_PRIPO                0xC0
+     28          #if (DEBUG_PORT == 0)
+     29          #define PxOUT                      P0
+     30          #define PxDIR                      P0DIR
+     31          #define PxSEL                      P0SEL
+     32          #define UxCSR                      U0CSR
+     33          #define UxUCR                      U0UCR
+     34          #define UxDBUF                     U0DBUF
+     35          #define UxBAUD                     U0BAUD
+     36          #define UxGCR                      U0GCR
+     37          #define URXxIE                     URX0IE
+     38          #define URXxIF                     URX0IF
+     39          #define UTXxIE                     UTX0IE
+     40          #define UTXxIF                     UTX0IF
+     41          #else
+     42          #define PxOUT                      P1
+     43          #define PxDIR                      P1DIR
+     44          #define PxSEL                      P1SEL
+     45          #define UxCSR                      U1CSR
+     46          #define UxUCR                      U1UCR
+     47          #define UxDBUF                     U1DBUF
+     48          #define UxBAUD                     U1BAUD
+     49          #define UxGCR                      U1GCR
+     50          #define URXxIE                     URX1IE
+     51          #define URXxIF                     URX1IF
+     52          #define UTXxIE                     UTX1IE
+     53          #define UTXxIF                     UTX1IF
+     54          #endif
+     55          
+     56          #if (DEBUG_PORT == 0)
+     57          #define HAL_UART_PERCFG_BIT        0x01         // USART0 on P0, Alt-1; so clear this bit.
+     58          #define HAL_UART_Px_RX_TX          0x0C         // Peripheral I/O Select for Rx/Tx.
+     59          #define HAL_UART_Px_RTS            0x20         // Peripheral I/O Select for RTS.
+     60          #define HAL_UART_Px_CTS            0x10         // Peripheral I/O Select for CTS.
+     61          #define HAL_UART_PRIPO             0x00
+     62          #else
+     63          #define HAL_UART_PERCFG_BIT        0x02         // USART1 on P1, Alt-2; so set this bit.
+     64          #define HAL_UART_Px_RTS            0x20         // Peripheral I/O Select for RTS.
+     65          #define HAL_UART_Px_CTS            0x10         // Peripheral I/O Select for CTS.
+     66          #define HAL_UART_Px_RX_TX          0xc0         // Peripheral I/O Select for Rx/Tx.
+     67          #define HAL_UART_PRIPO             0x40
+     68          #endif
+     69          
+     70          
+     71          static void UartInit(void)
+     72          {
+     73          	// Set P2 priority - USART0 over USART1 if both are defined.
+     74          	P2DIR &= ~P2DIR_PRIPO;
+     75          	P2DIR |= HAL_UART_PRIPO;
+     76          
+     77          #if (DEBUG_PORT == 0)
+     78          	PERCFG &= ~HAL_UART_PERCFG_BIT;    // Set UART0 I/O location to P0.
+     79          #else
+     80          	PERCFG |= HAL_UART_PERCFG_BIT;     // Set UART1 I/O location to P1.
+     81          //	PERCFG &= ~HAL_UART_PERCFG_BIT;    // Set UART1 I/O location to P0.
+     82          #endif
+     83          //	PxSEL &=~0x3c;
+     84          	PxSEL  |= HAL_UART_Px_RX_TX;       // Enable Tx and Rx on P1.
+     85          	ADCCFG &= ~HAL_UART_Px_RX_TX;      // Make sure ADC doesnt use this.
+     86          	UxCSR = CSR_MODE;                  // Mode is UART Mode.
+     87          	UxUCR = UCR_FLUSH;                 // Flush it.
+     88          	UTXxIF = 0;
+     89          	//UxGCR |= 11;				       
+     90          }
+     91          void UartOpen(halUARTCfg_t *config)
+     92          {
+     93          	UartInit();
+     94          	//isrCfg.uartCB = config->callBackFunc;
+     95          	// Only supporting subset of baudrate for code size - other is possible.
+     96          	//HAL_UART_ASSERT((config->baudRate == HAL_UART_BR_9600) ||
+     97          	//                (config->baudRate == HAL_UART_BR_19200) ||
+     98          	//                (config->baudRate == HAL_UART_BR_38400) ||
+     99          	//                (config->baudRate == HAL_UART_BR_57600) ||
+    100          	//                (config->baudRate == HAL_UART_BR_115200));
+    101          	//
+    102          	if (config->baudRate == HAL_UART_BR_57600 ||
+    103          			config->baudRate == HAL_UART_BR_115200)
+    104          	{
+    105          		UxBAUD = 216;
+    106          	}
+    107          	else
+    108          	{
+    109          		UxBAUD = 59;
+    110          	}
+    111          	
+    112          	switch (config->baudRate)
+    113          	{
+    114          		case HAL_UART_BR_9600:
+    115          			UxGCR = 8;
+    116          			break;
+    117          		case HAL_UART_BR_19200:
+    118          			UxGCR = 9;
+    119          			break;
+    120          		case HAL_UART_BR_38400:
+    121          		case HAL_UART_BR_57600:
+    122          			UxGCR = 10;
+    123          			break;
+    124          		default:
+    125          			UxGCR = 11;
+    126          			break;
+    127          	}
+    128          
+    129          	// 8 bits/char; no parity; 1 stop bit; stop bit hi.
+    130          	if (config->flowControl)
+    131          	{
+    132          		UxUCR = UCR_FLOW | UCR_STOP;
+    133          		PxSEL |= HAL_UART_Px_RTS | HAL_UART_Px_CTS;
+    134          	}
+    135          	else
+    136          	{
+    137          		UxUCR |= UCR_STOP;
+    138          	}
+    139          
+    140          	UxCSR |= CSR_RE;
+    141          	URXxIE = 1;
+    142          	//UTXxIF = 1;  // Prime the ISR pump.
+    143          }
+    144          uint16 UartSend(uint8 *buf, uint16 len)
+    145          {
+    146          	uint16 cnt;
+    147          	//uint8 res = 0;
+    148          
+    149          	//whhile(UxCSR&0x01 != 0);
+    150          	for (cnt = 0; cnt < len; cnt++)
+    151          	{
+    152          		UxDBUF = *buf++;
+    153          		//res = *buf;
+    154          		while(UTXxIF == 0);
+    155          		UTXxIF = 0;		
+    156          	}
+    157          
+    158          
+    159          	return cnt;
+    160          }
+    161          uint16 UartSend2(uint8 *buf, uint16 len)
+    162          {
+    163          	HalUARTWrite(DEBUG_PORT,buf,len);
+    164          }
+    165          
+    166          #endif
+    167          #if 1
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    168          XDATA static char strTemp_gen[70] = {0};//用于调试输出
+   \                     strTemp_gen:
+   \   000000                DS 70
+   \   000046                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    169          char ChDebugHex(const char *format,uint32 hex)
+   \                     ChDebugHex:
+    170          {
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 8,R2
+   \   000007   8B..         MOV     ?V0 + 9,R3
+    171          	int16 i;
+    172          	int16 indexDest = 0;
+   \   000009   7E00         MOV     R6,#0x0
+   \   00000B   7F00         MOV     R7,#0x0
+    173          	char err=0;
+    174          	int16 len = strlen(format);
+                 	            ^
+Warning[Pe223]: function "strlen" declared implicitly
+   \   00000D                ; Setup parameters for call to function strlen
+   \   00000D   12....       LCALL   ??strlen?relay
+   \   000010   8A..         MOV     ?V0 + 0,R2
+   \   000012   8B..         MOV     ?V0 + 1,R3
+   \   000014   AC..         MOV     R4,?V0 + 0
+   \   000016   AD..         MOV     R5,?V0 + 1
+    175          	//strcpy(strTemp_gen,format);
+    176          	for(i=0;i<len;i++)
+   \   000018   7A00         MOV     R2,#0x0
+   \   00001A   7B00         MOV     R3,#0x0
+   \   00001C   7414         MOV     A,#0x14
+   \   00001E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000021   78..         MOV     R0,#?V0 + 0
+   \   000023   12....       LCALL   ?L_MOV_X
+   \   000026   800E         SJMP    ??CrossCallReturnLabel_6
+    177          		if(format[i] == '%')
+    178          		{
+    179          			if(format[i+1] == 'x')// %x
+    180          			{
+    181          				strTemp_gen[indexDest++] = '0';
+    182          				strTemp_gen[indexDest++] = 'x';
+    183          				{
+    184          					int k;
+    185          					char isNotZeroStart=0;
+    186          					for(k=7;k>=0;k--)
+    187          					{
+    188          						unsigned char c = ((hex>>(4*k))&0x0f);
+    189          						if(c == 0 && ! isNotZeroStart && k != 0)
+    190          							continue;
+    191          						isNotZeroStart = 1;
+    192          						if(c<10)
+    193          							strTemp_gen[indexDest++] = c + '0';
+    194          						else
+    195          							strTemp_gen[indexDest++] = c + 'A' - 10;
+    196          					}
+    197          				}
+    198          				i+=2-1;
+    199          			}
+    200          			/*
+    201          			else if((format[i+1] >= '1' && format[i+1] <= '9') 
+    202          				&& format[i+2] == 'x') // %4x
+    203          			{
+    204          				{
+    205          					char num = format[i+1] - '0';
+    206          					int k;
+    207          					strTemp_gen[indexDest++] = '0';
+    208          					strTemp_gen[indexDest++] = 'x';
+    209          					for(k=num-1;k>=0;k--)
+    210          					{
+    211          						char c = ((hex>>(4*k))&0x0f);
+    212          
+    213          						if(c == 0)
+    214          							strTemp_gen[indexDest++] = ' ';
+    215          						else if(c<10)
+    216          							strTemp_gen[indexDest++] = c + '0';
+    217          						else
+    218          							strTemp_gen[indexDest++] = c + 'A' - 10;
+    219          					}
+    220          				}
+    221          				i+=3-1;
+    222          				
+    223          			}
+    224          			*/
+    225          			else if(format[i+1] == '0'
+    226          				&&(format[i+2] >= '1' && format[i+2] <= '9') 
+    227          				&& format[i+3] == 'x') // %04x
+    228          			{
+    229          				{
+    230          					char num = format[i+2] - '0';
+    231          					int k;
+    232          					strTemp_gen[indexDest++] = '0';
+    233          					strTemp_gen[indexDest++] = 'x';
+    234          					for(k=num-1;k>=0;k--)
+    235          					{
+    236          						char c = ((hex>>(4*k))&0x0f);
+    237          
+    238          						if(c<10)
+    239          							strTemp_gen[indexDest++] = c + '0';
+    240          						else
+    241          							strTemp_gen[indexDest++] = c + 'A' - 10;
+    242          					}
+    243          				}
+    244          				i+=4-1;
+    245          				
+    246          			}
+    247          			else
+    248          				strTemp_gen[indexDest++] = format[i];
+    249          
+    250          		}
+    251          		else
+    252          			strTemp_gen[indexDest++] = format[i];
+   \                     ??ChDebugHex_0:
+   \   000028   85..82       MOV     DPL,?V0 + 4
+   \   00002B   85..83       MOV     DPH,?V0 + 5
+   \   00002E   E5..         MOV     A,?V0 + 6
+   \   000030   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   000033   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000036   C3           CLR     C
+   \   000037   EA           MOV     A,R2
+   \   000038   9C           SUBB    A,R4
+   \   000039   EB           MOV     A,R3
+   \   00003A   9D           SUBB    A,R5
+   \   00003B   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00003D   65D0         XRL     A,PSW
+   \   00003F   33           RLC     A
+   \   000040   4003         JC      $+5
+   \   000042   02....       LJMP    ??ChDebugHex_1 & 0xFFFF
+   \   000045   E5..         MOV     A,?V0 + 8
+   \   000047   2A           ADD     A,R2
+   \   000048   F8           MOV     R0,A
+   \   000049   E5..         MOV     A,?V0 + 9
+   \   00004B   3B           ADDC    A,R3
+   \   00004C   F9           MOV     R1,A
+   \   00004D   8882         MOV     DPL,R0
+   \   00004F   8983         MOV     DPH,R1
+   \   000051   E0           MOVX    A,@DPTR
+   \   000052   F5..         MOV     ?V0 + 6,A
+   \   000054   74..         MOV     A,#strTemp_gen & 0xff
+   \   000056   2E           ADD     A,R6
+   \   000057   F5..         MOV     ?V0 + 4,A
+   \   000059   74..         MOV     A,#(strTemp_gen >> 8) & 0xff
+   \   00005B   3F           ADDC    A,R7
+   \   00005C   F5..         MOV     ?V0 + 5,A
+   \   00005E   7425         MOV     A,#0x25
+   \   000060   65..         XRL     A,?V0 + 6
+   \   000062   70C4         JNZ     ??ChDebugHex_0
+   \   000064   A3           INC     DPTR
+   \   000065   E0           MOVX    A,@DPTR
+   \   000066   F5..         MOV     ?V0 + 7,A
+   \   000068   7478         MOV     A,#0x78
+   \   00006A   65..         XRL     A,?V0 + 7
+   \   00006C   7065         JNZ     ??ChDebugHex_2
+   \   00006E   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000071   7900         MOV     R1,#0x0
+   \   000073   75..07       MOV     ?V0 + 10,#0x7
+   \   000076   89..         MOV     ?V0 + 11,R1
+   \                     ??ChDebugHex_3:
+   \   000078   85....       MOV     ?V0 + 4,?V0 + 0
+   \   00007B   85....       MOV     ?V0 + 5,?V0 + 1
+   \   00007E   85....       MOV     ?V0 + 6,?V0 + 2
+   \   000081   85....       MOV     ?V0 + 7,?V0 + 3
+   \   000084   E5..         MOV     A,?V0 + 10
+   \   000086   33           RLC     A
+   \   000087   33           RLC     A
+   \   000088   54FC         ANL     A,#0xfc
+   \   00008A   78..         MOV     R0,#?V0 + 4
+   \   00008C   12....       LCALL   ?UL_SHR
+   \   00008F   E5..         MOV     A,?V0 + 4
+   \   000091   540F         ANL     A,#0xf
+   \   000093   F8           MOV     R0,A
+   \   000094   700B         JNZ     ??ChDebugHex_4
+   \   000096   E9           MOV     A,R1
+   \   000097   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000099   4006         JC      ??ChDebugHex_4
+   \   00009B   E5..         MOV     A,?V0 + 10
+   \   00009D   45..         ORL     A,?V0 + 11
+   \   00009F   7011         JNZ     ??CrossCallReturnLabel_36
+   \                     ??ChDebugHex_4:
+   \   0000A1   7901         MOV     R1,#0x1
+   \   0000A3   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   0000A6   5004         JNC     ??ChDebugHex_5
+   \   0000A8   7430         MOV     A,#0x30
+   \   0000AA   8002         SJMP    ??ChDebugHex_6
+   \                     ??ChDebugHex_5:
+   \   0000AC   7437         MOV     A,#0x37
+   \                     ??ChDebugHex_6:
+   \   0000AE   28           ADD     A,R0
+   \   0000AF   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   0000B2   E5..         MOV     A,?V0 + 10
+   \   0000B4   24FF         ADD     A,#-0x1
+   \   0000B6   F5..         MOV     ?V0 + 10,A
+   \   0000B8   E5..         MOV     A,?V0 + 11
+   \   0000BA   34FF         ADDC    A,#-0x1
+   \   0000BC   F5..         MOV     ?V0 + 11,A
+   \   0000BE   C3           CLR     C
+   \   0000BF   9400         SUBB    A,#0x0
+   \   0000C1   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   0000C3   65D0         XRL     A,PSW
+   \   0000C5   33           RLC     A
+   \   0000C6   50B0         JNC     ??ChDebugHex_3
+   \   0000C8   EA           MOV     A,R2
+   \   0000C9   2401         ADD     A,#0x1
+   \   0000CB   0A           INC     R2
+   \                     ??ChDebugHex_7:
+   \   0000CC   EB           MOV     A,R3
+   \   0000CD   3400         ADDC    A,#0x0
+   \   0000CF   FB           MOV     R3,A
+   \   0000D0   02....       LJMP    ??CrossCallReturnLabel_35 & 0xFFFF
+   \                     ??ChDebugHex_2:
+   \   0000D3   7430         MOV     A,#0x30
+   \   0000D5   65..         XRL     A,?V0 + 7
+   \   0000D7   6003         JZ      $+5
+   \   0000D9   02....       LJMP    ??ChDebugHex_0 & 0xFFFF
+   \   0000DC   8882         MOV     DPL,R0
+   \   0000DE   8983         MOV     DPH,R1
+   \   0000E0   A3           INC     DPTR
+   \   0000E1   A3           INC     DPTR
+   \   0000E2   E0           MOVX    A,@DPTR
+   \   0000E3   F5..         MOV     ?V0 + 7,A
+   \   0000E5   74CF         MOV     A,#-0x31
+   \   0000E7   25..         ADD     A,?V0 + 7
+   \   0000E9   C3           CLR     C
+   \   0000EA   9409         SUBB    A,#0x9
+   \   0000EC   4003         JC      $+5
+   \   0000EE   02....       LJMP    ??ChDebugHex_0 & 0xFFFF
+   \   0000F1   8882         MOV     DPL,R0
+   \   0000F3   8983         MOV     DPH,R1
+   \   0000F5   A3           INC     DPTR
+   \   0000F6   A3           INC     DPTR
+   \   0000F7   A3           INC     DPTR
+   \   0000F8   E0           MOVX    A,@DPTR
+   \   0000F9   6478         XRL     A,#0x78
+   \   0000FB   6003         JZ      $+5
+   \   0000FD   02....       LJMP    ??ChDebugHex_0 & 0xFFFF
+   \   000100   74D0         MOV     A,#-0x30
+   \   000102   25..         ADD     A,?V0 + 7
+   \   000104   F8           MOV     R0,A
+   \   000105   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000108   E8           MOV     A,R0
+   \   000109   24FF         ADD     A,#-0x1
+   \   00010B   F5..         MOV     ?V0 + 10,A
+   \   00010D   E4           CLR     A
+   \   00010E   800E         SJMP    ??ChDebugHex_8
+   \                     ??ChDebugHex_9:
+   \   000110   7437         MOV     A,#0x37
+   \                     ??ChDebugHex_10:
+   \   000112   28           ADD     A,R0
+   \   000113   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   000116   E5..         MOV     A,?V0 + 10
+   \   000118   24FF         ADD     A,#-0x1
+   \   00011A   F5..         MOV     ?V0 + 10,A
+   \   00011C   E5..         MOV     A,?V0 + 11
+   \                     ??ChDebugHex_8:
+   \   00011E   34FF         ADDC    A,#-0x1
+   \   000120   F5..         MOV     ?V0 + 11,A
+   \   000122   C3           CLR     C
+   \   000123   E5..         MOV     A,?V0 + 11
+   \   000125   9400         SUBB    A,#0x0
+   \   000127   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000129   65D0         XRL     A,PSW
+   \   00012B   33           RLC     A
+   \   00012C   4025         JC      ??ChDebugHex_11
+   \   00012E   85....       MOV     ?V0 + 4,?V0 + 0
+   \   000131   85....       MOV     ?V0 + 5,?V0 + 1
+   \   000134   85....       MOV     ?V0 + 6,?V0 + 2
+   \   000137   85....       MOV     ?V0 + 7,?V0 + 3
+   \   00013A   E5..         MOV     A,?V0 + 10
+   \   00013C   33           RLC     A
+   \   00013D   33           RLC     A
+   \   00013E   54FC         ANL     A,#0xfc
+   \   000140   78..         MOV     R0,#?V0 + 4
+   \   000142   12....       LCALL   ?UL_SHR
+   \   000145   E5..         MOV     A,?V0 + 4
+   \   000147   540F         ANL     A,#0xf
+   \   000149   F8           MOV     R0,A
+   \   00014A   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   00014D   50C1         JNC     ??ChDebugHex_9
+   \   00014F   7430         MOV     A,#0x30
+   \   000151   80BF         SJMP    ??ChDebugHex_10
+   \                     ??ChDebugHex_11:
+   \   000153   EA           MOV     A,R2
+   \   000154   2403         ADD     A,#0x3
+   \   000156   FA           MOV     R2,A
+   \   000157   02....       LJMP    ??ChDebugHex_7 & 0xFFFF
+    253          	//strTemp_gen[indexDest++] = 0;
+    254          	UartSend(strTemp_gen,indexDest);
+                 	^
+Warning[Pe223]: function "UartSend" declared implicitly
+   \                     ??ChDebugHex_1:
+   \   00015A                ; Setup parameters for call to function UartSend
+   \   00015A   EE           MOV     A,R6
+   \   00015B   FC           MOV     R4,A
+   \   00015C   EF           MOV     A,R7
+   \   00015D   FD           MOV     R5,A
+   \   00015E   7A..         MOV     R2,#strTemp_gen & 0xff
+   \   000160   7B..         MOV     R3,#(strTemp_gen >> 8) & 0xff
+   \   000162   12....       LCALL   ??UartSend?relay
+    255          	return err;
+   \   000165   7900         MOV     R1,#0x0
+   \   000167   7F0C         MOV     R7,#0xc
+   \   000169   02....       LJMP    ?BANKED_LEAVE_XDATA
+    256          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   12....       LCALL   ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   000003   E8           MOV     A,R0
+   \   000004   C3           CLR     C
+   \   000005   940A         SUBB    A,#0xa
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   85..82       MOV     DPL,?V0 + 4
+   \   000003   85..83       MOV     DPH,?V0 + 5
+   \   000006   7430         MOV     A,#0x30
+   \   000008   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   00000B   12....       LCALL   ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_29:
+   \   00000E   7478         MOV     A,#0x78
+   \   000010   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_41:
+   \   000013   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine18_0:
+   \   000000   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   EE           MOV     A,R6
+   \   000002   2401         ADD     A,#0x1
+   \   000004   0E           INC     R6
+   \   000005   EF           MOV     A,R7
+   \   000006   3400         ADDC    A,#0x0
+   \   000008   FF           MOV     R7,A
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   EA           MOV     A,R2
+   \   000001   2401         ADD     A,#0x1
+   \   000003   0A           INC     R2
+   \   000004   EB           MOV     A,R3
+   \   000005   3400         ADDC    A,#0x0
+   \   000007   FB           MOV     R3,A
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   74..         MOV     A,#strTemp_gen & 0xff
+   \   000002   2E           ADD     A,R6
+   \   000003   F582         MOV     DPL,A
+   \   000005   74..         MOV     A,#(strTemp_gen >> 8) & 0xff
+   \   000007   3F           ADDC    A,R7
+   \   000008   F583         MOV     DPH,A
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    257          char ChDebugSigned(const char *format,int32 decimal)//有符号十进制
+   \                     ChDebugSigned:
+    258          {
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV     A,#-0x4
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL   ?Subroutine5 & 0xFFFF
+    259          	int16 i;
+    260          	int16 indexDest = 0;
+    261          	char err=0;
+    262          	int16 len = strlen(format);
+                 	            ^
+Warning[Pe223]: function "strlen" declared implicitly
+   \                     ??CrossCallReturnLabel_11:
+   \   00000D   12....       LCALL   ??strlen?relay
+   \   000010   7402         MOV     A,#0x2
+   \   000012   12....       LCALL   ?XSTACK_DISP0_8
+   \   000015   12....       LCALL   ?Subroutine9 & 0xFFFF
+    263          	//strcpy(strTemp_gen,format);
+    264          	for(i=0;i<len;i++)
+   \                     ??CrossCallReturnLabel_17:
+   \   000018   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001B   78..         MOV     R0,#?V0 + 4
+   \   00001D   12....       LCALL   ?L_MOV_X
+   \   000020   8006         SJMP    ??CrossCallReturnLabel_7
+    265          		if(format[i] == '%')
+    266          		{
+    267          			if(format[i+1] == 'd')// %d
+    268          			{
+    269          				{
+    270          					int16 l = i;
+    271          					int16 r;
+    272          					long value = decimal;
+    273          					char c;
+    274          					if(value < 0)
+    275          					{
+    276          						strTemp_gen[indexDest++] = '-';
+    277          						value = -value;
+    278          						l++;
+    279          					}
+    280          					do
+    281          					{
+    282          						c = value%10;
+    283          						strTemp_gen[indexDest++] = c + '0';
+    284          						value /= 10;
+    285          					}while(value != 0);
+    286          					////swap the string
+    287          					r = indexDest-1;
+    288          					while(l < r)
+    289          					{
+    290          						c = strTemp_gen[l];
+    291          						strTemp_gen[l] = strTemp_gen[r];
+    292          						strTemp_gen[r] = c;
+    293          						l++;
+    294          						r--;
+    295          					}
+    296          					
+    297          				}
+    298          			i+=2-1;
+    299          			}
+    300          			else
+    301          				strTemp_gen[indexDest++] = format[i];
+    302          		}
+    303          		else
+    304          			strTemp_gen[indexDest++] = format[i];
+   \                     ??ChDebugSigned_0:
+   \   000022   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   000025   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000028   7402         MOV     A,#0x2
+   \   00002A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002D   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000030   4003         JC      $+5
+   \   000032   02....       LJMP    ??ChDebugSigned_1 & 0xFFFF
+   \   000035   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000038   70E8         JNZ     ??ChDebugSigned_0
+   \   00003A   A3           INC     DPTR
+   \   00003B   E0           MOVX    A,@DPTR
+   \   00003C   6464         XRL     A,#0x64
+   \   00003E   70E2         JNZ     ??ChDebugSigned_0
+   \   000040   EA           MOV     A,R2
+   \   000041   FC           MOV     R4,A
+   \   000042   EB           MOV     A,R3
+   \   000043   FD           MOV     R5,A
+   \   000044   85....       MOV     ?V0 + 8,?V0 + 4
+   \   000047   85....       MOV     ?V0 + 9,?V0 + 5
+   \   00004A   85....       MOV     ?V0 + 10,?V0 + 6
+   \   00004D   85....       MOV     ?V0 + 11,?V0 + 7
+   \   000050   90....       MOV     DPTR,#__Constant_0
+   \   000053   78..         MOV     R0,#?V0 + 8
+   \   000055   12....       LCALL   ?SL_GE_X
+   \   000058   4009         JC      ??CrossCallReturnLabel_32
+   \   00005A   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   00005D   12....       LCALL   ?L_NEG
+   \   000060   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   000063   85....       MOV     ?V0 + 0,?V0 + 8
+   \   000066   85....       MOV     ?V0 + 1,?V0 + 9
+   \   000069   85....       MOV     ?V0 + 2,?V0 + 10
+   \   00006C   85....       MOV     ?V0 + 3,?V0 + 11
+   \   00006F   90....       MOV     DPTR,#__Constant_a
+   \   000072   78..         MOV     R0,#?V0 + 12
+   \   000074   12....       LCALL   ?L_MOV_X
+   \   000077   78..         MOV     R0,#?V0 + 0
+   \   000079   79..         MOV     R1,#?V0 + 12
+   \   00007B   12....       LCALL   ?L_DIV_MOD
+   \   00007E   E5..         MOV     A,?V0 + 12
+   \   000080   2430         ADD     A,#0x30
+   \   000082   C0E0         PUSH    A
+   \   000084   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   000087   D0E0         POP     A
+   \   000089   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   00008C   12....       LCALL   ?L_MOV_X
+   \   00008F   78..         MOV     R0,#?V0 + 8
+   \   000091   79..         MOV     R1,#?V0 + 0
+   \   000093   12....       LCALL   ?L_DIV_MOD
+   \   000096   E5..         MOV     A,?V0 + 8
+   \   000098   45..         ORL     A,?V0 + 9
+   \   00009A   45..         ORL     A,?V0 + 10
+   \   00009C   45..         ORL     A,?V0 + 11
+   \   00009E   70C3         JNZ     ??CrossCallReturnLabel_32
+   \   0000A0   EE           MOV     A,R6
+   \   0000A1   24FF         ADD     A,#-0x1
+   \   0000A3   F8           MOV     R0,A
+   \   0000A4   EF           MOV     A,R7
+   \   0000A5   8003         SJMP    ??CrossCallReturnLabel_4
+   \                     ??ChDebugSigned_2:
+   \   0000A7   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0000AA   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   0000AD   40F8         JC      ??ChDebugSigned_2
+   \   0000AF   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   0000B2   02....       LJMP    ??CrossCallReturnLabel_38 & 0xFFFF
+    305          	//strTemp_gen[indexDest++] = 0;
+    306          	UartSend(strTemp_gen,indexDest);
+                 	^
+Warning[Pe223]: function "UartSend" declared implicitly
+   \                     ??ChDebugSigned_1:
+   \   0000B5                ; Setup parameters for call to function UartSend
+   \   0000B5                REQUIRE ?Subroutine0
+   \   0000B5                ; // Fall through to label ?Subroutine0
+    307          	return err;
+    308          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   EE           MOV     A,R6
+   \   000001   FC           MOV     R4,A
+   \   000002   EF           MOV     A,R7
+   \   000003   FD           MOV     R5,A
+   \   000004   7A..         MOV     R2,#strTemp_gen & 0xff
+   \   000006   7B..         MOV     R3,#(strTemp_gen >> 8) & 0xff
+   \   000008   12....       LCALL   ??UartSend?relay
+   \   00000B   7900         MOV     R1,#0x0
+   \   00000D   7404         MOV     A,#0x4
+   \   00000F   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000012   7F10         MOV     R7,#0x10
+   \   000014   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   EC           MOV     A,R4
+   \   000001   8882         MOV     DPL,R0
+   \   000003   8983         MOV     DPH,R1
+   \   000005                REQUIRE ??Subroutine18_0
+   \   000005                ; // Fall through to label ??Subroutine18_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   EC           MOV     A,R4
+   \   000001   2401         ADD     A,#0x1
+   \   000003   0C           INC     R4
+   \   000004   ED           MOV     A,R5
+   \   000005   3400         ADDC    A,#0x0
+   \   000007   FD           MOV     R5,A
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   12....       LCALL   ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   34FF         ADDC    A,#-0x1
+   \   000002   F9           MOV     R1,A
+   \   000003   C3           CLR     C
+   \   000004   EC           MOV     A,R4
+   \   000005   98           SUBB    A,R0
+   \   000006   ED           MOV     A,R5
+   \   000007   99           SUBB    A,R1
+   \   000008   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00000A   65D0         XRL     A,PSW
+   \   00000C   33           RLC     A
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   C3           CLR     C
+   \   000006   EA           MOV     A,R2
+   \   000007   98           SUBB    A,R0
+   \   000008   EB           MOV     A,R3
+   \   000009   99           SUBB    A,R1
+   \   00000A   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00000C   65D0         XRL     A,PSW
+   \   00000E   33           RLC     A
+   \   00000F   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   EA           MOV     A,R2
+   \   000001   F0           MOVX    @DPTR,A
+   \   000002   A3           INC     DPTR
+   \   000003   EB           MOV     A,R3
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   7A00         MOV     R2,#0x0
+   \   000007   7B00         MOV     R3,#0x0
+   \   000009   741C         MOV     A,#0x1c
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   85..82       MOV     DPL,?V0 + 0
+   \   000003   8983         MOV     DPH,R1
+   \   000005   742D         MOV     A,#0x2d
+   \   000007   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   00000A   78..         MOV     R0,#?V0 + 8
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   000003   90....       MOV     DPTR,#__Constant_a
+   \   000006   78..         MOV     R0,#?V0 + 0
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   EA           MOV     A,R2
+   \   000007   F0           MOVX    @DPTR,A
+   \   000008   A3           INC     DPTR
+   \   000009   EB           MOV     A,R3
+   \   00000A   F0           MOVX    @DPTR,A
+   \   00000B   7E00         MOV     R6,#0x0
+   \   00000D   7F00         MOV     R7,#0x0
+   \   00000F                ; Setup parameters for call to function strlen
+   \   00000F                ; Setup parameters for call to function strlen
+   \   00000F   85..82       MOV     DPL,?XSP + 0
+   \   000012   85..83       MOV     DPH,?XSP + 1
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   FA           MOV     R2,A
+   \   000017   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   74..         MOV     A,#strTemp_gen & 0xff
+   \   000002   2C           ADD     A,R4
+   \   000003   F5..         MOV     ?V0 + 0,A
+   \   000005   74..         MOV     A,#(strTemp_gen >> 8) & 0xff
+   \   000007   3D           ADDC    A,R5
+   \   000008   F5..         MOV     ?V0 + 1,A
+   \   00000A   85..82       MOV     DPL,?V0 + 0
+   \   00000D   F583         MOV     DPH,A
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   F5..         MOV     ?V0 + 8,A
+   \   000012   74..         MOV     A,#strTemp_gen & 0xff
+   \   000014   28           ADD     A,R0
+   \   000015   F5..         MOV     ?V0 + 2,A
+   \   000017   74..         MOV     A,#(strTemp_gen >> 8) & 0xff
+   \   000019   39           ADDC    A,R1
+   \   00001A   F5..         MOV     ?V0 + 3,A
+   \   00001C   85..82       MOV     DPL,?V0 + 2
+   \   00001F   F583         MOV     DPH,A
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   85..82       MOV     DPL,?V0 + 0
+   \   000025   85..83       MOV     DPH,?V0 + 1
+   \   000028   F0           MOVX    @DPTR,A
+   \   000029   85..82       MOV     DPL,?V0 + 2
+   \   00002C   85..83       MOV     DPH,?V0 + 3
+   \   00002F   E5..         MOV     A,?V0 + 8
+   \   000031   F0           MOVX    @DPTR,A
+   \   000032   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   000035   E8           MOV     A,R0
+   \   000036   24FF         ADD     A,#-0x1
+   \   000038   18           DEC     R0
+   \   000039   E9           MOV     A,R1
+   \   00003A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   2A           ADD     A,R2
+   \   000008   F8           MOV     R0,A
+   \   000009   A3           INC     DPTR
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   3B           ADDC    A,R3
+   \   00000C   F9           MOV     R1,A
+   \   00000D   8882         MOV     DPL,R0
+   \   00000F   8983         MOV     DPH,R1
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   FC           MOV     R4,A
+   \   000013   74..         MOV     A,#strTemp_gen & 0xff
+   \   000015   2E           ADD     A,R6
+   \   000016   F8           MOV     R0,A
+   \   000017   74..         MOV     A,#(strTemp_gen >> 8) & 0xff
+   \   000019   3F           ADDC    A,R7
+   \   00001A   F9           MOV     R1,A
+   \   00001B   88..         MOV     ?V0 + 0,R0
+   \   00001D   7425         MOV     A,#0x25
+   \   00001F   6C           XRL     A,R4
+   \   000020   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    309          char ChDebugUnsigned(const char *format,uint32 decimal)//无符号十进制
+   \                     ChDebugUnsigned:
+    310          {
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV     A,#-0x4
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL   ?Subroutine5 & 0xFFFF
+    311          	int16 i;
+    312          	int16 indexDest = 0;
+    313          	char err=0;
+    314          	int16 len = strlen(format);
+                 	            ^
+Warning[Pe223]: function "strlen" declared implicitly
+   \                     ??CrossCallReturnLabel_12:
+   \   00000D   12....       LCALL   ??strlen?relay
+   \   000010   7402         MOV     A,#0x2
+   \   000012   12....       LCALL   ?XSTACK_DISP0_8
+   \   000015   12....       LCALL   ?Subroutine9 & 0xFFFF
+    315          	//strcpy(strTemp_gen,format);
+    316          	for(i=0;i<len;i++)
+   \                     ??CrossCallReturnLabel_18:
+   \   000018   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001B   78..         MOV     R0,#?V0 + 4
+   \   00001D   12....       LCALL   ?L_MOV_X
+   \   000020   8006         SJMP    ??CrossCallReturnLabel_9
+    317          		if(format[i] == '%')
+    318          		{
+    319          			if(format[i+1] == 'd')// %d
+    320          			{
+    321          				{
+    322          					int l = i;
+    323          					int r;
+    324          					long value = decimal;
+    325          					char c;
+    326          					if(value < 0)
+    327          					{
+    328          						strTemp_gen[indexDest++] = '-';
+    329          						value = -value;
+    330          						l++;
+    331          					}
+    332          					do
+    333          					{
+    334          						c = value%10;
+    335          						strTemp_gen[indexDest++] = c + '0';
+    336          						value /= 10;
+    337          					}while(value != 0);
+    338          					////swap the string
+    339          					r = indexDest-1;
+    340          					while(l < r)
+    341          					{
+    342          						c = strTemp_gen[l];
+    343          						strTemp_gen[l] = strTemp_gen[r];
+    344          						strTemp_gen[r] = c;
+    345          						l++;
+    346          						r--;
+    347          					}
+    348          					
+    349          				}
+    350          				i+=2-1;
+    351          			}
+    352          			else
+    353          				strTemp_gen[indexDest++] = format[i];
+    354          			
+    355          
+    356          		}
+    357          		else
+    358          			strTemp_gen[indexDest++] = format[i];
+   \                     ??ChDebugUnsigned_0:
+   \   000022   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   000025   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000028   7402         MOV     A,#0x2
+   \   00002A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002D   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   000030   4003         JC      $+5
+   \   000032   02....       LJMP    ??ChDebugUnsigned_1 & 0xFFFF
+   \   000035   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000038   70E8         JNZ     ??ChDebugUnsigned_0
+   \   00003A   A3           INC     DPTR
+   \   00003B   E0           MOVX    A,@DPTR
+   \   00003C   6464         XRL     A,#0x64
+   \   00003E   70E2         JNZ     ??ChDebugUnsigned_0
+   \   000040   EA           MOV     A,R2
+   \   000041   FC           MOV     R4,A
+   \   000042   EB           MOV     A,R3
+   \   000043   FD           MOV     R5,A
+   \   000044   85....       MOV     ?V0 + 8,?V0 + 4
+   \   000047   85....       MOV     ?V0 + 9,?V0 + 5
+   \   00004A   85....       MOV     ?V0 + 10,?V0 + 6
+   \   00004D   85....       MOV     ?V0 + 11,?V0 + 7
+   \   000050   90....       MOV     DPTR,#__Constant_0
+   \   000053   78..         MOV     R0,#?V0 + 8
+   \   000055   12....       LCALL   ?SL_GE_X
+   \   000058   4009         JC      ??CrossCallReturnLabel_33
+   \   00005A   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   00005D   12....       LCALL   ?L_NEG
+   \   000060   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   000063   85....       MOV     ?V0 + 0,?V0 + 8
+   \   000066   85....       MOV     ?V0 + 1,?V0 + 9
+   \   000069   85....       MOV     ?V0 + 2,?V0 + 10
+   \   00006C   85....       MOV     ?V0 + 3,?V0 + 11
+   \   00006F   90....       MOV     DPTR,#__Constant_a
+   \   000072   78..         MOV     R0,#?V0 + 12
+   \   000074   12....       LCALL   ?L_MOV_X
+   \   000077   78..         MOV     R0,#?V0 + 0
+   \   000079   79..         MOV     R1,#?V0 + 12
+   \   00007B   12....       LCALL   ?L_DIV_MOD
+   \   00007E   E5..         MOV     A,?V0 + 12
+   \   000080   2430         ADD     A,#0x30
+   \   000082   C0E0         PUSH    A
+   \   000084   12....       LCALL   ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   000087   D0E0         POP     A
+   \   000089   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   00008C   12....       LCALL   ?L_MOV_X
+   \   00008F   78..         MOV     R0,#?V0 + 8
+   \   000091   79..         MOV     R1,#?V0 + 0
+   \   000093   12....       LCALL   ?L_DIV_MOD
+   \   000096   E5..         MOV     A,?V0 + 8
+   \   000098   45..         ORL     A,?V0 + 9
+   \   00009A   45..         ORL     A,?V0 + 10
+   \   00009C   45..         ORL     A,?V0 + 11
+   \   00009E   70C3         JNZ     ??CrossCallReturnLabel_33
+   \   0000A0   EE           MOV     A,R6
+   \   0000A1   24FF         ADD     A,#-0x1
+   \   0000A3   F8           MOV     R0,A
+   \   0000A4   EF           MOV     A,R7
+   \   0000A5   8003         SJMP    ??CrossCallReturnLabel_5
+   \                     ??ChDebugUnsigned_2:
+   \   0000A7   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   0000AA   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   0000AD   40F8         JC      ??ChDebugUnsigned_2
+   \   0000AF   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   0000B2   02....       LJMP    ??CrossCallReturnLabel_39 & 0xFFFF
+    359          	//strTemp_gen[indexDest++] = 0;
+    360          	UartSend(strTemp_gen,indexDest);
+                 	^
+Warning[Pe223]: function "UartSend" declared implicitly
+   \                     ??ChDebugUnsigned_1:
+   \   0000B5                ; Setup parameters for call to function UartSend
+   \   0000B5   02....       LJMP    ?Subroutine0 & 0xFFFF
+    361          	return err;
+    362          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    363          char ChDebugStr(const char *format,char* str)
+   \                     ChDebugStr:
+    364          {
+   \   000000   74EE         MOV     A,#-0x12
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 18
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 4,R2
+   \   000007   8B..         MOV     ?V0 + 5,R3
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+    365          	int16 i;
+    366          	int16 indexDest = 0;
+   \   00000D   75..00       MOV     ?V0 + 0,#0x0
+   \   000010   75..00       MOV     ?V0 + 1,#0x0
+    367          	char err=0;
+    368          	int16 len = strlen(format);
+                 	            ^
+Warning[Pe223]: function "strlen" declared implicitly
+   \   000013                ; Setup parameters for call to function strlen
+   \   000013   12....       LCALL   ??strlen?relay
+   \   000016   8A..         MOV     ?V0 + 6,R2
+   \   000018   8B..         MOV     ?V0 + 7,R3
+    369          	//strcpy(strTemp_gen,format);
+    370          	for(i=0;i<len;i++)
+   \   00001A   75..00       MOV     ?V0 + 2,#0x0
+   \   00001D   75..00       MOV     ?V0 + 3,#0x0
+   \   000020   8015         SJMP    ??CrossCallReturnLabel_19
+    371          		if(format[i] == '%')
+    372          		{
+    373          			if(format[i+1] == 's')// %s
+    374          			{
+    375          				strTemp_gen[indexDest] = '\0';
+    376          				strcpy(&strTemp_gen[indexDest],str);
+                 				^
+Warning[Pe223]: function "strcpy" declared implicitly
+    377          				indexDest += strlen(str);
+    378          				i+=2-1;
+    379          			}
+    380          			else
+    381          				strTemp_gen[indexDest++] = format[i];
+    382          		}
+    383          		else
+    384          			strTemp_gen[indexDest++] = format[i];
+   \                     ??ChDebugStr_0:
+   \   000022   E8           MOV     A,R0
+   \   000023   8A82         MOV     DPL,R2
+   \   000025   8B83         MOV     DPH,R3
+   \   000027   F0           MOVX    @DPTR,A
+   \   000028   E5..         MOV     A,?V0 + 0
+   \   00002A   2401         ADD     A,#0x1
+   \   00002C   F5..         MOV     ?V0 + 0,A
+   \   00002E   E5..         MOV     A,?V0 + 1
+   \   000030   3400         ADDC    A,#0x0
+   \   000032   F5..         MOV     ?V0 + 1,A
+   \                     ??ChDebugStr_1:
+   \   000034   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000037   C3           CLR     C
+   \   000038   E5..         MOV     A,?V0 + 2
+   \   00003A   95..         SUBB    A,?V0 + 6
+   \   00003C   E5..         MOV     A,?V0 + 3
+   \   00003E   95..         SUBB    A,?V0 + 7
+   \   000040   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000042   65D0         XRL     A,PSW
+   \   000044   33           RLC     A
+   \   000045   504C         JNC     ??ChDebugStr_2
+   \   000047   E5..         MOV     A,?V0 + 4
+   \   000049   25..         ADD     A,?V0 + 2
+   \   00004B   F582         MOV     DPL,A
+   \   00004D   E5..         MOV     A,?V0 + 5
+   \   00004F   35..         ADDC    A,?V0 + 3
+   \   000051   F583         MOV     DPH,A
+   \   000053   E0           MOVX    A,@DPTR
+   \   000054   F8           MOV     R0,A
+   \   000055   74..         MOV     A,#strTemp_gen & 0xff
+   \   000057   25..         ADD     A,?V0 + 0
+   \   000059   FA           MOV     R2,A
+   \   00005A   74..         MOV     A,#(strTemp_gen >> 8) & 0xff
+   \   00005C   35..         ADDC    A,?V0 + 1
+   \   00005E   FB           MOV     R3,A
+   \   00005F   7425         MOV     A,#0x25
+   \   000061   68           XRL     A,R0
+   \   000062   70BE         JNZ     ??ChDebugStr_0
+   \   000064   A3           INC     DPTR
+   \   000065   E0           MOVX    A,@DPTR
+   \   000066   6473         XRL     A,#0x73
+   \   000068   70B8         JNZ     ??ChDebugStr_0
+   \   00006A   8A82         MOV     DPL,R2
+   \   00006C   8B83         MOV     DPH,R3
+   \   00006E   E4           CLR     A
+   \   00006F   F0           MOVX    @DPTR,A
+   \   000070                ; Setup parameters for call to function strcpy
+   \   000070   EE           MOV     A,R6
+   \   000071   FC           MOV     R4,A
+   \   000072   EF           MOV     A,R7
+   \   000073   FD           MOV     R5,A
+   \   000074   12....       LCALL   ??strcpy?relay
+   \   000077                ; Setup parameters for call to function strlen
+   \   000077   EE           MOV     A,R6
+   \   000078   FA           MOV     R2,A
+   \   000079   EF           MOV     A,R7
+   \   00007A   FB           MOV     R3,A
+   \   00007B   12....       LCALL   ??strlen?relay
+   \   00007E   8A..         MOV     ?V0 + 8,R2
+   \   000080   8B..         MOV     ?V0 + 9,R3
+   \   000082   E5..         MOV     A,?V0 + 0
+   \   000084   25..         ADD     A,?V0 + 8
+   \   000086   F5..         MOV     ?V0 + 0,A
+   \   000088   E5..         MOV     A,?V0 + 1
+   \   00008A   35..         ADDC    A,?V0 + 9
+   \   00008C   F5..         MOV     ?V0 + 1,A
+   \   00008E   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000091   80A1         SJMP    ??ChDebugStr_1
+    385          	//strTemp_gen[indexDest++] = 0;
+    386          	UartSend(strTemp_gen,indexDest);
+                 	^
+Warning[Pe223]: function "UartSend" declared implicitly
+   \                     ??ChDebugStr_2:
+   \   000093                ; Setup parameters for call to function UartSend
+   \   000093   AC..         MOV     R4,?V0 + 0
+   \   000095   AD..         MOV     R5,?V0 + 1
+   \   000097   7A..         MOV     R2,#strTemp_gen & 0xff
+   \   000099   7B..         MOV     R3,#(strTemp_gen >> 8) & 0xff
+   \   00009B   12....       LCALL   ??UartSend?relay
+    387          	return err;
+   \   00009E   7900         MOV     R1,#0x0
+   \   0000A0   7F0A         MOV     R7,#0xa
+   \   0000A2   02....       LJMP    ?BANKED_LEAVE_XDATA
+    388          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   E5..         MOV     A,?V0 + 2
+   \   000002   2401         ADD     A,#0x1
+   \   000004   F5..         MOV     ?V0 + 2,A
+   \   000006   E5..         MOV     A,?V0 + 3
+   \   000008   3400         ADDC    A,#0x0
+   \   00000A   F5..         MOV     ?V0 + 3,A
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    389          char ChDebugTag(const char *format)
+   \                     ChDebugTag:
+    390          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    391          	char err=0;
+    392          	int16 len = strlen(format);
+                 	            ^
+Warning[Pe223]: function "strlen" declared implicitly
+    393          	//strcpy(strTemp_gen,format);
+    394          	//strTemp_gen[indexDest++] = 0;
+    395          	UartSend((unsigned char*)format,len);
+                 	^
+Warning[Pe223]: function "UartSend" declared implicitly
+   \   000009                ; Setup parameters for call to function UartSend
+   \   000009                ; Setup parameters for call to function strlen
+   \   000009   12....       LCALL   ??strlen?relay
+   \   00000C   EA           MOV     A,R2
+   \   00000D   FC           MOV     R4,A
+   \   00000E   EB           MOV     A,R3
+   \   00000F   FD           MOV     R5,A
+   \   000010   EE           MOV     A,R6
+   \   000011   FA           MOV     R2,A
+   \   000012   EF           MOV     A,R7
+   \   000013   FB           MOV     R3,A
+   \   000014   12....       LCALL   ??UartSend?relay
+    396          	return err;
+   \   000017   7900         MOV     R1,#0x0
+   \   000019   7F01         MOV     R7,#0x1
+   \   00001B   02....       LJMP    ?BANKED_LEAVE_XDATA
+    397          }
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_a:
+   \   000000   0A000000     DD 10
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ChDebugHex?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ChDebugHex
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ChDebugSigned?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ChDebugSigned
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ChDebugUnsigned?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ChDebugUnsigned
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ChDebugStr?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ChDebugStr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ChDebugTag?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ChDebugTag
+    398          
+    399          #endif
+
+   Maximum stack usage in bytes:
+
+   ISTACK PSTACK XSTACK Function
+   ------ ------ ------ --------
+       1      0     24  ChDebugHex
+                          0 0 20 -> UartSend
+                          0 0 20 -> strlen
+       1      0     32  ChDebugSigned
+                          0 0 28 -> UartSend
+                          0 0 28 -> strlen
+       1      0     18  ChDebugStr
+                          0 0 18 -> UartSend
+                          0 0 18 -> strcpy
+                          0 0 18 -> strlen
+       0      0      9  ChDebugTag
+                          0 0  9 -> UartSend
+                          0 0  9 -> strlen
+       1      0     32  ChDebugUnsigned
+                          0 0 28 -> UartSend
+                          0 0 28 -> strlen
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       6  ??ChDebugHex?relay
+       6  ??ChDebugSigned?relay
+       6  ??ChDebugStr?relay
+       6  ??ChDebugTag?relay
+       6  ??ChDebugUnsigned?relay
+       4  ??Subroutine18_0
+      23  ?Subroutine0
+      20  ?Subroutine1
+      13  ?Subroutine10
+      16  ?Subroutine11
+      14  ?Subroutine12
+       8  ?Subroutine13
+       4  ?Subroutine14
+      10  ?Subroutine15
+      11  ?Subroutine16
+       9  ?Subroutine17
+      33  ?Subroutine2
+      59  ?Subroutine3
+       9  ?Subroutine4
+      24  ?Subroutine5
+       9  ?Subroutine6
+      13  ?Subroutine7
+       5  ?Subroutine8
+      12  ?Subroutine9
+     364  ChDebugHex
+     181  ChDebugSigned
+     165  ChDebugStr
+      30  ChDebugTag
+     184  ChDebugUnsigned
+       4  __Constant_0
+       4  __Constant_a
+      70  strTemp_gen
+
+ 
+ 1 220 bytes in segment BANKED_CODE
+    30 bytes in segment BANK_RELAYS
+     8 bytes in segment XDATA_ROM_C
+    70 bytes in segment XDATA_Z
+ 
+ 1 250 bytes of CODE  memory
+     0 bytes of CONST memory (+ 8 bytes shared)
+    70 bytes of XDATA memory
+
+Errors: none
+Warnings: 11

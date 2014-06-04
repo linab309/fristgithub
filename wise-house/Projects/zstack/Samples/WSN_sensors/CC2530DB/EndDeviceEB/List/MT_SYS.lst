@@ -1,0 +1,1903 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                29/Sep/2011  15:47:03 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Com #
+#                          ponents\mt\MT_SYS.c                                #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0 #
+#                          \Projects\zstack\Samples\LightCtlPrj\CC2530DB\..\. #
+#                          .\..\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ      #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\Tools\CC #
+#                          2530DB\f8wConfig.cfg" (-DSECURE=0                  #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00001000                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1212                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Co #
+#                          mponents\mt\MT_SYS.c" -D NWK_AUTO_POLL -D          #
+#                          ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC  #
+#                          -D LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE -D         #
+#                          xPOWER_SAVING -lC "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\EndDeviceEB\List\ #
+#                          " -lA "C:\Texas Instruments\ZStack-CC2530-2.2.2-1. #
+#                          3.0\Projects\zstack\Samples\LightCtlPrj\CC2530DB\E #
+#                          ndDeviceEB\List\" --diag_suppress Pe001,Pa010 -o   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\LightCtlPrj\CC2530DB\EndDevi #
+#                          ceEB\Obj\" -e --require_prototypes --debug         #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 8 -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\" -I "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\SOURCE\" -I    #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pr #
+#                          ojects\zstack\Samples\LightCtlPrj\CC2530DB\..\..\. #
+#                          .\ZMAIN\TI2530DB\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MT\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\HAL\INCLUDE\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\HAL\TARGET\CC2530EB\" -I "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\OSAL\INCLUDE\" -I "C:\Texas               #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\AF\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\NWK\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SEC\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SAPI\" -I "C:\Texas                 #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\SYS\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\STACK\ZDO\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\ZMAC\F8W\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\ZMAC\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\SERVICES\SADDR\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\SERVICES\SDATA\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\INCLUDE\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\HIGH_LEVEL\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.2.2-1.3.0\Projects\zst #
+#                          ack\Samples\LightCtlPrj\CC2530DB\..\..\..\..\..\CO #
+#                          MPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I      #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\LightCtlPrj\CC2530DB\EndDevic #
+#                          eEB\List\MT_SYS.lst                                #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Pro #
+#                          jects\zstack\Samples\LightCtlPrj\CC2530DB\EndDevic #
+#                          eEB\Obj\MT_SYS.r51                                 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.2.2-1.3.0\Components\mt\MT_SYS.c
+      1          /***************************************************************************************************
+      2            Filename:       MT_SYS.c
+      3            Revised:        $Date: 2009-08-03 16:37:19 -0700 (Mon, 03 Aug 2009) $
+      4            Revision:       $Revision: 20446 $
+      5          
+      6            Description:   MonitorTest
+      7          
+      8            Copyright 2007-2009 Texas Instruments Incorporated. All rights reserved.
+      9          
+     10            IMPORTANT: Your use of this Software is limited to those specific rights
+     11            granted under the terms of a software license agreement between the user
+     12            who downloaded the software, his/her employer (which must be your employer)
+     13            and Texas Instruments Incorporated (the "License").  You may not use this
+     14            Software unless you agree to abide by the terms of the License. The License
+     15            limits your use, and you acknowledge, that the Software may not be modified,
+     16            copied or distributed unless embedded on a Texas Instruments microcontroller
+     17            or used solely and exclusively in conjunction with a Texas Instruments radio
+     18            frequency transceiver, which is integrated into your product.  Other than for
+     19            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     20            works of, modify, distribute, perform, display or sell this Software and/or
+     21            its documentation for any purpose.
+     22          
+     23            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     24            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     26            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     27            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     28            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     29            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     30            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     31            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     32            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     33            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     34          
+     35            Should you have any questions regarding your right to use this Software,
+     36            contact Texas Instruments Incorporated at www.TI.com.
+     37          
+     38           ***************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           * INCLUDES
+     42           ***************************************************************************************************/
+     43          #include "ZComDef.h"
+     44          #include "MT.h"
+     45          #include "MT_SYS.h"
+     46          #include "MT_VERSION.h"
+     47          #include "nwk_util.h"
+     48          #include "OSAL_NV.h"
+     49          #include "Onboard.h"  /* This is here because RAM read/write macros need it */
+
+   \                                 In  segment SFR_AN, at 0x9d
+   \   unsigned char volatile __sfr SLEEPSTA
+   \                     SLEEPSTA:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc9
+   \   unsigned char volatile __sfr WDCTL
+   \                     WDCTL:
+   \   000000                DS 1
+     50          #include "hal_adc.h"
+     51          #include "ZGlobals.h"
+     52          
+     53          /***************************************************************************************************
+     54           * MACROS
+     55           ***************************************************************************************************/
+     56          
+     57          #define MT_SYS_DEVICE_INFO_RESPONSE_LEN 14
+     58          #define MT_NV_ITEM_MAX_LENGTH           250
+     59          
+     60          /***************************************************************************************************
+     61           * CONSTANT
+     62           ***************************************************************************************************/
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     63          const uint16 MT_SysOsalEventId [] = {
+   \                     MT_SysOsalEventId:
+   \   000000   00080004     DW 2048, 1024, 512, 256
+   \            00020001
+     64                                                MT_SYS_OSAL_EVENT_0,
+     65                                                MT_SYS_OSAL_EVENT_1,
+     66                                                MT_SYS_OSAL_EVENT_2,
+     67                                                MT_SYS_OSAL_EVENT_3
+     68                                              };
+     69          
+     70          typedef enum {
+     71            GPIO_DIR,
+     72            GPIO_TRI,
+     73            GPIO_SET,
+     74            GPIO_CLR,
+     75            GPIO_TOG,
+     76            GPIO_GET,
+     77            GPIO_HiD = 0x12
+     78          } GPIO_Op_t;
+     79          
+     80          #define GPIO_MASK  0x33
+     81          
+     82          /***************************************************************************************************
+     83           * EXTERNAL FUNCTIONS
+     84           ***************************************************************************************************/
+     85          extern uint16 HalAdcReadVoltage(void);
+     86          extern uint16 HalAdcReadTemperature(void);
+     87          
+     88          /***************************************************************************************************
+     89           * LOCAL FUNCTIONS
+     90           ***************************************************************************************************/
+     91          #if defined (MT_SYS_FUNC)
+     92          void MT_SysReset(uint8 *pBuf);
+     93          void MT_SysPing(void);
+     94          void MT_SysVersion(void);
+     95          void MT_SysSetExtAddr(uint8 *pBuf);
+     96          void MT_SysGetExtAddr(void);
+     97          void MT_SysOsalNVWrite(uint8 *pBuf);
+     98          void MT_SysOsalNVRead(uint8 *pBuf);
+     99          void MT_SysOsalStartTimer(uint8 *pBuf);
+    100          void MT_SysOsalStopTimer(uint8 *pBuf);
+    101          void MT_SysRandom(void);
+    102          void MT_SysAdcRead(uint8 *pBuf);
+    103          void MT_SysGpio(uint8 *pBuf);
+    104          void MT_SysGetDeviceInfo(uint8 *pBuf);
+    105          #endif /* MT_SYS_FUNC */
+    106          
+    107          #if defined (MT_SYS_FUNC)
+    108          /***************************************************************************************************
+    109           * @fn      MT_SysProcessing
+    110           *
+    111           * @brief   Process all the SYS commands that are issued by test tool
+    112           *
+    113           * @param   pBuf - pointer to the msg buffer
+    114           *
+    115           *          | LEN  | CMD0  | CMD1  |  DATA  |
+    116           *          |  1   |   1   |   1   |  0-255 |
+    117           *
+    118           * @return  status
+    119           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    120          uint8 MT_SysCommandProcessing(uint8 *pBuf)
+   \                     MT_SysCommandProcessing:
+    121          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    122            uint8 status = MT_RPC_SUCCESS;
+   \   000005   7E00         MOV     R6,#0x0
+    123          
+    124            switch (pBuf[MT_RPC_POS_CMD1])
+   \   000007   8A82         MOV     DPL,R2
+   \   000009   8B83         MOV     DPH,R3
+   \   00000B   A3           INC     DPTR
+   \   00000C   A3           INC     DPTR
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   12....       LCALL   ?UC_SWITCH_SPARSE
+   \                     `?<Jumptable for MT_SysCommandProcessing>_0`:
+   \   000011   00           DB        0
+   \   000012   0D           DB        13
+   \   000013   00           DB        0
+   \   000014   ....         DW        ??MT_SysCommandProcessing_0
+   \   000016   01           DB        1
+   \   000017   ....         DW        ??MT_SysCommandProcessing_1
+   \   000019   02           DB        2
+   \   00001A   ....         DW        ??MT_SysCommandProcessing_2
+   \   00001C   03           DB        3
+   \   00001D   ....         DW        ??MT_SysCommandProcessing_3
+   \   00001F   04           DB        4
+   \   000020   ....         DW        ??MT_SysCommandProcessing_4
+   \   000022   08           DB        8
+   \   000023   ....         DW        ??MT_SysCommandProcessing_5
+   \   000025   09           DB        9
+   \   000026   ....         DW        ??MT_SysCommandProcessing_6
+   \   000028   0A           DB        10
+   \   000029   ....         DW        ??MT_SysCommandProcessing_7
+   \   00002B   0B           DB        11
+   \   00002C   ....         DW        ??MT_SysCommandProcessing_8
+   \   00002E   0C           DB        12
+   \   00002F   ....         DW        ??MT_SysCommandProcessing_9
+   \   000031   0D           DB        13
+   \   000032   ....         DW        ??MT_SysCommandProcessing_10
+   \   000034   0E           DB        14
+   \   000035   ....         DW        ??MT_SysCommandProcessing_11
+   \   000037   80           DB        128
+   \   000038   ....         DW        ??MT_SysCommandProcessing_12
+   \   00003A   ....         DW        ??MT_SysCommandProcessing_13
+    125            {
+    126              case MT_SYS_RESET_REQ:
+    127                MT_SysReset(pBuf);
+   \                     ??MT_SysCommandProcessing_0:
+   \   00003C                ; Setup parameters for call to function MT_SysReset
+   \   00003C   12....       LCALL   ??MT_SysReset?relay
+   \   00003F   8039         SJMP    ??MT_SysCommandProcessing_12
+    128                break;
+    129          
+    130              case MT_SYS_PING:
+    131                MT_SysPing();
+   \                     ??MT_SysCommandProcessing_1:
+   \   000041                ; Setup parameters for call to function MT_SysPing
+   \   000041   12....       LCALL   ??MT_SysPing?relay
+   \   000044   8034         SJMP    ??MT_SysCommandProcessing_12
+    132                break;
+    133          
+    134              case MT_SYS_VERSION:
+    135                MT_SysVersion();
+   \                     ??MT_SysCommandProcessing_2:
+   \   000046                ; Setup parameters for call to function MT_SysVersion
+   \   000046   12....       LCALL   ??MT_SysVersion?relay
+   \   000049   802F         SJMP    ??MT_SysCommandProcessing_12
+    136                break;
+    137          
+    138              case MT_SYS_SET_EXTADDR:
+    139                MT_SysSetExtAddr(pBuf);
+   \                     ??MT_SysCommandProcessing_3:
+   \   00004B                ; Setup parameters for call to function MT_SysSetExtAddr
+   \   00004B   12....       LCALL   ??MT_SysSetExtAddr?relay
+   \   00004E   802A         SJMP    ??MT_SysCommandProcessing_12
+    140                break;
+    141          
+    142              case MT_SYS_GET_EXTADDR:
+    143                MT_SysGetExtAddr();
+   \                     ??MT_SysCommandProcessing_4:
+   \   000050                ; Setup parameters for call to function MT_SysGetExtAddr
+   \   000050   12....       LCALL   ??MT_SysGetExtAddr?relay
+   \   000053   8025         SJMP    ??MT_SysCommandProcessing_12
+    144                break;
+    145          
+    146              case MT_SYS_OSAL_NV_READ:
+    147                MT_SysOsalNVRead(pBuf);
+   \                     ??MT_SysCommandProcessing_5:
+   \   000055                ; Setup parameters for call to function MT_SysOsalNVRead
+   \   000055   12....       LCALL   ??MT_SysOsalNVRead?relay
+   \   000058   8020         SJMP    ??MT_SysCommandProcessing_12
+    148                break;
+    149          
+    150              case MT_SYS_OSAL_NV_WRITE:
+    151                MT_SysOsalNVWrite(pBuf);
+   \                     ??MT_SysCommandProcessing_6:
+   \   00005A                ; Setup parameters for call to function MT_SysOsalNVWrite
+   \   00005A   12....       LCALL   ??MT_SysOsalNVWrite?relay
+   \   00005D   801B         SJMP    ??MT_SysCommandProcessing_12
+    152                break;
+    153          
+    154              case MT_SYS_OSAL_START_TIMER:
+    155                MT_SysOsalStartTimer(pBuf);
+   \                     ??MT_SysCommandProcessing_7:
+   \   00005F                ; Setup parameters for call to function MT_SysOsalStartTimer
+   \   00005F   12....       LCALL   ??MT_SysOsalStartTimer?relay
+   \   000062   8016         SJMP    ??MT_SysCommandProcessing_12
+    156                break;
+    157          
+    158              case MT_SYS_OSAL_STOP_TIMER:
+    159                MT_SysOsalStopTimer(pBuf);
+   \                     ??MT_SysCommandProcessing_8:
+   \   000064                ; Setup parameters for call to function MT_SysOsalStopTimer
+   \   000064   12....       LCALL   ??MT_SysOsalStopTimer?relay
+   \   000067   8011         SJMP    ??MT_SysCommandProcessing_12
+    160                break;
+    161          
+    162              case MT_SYS_RANDOM:
+    163                MT_SysRandom();
+   \                     ??MT_SysCommandProcessing_9:
+   \   000069                ; Setup parameters for call to function MT_SysRandom
+   \   000069   12....       LCALL   ??MT_SysRandom?relay
+   \   00006C   800C         SJMP    ??MT_SysCommandProcessing_12
+    164                break;
+    165          
+    166              case MT_SYS_ADC_READ:
+    167                MT_SysAdcRead(pBuf);
+   \                     ??MT_SysCommandProcessing_10:
+   \   00006E                ; Setup parameters for call to function MT_SysAdcRead
+   \   00006E   12....       LCALL   ??MT_SysAdcRead?relay
+   \   000071   8007         SJMP    ??MT_SysCommandProcessing_12
+    168                break;
+    169          
+    170              case MT_SYS_GPIO:
+    171                MT_SysGpio(pBuf);
+   \                     ??MT_SysCommandProcessing_11:
+   \   000073                ; Setup parameters for call to function MT_SysGpio
+   \   000073   12....       LCALL   ??MT_SysGpio?relay
+   \   000076   8002         SJMP    ??MT_SysCommandProcessing_12
+    172                break;
+    173          
+    174              case MT_SYS_RESET_IND:
+    175                //TBD
+    176                break;
+    177          
+    178              default:
+    179                status = MT_RPC_ERR_COMMAND_ID;
+   \                     ??MT_SysCommandProcessing_13:
+   \   000078   0E           INC     R6
+   \   000079   0E           INC     R6
+    180                break;
+    181            }
+    182          
+    183            return status;
+   \                     ??MT_SysCommandProcessing_12:
+   \   00007A   EE           MOV     A,R6
+   \   00007B   F9           MOV     R1,A
+   \   00007C   02....       LJMP    ??Subroutine11_0 & 0xFFFF
+    184          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine11_0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    185          
+    186          /***************************************************************************************************
+    187           * @fn      MT_SysReset
+    188           *
+    189           * @brief   Reset/reprogram the device.
+    190           * @param   typID: 0=reset, 1=serial bootloader
+    191           *
+    192           * @return  None
+    193           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    194          void MT_SysReset(uint8 *pBuf)
+   \                     MT_SysReset:
+    195          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    196            (void)pBuf;  // Intentionally unreferenced parameter
+    197            SystemReset();  /* Restart this program */
+   \   000000   C2AF         CLR     0xa8.7
+   \   000002   75C9AB       MOV     0xc9,#-0x55
+   \   000005   75C95B       MOV     0xc9,#0x5b
+   \                     ??MT_SysReset_0:
+   \   000008   80FE         SJMP    ??MT_SysReset_0
+   \   00000A                REQUIRE _A_IEN0
+   \   00000A                REQUIRE WDCTL
+    198          }
+    199          
+    200          /***************************************************************************************************
+    201           * @fn      MT_SysPing
+    202           *
+    203           * @brief   Process the Ping command
+    204           *
+    205           * @param   None
+    206           *
+    207           * @return  None
+    208           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    209          void MT_SysPing(void)
+   \                     MT_SysPing:
+    210          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 2
+   \   000004   74FE         MOV     A,#-0x2
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    211            uint16 tmp16;
+    212            uint8 retArray[2];
+    213          
+    214            /* Build Capabilities */
+    215            tmp16 = MT_CAP_SYS | MT_CAP_MAC | MT_CAP_NWK | MT_CAP_AF | MT_CAP_ZDO|
+    216                    MT_CAP_SAPI | MT_CAP_UTIL | MT_CAP_DEBUG | MT_CAP_APP | MT_CAP_ZOAD;
+    217          
+    218            /* Convert to high byte first into temp buffer */
+    219            retArray[0] = LO_UINT16( tmp16 );
+   \   000009   7411         MOV     A,#0x11
+   \   00000B   85..82       MOV     DPL,?XSP + 0
+   \   00000E   85..83       MOV     DPH,?XSP + 1
+   \   000011   F0           MOVX    @DPTR,A
+    220            retArray[1] = HI_UINT16( tmp16 );
+   \   000012   7401         MOV     A,#0x1
+   \   000014   12....       LCALL   ?XSTACK_DISP0_8
+   \   000017   E4           CLR     A
+   \   000018   12....       LCALL   ?Subroutine1 & 0xFFFF
+    221          
+    222            /* Build and send back the response */
+    223            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_PING,
+    224                                          sizeof (tmp16), retArray );
+   \                     ??CrossCallReturnLabel_0:
+   \   00001B   7A01         MOV     R2,#0x1
+   \   00001D   7961         MOV     R1,#0x61
+   \   00001F   12....       LCALL   ??MT_BuildAndSendZToolResponse?relay
+    225          }
+   \   000022   7402         MOV     A,#0x2
+   \   000024   02....       LJMP    ?Subroutine7 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000001                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000001                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000001   85..82       MOV     DPL,?XSP + 0
+   \   000004   85..83       MOV     DPH,?XSP + 1
+   \   000007   AC82         MOV     R4,DPL
+   \   000009   AD83         MOV     R5,DPH
+   \   00000B   7B02         MOV     R3,#0x2
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003                REQUIRE ??Subroutine15_0
+   \   000003                ; // Fall through to label ??Subroutine15_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine15_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    226          
+    227          /***************************************************************************************************
+    228           * @fn      MT_SysVersion
+    229           *
+    230           * @brief   Process the Version command
+    231           *
+    232           * @param   None
+    233           *
+    234           * @return  None
+    235           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    236          void MT_SysVersion(void)
+   \                     MT_SysVersion:
+    237          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    238            byte *verStr = (byte *)MTVersionString;
+    239            uint8 respLen = sizeof(MTVersionString);
+    240          
+    241            /* Build and send back the response */
+    242            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_VERSION,
+    243                                         respLen, verStr);
+   \   000004                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000004   7C..         MOV     R4,#(MTVersionString & 0xff)
+   \   000006   7D..         MOV     R5,#((MTVersionString >> 8) & 0xff)
+   \   000008   7B05         MOV     R3,#0x5
+   \   00000A   7A02         MOV     R2,#0x2
+   \   00000C   7961         MOV     R1,#0x61
+   \   00000E   12....       LCALL   ??MT_BuildAndSendZToolResponse?relay
+    244          }
+   \   000011   02....       LJMP    ??Subroutine15_0 & 0xFFFF
+    245          
+    246          /***************************************************************************************************
+    247           * @fn      MT_SysSetExtAddr
+    248           *
+    249           * @brief   Set the Extended Address
+    250           *
+    251           * @param   pBuf
+    252           *
+    253           * @return  None
+    254           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    255          void MT_SysSetExtAddr(uint8 *pBuf)
+   \                     MT_SysSetExtAddr:
+    256          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    257            uint8 retValue = ZFailure;
+   \   00000A   7401         MOV     A,#0x1
+   \   00000C   85..82       MOV     DPL,?XSP + 0
+   \   00000F   85..83       MOV     DPH,?XSP + 1
+   \   000012   F0           MOVX    @DPTR,A
+    258            uint8 cmdId;
+    259          
+    260            /* parse header */
+    261            cmdId = pBuf[MT_RPC_POS_CMD1];
+   \   000013   8A82         MOV     DPL,R2
+   \   000015   8B83         MOV     DPH,R3
+   \   000017   A3           INC     DPTR
+   \   000018   A3           INC     DPTR
+   \   000019   E0           MOVX    A,@DPTR
+   \   00001A   FE           MOV     R6,A
+    262            pBuf += MT_RPC_FRAME_HDR_SZ;
+   \   00001B   EA           MOV     A,R2
+   \   00001C   2403         ADD     A,#0x3
+   \   00001E   F5..         MOV     ?V0 + 0,A
+   \   000020   EB           MOV     A,R3
+   \   000021   3400         ADDC    A,#0x0
+   \   000023   F5..         MOV     ?V0 + 1,A
+    263          
+    264            if ( ZMacSetReq(ZMacExtAddr, pBuf) == ZMacSuccess )
+   \   000025                ; Setup parameters for call to function ZMacSetReq
+   \   000025   0A           INC     R2
+   \   000026   0A           INC     R2
+   \   000027   0A           INC     R2
+   \   000028   FB           MOV     R3,A
+   \   000029   79E2         MOV     R1,#-0x1e
+   \   00002B   12....       LCALL   ??ZMacSetReq?relay
+   \   00002E   E9           MOV     A,R1
+   \   00002F   7028         JNZ     ??MT_SysSetExtAddr_0
+    265            {
+    266              retValue = osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, pBuf);
+   \   000031                ; Setup parameters for call to function osal_nv_write
+   \   000031   78..         MOV     R0,#?V0 + 0
+   \   000033   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000036   75..08       MOV     ?V0 + 0,#0x8
+   \   000039   75..00       MOV     ?V0 + 1,#0x0
+   \   00003C   78..         MOV     R0,#?V0 + 0
+   \   00003E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000041   7C00         MOV     R4,#0x0
+   \   000043   7D00         MOV     R5,#0x0
+   \   000045   7A01         MOV     R2,#0x1
+   \   000047   7B00         MOV     R3,#0x0
+   \   000049   12....       LCALL   ??osal_nv_write?relay
+   \   00004C   7404         MOV     A,#0x4
+   \   00004E   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000051   E9           MOV     A,R1
+   \   000052   85..82       MOV     DPL,?XSP + 0
+   \   000055   85..83       MOV     DPH,?XSP + 1
+   \   000058   F0           MOVX    @DPTR,A
+    267            }
+    268          
+    269            /* Build and send back the response */
+    270            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 1, &retValue);
+   \                     ??MT_SysSetExtAddr_0:
+   \   000059                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000059   85..82       MOV     DPL,?XSP + 0
+   \   00005C   85..83       MOV     DPH,?XSP + 1
+   \   00005F   AC82         MOV     R4,DPL
+   \   000061   AD83         MOV     R5,DPH
+   \   000063   7B01         MOV     R3,#0x1
+   \   000065   EE           MOV     A,R6
+   \   000066   12....       LCALL   ?Subroutine5 & 0xFFFF
+    271          
+    272          }
+   \                     ??CrossCallReturnLabel_8:
+   \   000069   02....       LJMP    ??Subroutine14_0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   FA           MOV     R2,A
+   \   000001                REQUIRE ?Subroutine9
+   \   000001                REQUIRE ??Subroutine10_0
+   \   000001                ; // Fall through to label ??Subroutine10_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine10_0:
+   \   000000   7961         MOV     R1,#0x61
+   \   000002                REQUIRE ?Subroutine9
+   \   000002                ; // Fall through to label ?Subroutine9
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   12....       LCALL   ??MT_BuildAndSendZToolResponse?relay
+   \   000003   7401         MOV     A,#0x1
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine14_0:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003   7F02         MOV     R7,#0x2
+   \   000005   02....       LJMP    ?BANKED_LEAVE_XDATA
+    273          
+    274          /***************************************************************************************************
+    275           * @fn      MT_SysGetExtAddr
+    276           *
+    277           * @brief   Get the Extended Address
+    278           *
+    279           * @param   None
+    280           *
+    281           * @return  None
+    282           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    283          void MT_SysGetExtAddr(void)
+   \                     MT_SysGetExtAddr:
+    284          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 8
+   \   000004   74F8         MOV     A,#-0x8
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    285            uint8 extAddr[Z_EXTADDR_LEN];
+    286          
+    287            ZMacGetReq( ZMacExtAddr, extAddr );
+   \   000009                ; Setup parameters for call to function ZMacGetReq
+   \   000009   85..82       MOV     DPL,?XSP + 0
+   \   00000C   85..83       MOV     DPH,?XSP + 1
+   \   00000F   AA82         MOV     R2,DPL
+   \   000011   AB83         MOV     R3,DPH
+   \   000013   79E2         MOV     R1,#-0x1e
+   \   000015   12....       LCALL   ??ZMacGetReq?relay
+    288          
+    289            /* Build and send back the response */
+    290            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_GET_EXTADDR,
+    291                                         Z_EXTADDR_LEN, extAddr);
+   \   000018                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000018   85..82       MOV     DPL,?XSP + 0
+   \   00001B   85..83       MOV     DPH,?XSP + 1
+   \   00001E   AC82         MOV     R4,DPL
+   \   000020   AD83         MOV     R5,DPH
+   \   000022   7B08         MOV     R3,#0x8
+   \   000024   7A04         MOV     R2,#0x4
+   \   000026   7961         MOV     R1,#0x61
+   \   000028   12....       LCALL   ??MT_BuildAndSendZToolResponse?relay
+    292          }
+   \   00002B   7408         MOV     A,#0x8
+   \   00002D   02....       LJMP    ?Subroutine7 & 0xFFFF
+    293          
+    294          /***************************************************************************************************
+    295           * @fn      MT_SysOsalNVRead
+    296           *
+    297           * @brief  Read a NV value
+    298           *
+    299           * @param  uint8 pBuf - pointer to the data
+    300           *
+    301           * @return  None
+    302           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    303          void MT_SysOsalNVRead(uint8 *pBuf)
+   \                     MT_SysOsalNVRead:
+    304          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    305            uint16 nvId;
+    306            uint8 nvItemLen=0, nvItemOffset=0;
+    307            uint8 *pRetBuf=NULL;
+    308            uint8 respLen, cmdId;
+    309          
+    310            /* parse header */
+    311            cmdId = pBuf[MT_RPC_POS_CMD1];
+   \   000005   8A82         MOV     DPL,R2
+   \   000007   8B83         MOV     DPH,R3
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   F5..         MOV     ?V0 + 7,A
+    312            pBuf += MT_RPC_FRAME_HDR_SZ;
+   \   00000E   12....       LCALL   ??Subroutine13_0 & 0xFFFF
+    313          
+    314            /* Get the ID */
+    315            nvId = BUILD_UINT16(pBuf[0], pBuf[1]);
+   \                     ??CrossCallReturnLabel_15:
+   \   000011   FC           MOV     R4,A
+   \   000012   A3           INC     DPTR
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   F9           MOV     R1,A
+   \   000015   EC           MOV     A,R4
+   \   000016   FE           MOV     R6,A
+   \   000017   E9           MOV     A,R1
+   \   000018   FF           MOV     R7,A
+    316            pBuf += sizeof(uint16);
+    317          
+    318            /* Calculate the offset */
+    319            nvItemOffset = *pBuf;
+   \   000019   8A82         MOV     DPL,R2
+   \   00001B   8B83         MOV     DPH,R3
+   \   00001D   A3           INC     DPTR
+   \   00001E   A3           INC     DPTR
+   \   00001F   E0           MOVX    A,@DPTR
+   \   000020   F5..         MOV     ?V0 + 6,A
+    320          
+    321            nvItemLen = osal_nv_item_len(nvId);
+   \   000022                ; Setup parameters for call to function osal_nv_item_len
+   \   000022   EE           MOV     A,R6
+   \   000023   FA           MOV     R2,A
+   \   000024   EF           MOV     A,R7
+   \   000025   FB           MOV     R3,A
+   \   000026   12....       LCALL   ??osal_nv_item_len?relay
+   \   000029   EA           MOV     A,R2
+   \   00002A   F5..         MOV     ?V0 + 0,A
+    322          
+    323            /* Return only 250 bytes max */
+    324            if (nvItemLen > MT_NV_ITEM_MAX_LENGTH)
+   \   00002C   C3           CLR     C
+   \   00002D   94FB         SUBB    A,#-0x5
+   \   00002F   4005         JC      ??MT_SysOsalNVRead_0
+    325            {
+    326              nvItemLen = MT_NV_ITEM_MAX_LENGTH;
+   \   000031   75..FA       MOV     ?V0 + 0,#-0x6
+   \   000034   8003         SJMP    ??MT_SysOsalNVRead_1
+    327            }
+    328          
+    329            if ((nvItemLen > 0) && ((nvItemLen - nvItemOffset) > 0))
+   \                     ??MT_SysOsalNVRead_0:
+   \   000036   EA           MOV     A,R2
+   \   000037   6029         JZ      ??MT_SysOsalNVRead_2
+   \                     ??MT_SysOsalNVRead_1:
+   \   000039   85....       MOV     ?V0 + 4,?V0 + 0
+   \   00003C   85....       MOV     ?V0 + 2,?V0 + 6
+   \   00003F   E5..         MOV     A,?V0 + 4
+   \   000041   C3           CLR     C
+   \   000042   95..         SUBB    A,?V0 + 2
+   \   000044   F8           MOV     R0,A
+   \   000045   E4           CLR     A
+   \   000046   9400         SUBB    A,#0x0
+   \   000048   F9           MOV     R1,A
+   \   000049   C3           CLR     C
+   \   00004A   E8           MOV     A,R0
+   \   00004B   9401         SUBB    A,#0x1
+   \   00004D   E9           MOV     A,R1
+   \   00004E   9400         SUBB    A,#0x0
+   \   000050   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000052   65D0         XRL     A,PSW
+   \   000054   33           RLC     A
+   \   000055   400B         JC      ??MT_SysOsalNVRead_2
+    330            {
+    331              respLen = nvItemLen - nvItemOffset + 2;
+   \   000057   E5..         MOV     A,?V0 + 0
+   \   000059   C3           CLR     C
+   \   00005A   95..         SUBB    A,?V0 + 6
+   \   00005C   2402         ADD     A,#0x2
+   \   00005E   F5..         MOV     ?V0 + 1,A
+   \   000060   8003         SJMP    ??MT_SysOsalNVRead_3
+    332            }
+    333            else
+    334            {
+    335              respLen = 2;
+   \                     ??MT_SysOsalNVRead_2:
+   \   000062   75..02       MOV     ?V0 + 1,#0x2
+    336            }
+    337          
+    338            pRetBuf = osal_mem_alloc(respLen);
+   \                     ??MT_SysOsalNVRead_3:
+   \   000065                ; Setup parameters for call to function osal_mem_alloc
+   \   000065   AA..         MOV     R2,?V0 + 1
+   \   000067   7B00         MOV     R3,#0x0
+   \   000069   12....       LCALL   ??osal_mem_alloc?relay
+   \   00006C   8A..         MOV     ?V0 + 4,R2
+   \   00006E   8B..         MOV     ?V0 + 5,R3
+    339          
+    340            if (pRetBuf != NULL)
+   \   000070   EA           MOV     A,R2
+   \   000071   7001         JNZ     ??MT_SysOsalNVRead_4
+   \   000073   EB           MOV     A,R3
+   \                     ??MT_SysOsalNVRead_4:
+   \   000074   6074         JZ      ??MT_SysOsalNVRead_5
+    341            {
+    342              osal_memset(pRetBuf, 0, respLen);
+   \   000076                ; Setup parameters for call to function osal_memset
+   \   000076   AC..         MOV     R4,?V0 + 1
+   \   000078   7D00         MOV     R5,#0x0
+   \   00007A   7900         MOV     R1,#0x0
+   \   00007C   12....       LCALL   ??osal_memset?relay
+    343          
+    344              /* Default to ZFailure */
+    345              pRetBuf[0] = ZFailure;
+   \   00007F   7401         MOV     A,#0x1
+   \   000081   85..82       MOV     DPL,?V0 + 4
+   \   000084   85..83       MOV     DPH,?V0 + 5
+   \   000087   F0           MOVX    @DPTR,A
+   \   000088   E5..         MOV     A,?V0 + 1
+   \   00008A   C3           CLR     C
+   \   00008B   9403         SUBB    A,#0x3
+   \   00008D   4044         JC      ??MT_SysOsalNVRead_6
+    346          
+    347              if (respLen > 2)
+    348              {
+    349                if (((osal_nv_read( nvId, (uint16)nvItemOffset, (uint16)nvItemLen, &pRetBuf[2])) == ZSUCCESS) && (respLen > 2))
+   \   00008F                ; Setup parameters for call to function osal_nv_read
+   \   00008F   E5..         MOV     A,?V0 + 4
+   \   000091   2402         ADD     A,#0x2
+   \   000093   F5..         MOV     ?V0 + 2,A
+   \   000095   E5..         MOV     A,?V0 + 5
+   \   000097   3400         ADDC    A,#0x0
+   \   000099   F5..         MOV     ?V0 + 3,A
+   \   00009B   78..         MOV     R0,#?V0 + 2
+   \   00009D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000A0   85....       MOV     ?V0 + 2,?V0 + 0
+   \   0000A3   75..00       MOV     ?V0 + 3,#0x0
+   \   0000A6   78..         MOV     R0,#?V0 + 2
+   \   0000A8   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000AB   AC..         MOV     R4,?V0 + 6
+   \   0000AD   7D00         MOV     R5,#0x0
+   \   0000AF   EE           MOV     A,R6
+   \   0000B0   FA           MOV     R2,A
+   \   0000B1   EF           MOV     A,R7
+   \   0000B2   FB           MOV     R3,A
+   \   0000B3   12....       LCALL   ??osal_nv_read?relay
+   \   0000B6   7404         MOV     A,#0x4
+   \   0000B8   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000BB   E9           MOV     A,R1
+   \   0000BC   7008         JNZ     ??MT_SysOsalNVRead_7
+    350                {
+    351                  pRetBuf[0] = ZSuccess;
+   \   0000BE   E4           CLR     A
+   \   0000BF   85..82       MOV     DPL,?V0 + 4
+   \   0000C2   85..83       MOV     DPH,?V0 + 5
+   \   0000C5   F0           MOVX    @DPTR,A
+    352                }
+    353                pRetBuf[1] = nvItemLen - nvItemOffset;
+   \                     ??MT_SysOsalNVRead_7:
+   \   0000C6   E5..         MOV     A,?V0 + 0
+   \   0000C8   C3           CLR     C
+   \   0000C9   95..         SUBB    A,?V0 + 6
+   \   0000CB   85..82       MOV     DPL,?V0 + 4
+   \   0000CE   85..83       MOV     DPH,?V0 + 5
+   \   0000D1   8001         SJMP    ??MT_SysOsalNVRead_8
+    354              }
+    355              else
+    356              {
+    357                pRetBuf[1] = 0;
+   \                     ??MT_SysOsalNVRead_6:
+   \   0000D3   E4           CLR     A
+   \                     ??MT_SysOsalNVRead_8:
+   \   0000D4   A3           INC     DPTR
+   \   0000D5   F0           MOVX    @DPTR,A
+    358              }
+    359          
+    360              /* Build and send back the response */
+    361              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, respLen, pRetBuf );
+   \   0000D6                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   0000D6   AC..         MOV     R4,?V0 + 4
+   \   0000D8   AD..         MOV     R5,?V0 + 5
+   \   0000DA   AB..         MOV     R3,?V0 + 1
+   \   0000DC   AA..         MOV     R2,?V0 + 7
+   \   0000DE   7961         MOV     R1,#0x61
+   \   0000E0   12....       LCALL   ??MT_BuildAndSendZToolResponse?relay
+    362          
+    363              osal_mem_free(pRetBuf);
+   \   0000E3                ; Setup parameters for call to function osal_mem_free
+   \   0000E3   AA..         MOV     R2,?V0 + 4
+   \   0000E5   AB..         MOV     R3,?V0 + 5
+   \   0000E7   12....       LCALL   ??osal_mem_free?relay
+    364            }
+    365          
+    366          
+    367          }
+   \                     ??MT_SysOsalNVRead_5:
+   \   0000EA   7F08         MOV     R7,#0x8
+   \   0000EC   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine13_0:
+   \   000000   EA           MOV     A,R2
+   \   000001   2403         ADD     A,#0x3
+   \   000003   0A           INC     R2
+   \   000004   0A           INC     R2
+   \   000005   0A           INC     R2
+   \   000006   EB           MOV     A,R3
+   \   000007   3400         ADDC    A,#0x0
+   \   000009   FB           MOV     R3,A
+   \   00000A   8A82         MOV     DPL,R2
+   \   00000C   8B83         MOV     DPH,R3
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   22           RET
+    368          
+    369          /***************************************************************************************************
+    370           * @fn      MT_SysOsalNVWrite
+    371           *
+    372           * @brief
+    373           *
+    374           * @param   uint8 pData - pointer to the data
+    375           *
+    376           * @return  None
+    377           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    378          void MT_SysOsalNVWrite(uint8 *pBuf)
+   \                     MT_SysOsalNVWrite:
+    379          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    380            uint16 nvId;
+    381            uint8 nvItemLen=0, nvItemOffset=0;
+    382            uint8 retValue, cmdId;
+    383          
+    384            /* parse header */
+    385            cmdId = pBuf[MT_RPC_POS_CMD1];
+   \   00000A   8A82         MOV     DPL,R2
+   \   00000C   8B83         MOV     DPH,R3
+   \   00000E   A3           INC     DPTR
+   \   00000F   A3           INC     DPTR
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   F5..         MOV     ?V0 + 2,A
+    386            pBuf += MT_RPC_FRAME_HDR_SZ;
+   \   000013   EA           MOV     A,R2
+   \   000014   2403         ADD     A,#0x3
+   \   000016   F5..         MOV     ?V0 + 4,A
+   \   000018   EB           MOV     A,R3
+   \   000019   3400         ADDC    A,#0x0
+   \   00001B   F5..         MOV     ?V0 + 5,A
+    387          
+    388            /* Get the ID */
+    389            nvId = BUILD_UINT16(pBuf[0], pBuf[1]);
+   \   00001D   85..82       MOV     DPL,?V0 + 4
+   \   000020   F583         MOV     DPH,A
+   \   000022   E0           MOVX    A,@DPTR
+   \   000023   FA           MOV     R2,A
+   \   000024   A3           INC     DPTR
+   \   000025   E0           MOVX    A,@DPTR
+   \   000026   F8           MOV     R0,A
+   \   000027   E4           CLR     A
+   \   000028   C8           XCH     A,R0
+   \   000029   F9           MOV     R1,A
+   \   00002A   EA           MOV     A,R2
+   \   00002B   FE           MOV     R6,A
+   \   00002C   E9           MOV     A,R1
+   \   00002D   FF           MOV     R7,A
+    390            pBuf += sizeof(uint16);
+   \   00002E   E5..         MOV     A,?V0 + 4
+   \   000030   2402         ADD     A,#0x2
+   \   000032   F5..         MOV     ?V0 + 4,A
+   \   000034   E5..         MOV     A,?V0 + 5
+   \   000036   3400         ADDC    A,#0x0
+    391          
+    392            /* Calculate the offset */
+    393            nvItemOffset = *pBuf++;
+   \   000038   85..82       MOV     DPL,?V0 + 4
+   \   00003B   F583         MOV     DPH,A
+   \   00003D   E0           MOVX    A,@DPTR
+   \   00003E   F5..         MOV     ?V0 + 3,A
+   \   000040   A3           INC     DPTR
+    394          
+    395            /* Calculate the length */
+    396            nvItemLen = *pBuf++;
+   \   000041   E0           MOVX    A,@DPTR
+   \   000042   FA           MOV     R2,A
+   \   000043   A3           INC     DPTR
+   \   000044   8582..       MOV     ?V0 + 4,DPL
+   \   000047   8583..       MOV     ?V0 + 5,DPH
+    397          
+    398            /* Default to ZFailure */
+    399            retValue = ZFailure;
+   \   00004A   7401         MOV     A,#0x1
+   \   00004C   85..82       MOV     DPL,?XSP + 0
+   \   00004F   85..83       MOV     DPH,?XSP + 1
+   \   000052   F0           MOVX    @DPTR,A
+    400          
+    401            /* Set the zGlobal value of this NV item. */
+    402            zgSetItem( nvId, (uint16)nvItemLen, pBuf );
+   \   000053   8A82         MOV     DPL,R2
+   \   000055   8582..       MOV     ?V0 + 0,DPL
+   \   000058   88..         MOV     ?V0 + 1,R0
+   \   00005A                ; Setup parameters for call to function zgSetItem
+   \   00005A   78..         MOV     R0,#?V0 + 4
+   \   00005C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00005F   AC..         MOV     R4,?V0 + 0
+   \   000061   7D00         MOV     R5,#0x0
+   \   000063   EE           MOV     A,R6
+   \   000064   FA           MOV     R2,A
+   \   000065   EF           MOV     A,R7
+   \   000066   FB           MOV     R3,A
+   \   000067   12....       LCALL   ??zgSetItem?relay
+   \   00006A   7402         MOV     A,#0x2
+   \   00006C   12....       LCALL   ?DEALLOC_XSTACK8
+    403          
+    404            if ((osal_nv_write( nvId, (uint16)nvItemOffset, (uint16)nvItemLen, pBuf)) == ZSUCCESS)
+   \   00006F                ; Setup parameters for call to function osal_nv_write
+   \   00006F   78..         MOV     R0,#?V0 + 4
+   \   000071   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000074   78..         MOV     R0,#?V0 + 0
+   \   000076   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000079   AC..         MOV     R4,?V0 + 3
+   \   00007B   7D00         MOV     R5,#0x0
+   \   00007D   EE           MOV     A,R6
+   \   00007E   FA           MOV     R2,A
+   \   00007F   EF           MOV     A,R7
+   \   000080   FB           MOV     R3,A
+   \   000081   12....       LCALL   ??osal_nv_write?relay
+   \   000084   7404         MOV     A,#0x4
+   \   000086   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000089   E9           MOV     A,R1
+   \   00008A   7008         JNZ     ??MT_SysOsalNVWrite_0
+    405            {
+    406              retValue = ZSuccess;
+   \   00008C   E4           CLR     A
+   \   00008D   85..82       MOV     DPL,?XSP + 0
+   \   000090   85..83       MOV     DPH,?XSP + 1
+   \   000093   F0           MOVX    @DPTR,A
+    407            }
+    408          
+    409            /* Build and send back the response */
+    410            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 1, &retValue );
+   \                     ??MT_SysOsalNVWrite_0:
+   \   000094                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000094   85..82       MOV     DPL,?XSP + 0
+   \   000097   85..83       MOV     DPH,?XSP + 1
+   \   00009A   AC82         MOV     R4,DPL
+   \   00009C   AD83         MOV     R5,DPH
+   \   00009E   7B01         MOV     R3,#0x1
+   \   0000A0   AA..         MOV     R2,?V0 + 2
+   \   0000A2   12....       LCALL   ??Subroutine10_0 & 0xFFFF
+    411          }
+   \                     ??CrossCallReturnLabel_10:
+   \   0000A5   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000A8   7F06         MOV     R7,#0x6
+   \   0000AA   02....       LJMP    ?BANKED_LEAVE_XDATA
+    412          
+    413          /***************************************************************************************************
+    414           * @fn      MT_SysOsalStartTimer
+    415           *
+    416           * @brief
+    417           *
+    418           * @param   uint8 pData - pointer to the data
+    419           *
+    420           * @return  None
+    421           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    422          void MT_SysOsalStartTimer(uint8 *pBuf)
+   \                     MT_SysOsalStartTimer:
+    423          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    424            uint16 eventId;
+    425            uint8 retValue = ZFailure;
+   \   00000A   12....       LCALL   ?Subroutine0 & 0xFFFF
+    426            uint8 cmdId;
+    427          
+    428            /* parse header */
+    429            cmdId = pBuf[MT_RPC_POS_CMD1];
+    430            pBuf += MT_RPC_FRAME_HDR_SZ;
+    431          
+    432            if (*pBuf <= 3)
+   \                     ??CrossCallReturnLabel_12:
+   \   00000D   FF           MOV     R7,A
+   \   00000E   C3           CLR     C
+   \   00000F   9404         SUBB    A,#0x4
+   \   000011   5019         JNC     ??MT_SysOsalStartTimer_0
+    433            {
+    434              eventId = (uint16) MT_SysOsalEventId[*pBuf];
+    435              retValue = osal_start_timerEx(MT_TaskID, eventId, BUILD_UINT16(pBuf[1], pBuf[2]));
+   \   000013                ; Setup parameters for call to function osal_start_timerEx
+   \   000013   A3           INC     DPTR
+   \   000014   E0           MOVX    A,@DPTR
+   \   000015   FC           MOV     R4,A
+   \   000016   8A82         MOV     DPL,R2
+   \   000018   8B83         MOV     DPH,R3
+   \   00001A   A3           INC     DPTR
+   \   00001B   A3           INC     DPTR
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   F9           MOV     R1,A
+   \   00001E   E4           CLR     A
+   \   00001F   2C           ADD     A,R4
+   \   000020   E9           MOV     A,R1
+   \   000021   FD           MOV     R5,A
+   \   000022   EF           MOV     A,R7
+   \   000023   12....       LCALL   ?Subroutine2 & 0xFFFF
+    436            }
+   \                     ??CrossCallReturnLabel_3:
+   \   000026   12....       LCALL   ??osal_start_timerEx?relay
+   \   000029   E9           MOV     A,R1
+   \   00002A   8002         SJMP    ??MT_SysOsalStartTimer_1
+    437            else
+    438            {
+    439              retValue = ZInvalidParameter;
+   \                     ??MT_SysOsalStartTimer_0:
+   \   00002C   7402         MOV     A,#0x2
+    440            }
+   \                     ??MT_SysOsalStartTimer_1:
+   \   00002E                REQUIRE ?Subroutine6
+   \   00002E                ; // Fall through to label ?Subroutine6
+    441          
+    442            /* Build and send back the response */
+    443            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 1, &retValue);
+    444          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000003   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000006                REQUIRE ??Subroutine11_0
+   \   000006                ; // Fall through to label ??Subroutine11_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7401         MOV     A,#0x1
+   \   000002   85..82       MOV     DPL,?XSP + 0
+   \   000005   85..83       MOV     DPH,?XSP + 1
+   \   000008   F0           MOVX    @DPTR,A
+   \   000009                REQUIRE ??Subroutine12_0
+   \   000009                ; // Fall through to label ??Subroutine12_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine12_0:
+   \   000000   8A82         MOV     DPL,R2
+   \   000002   8B83         MOV     DPH,R3
+   \   000004   A3           INC     DPTR
+   \   000005   A3           INC     DPTR
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   FE           MOV     R6,A
+   \   000008                REQUIRE ??Subroutine13_0
+   \   000008                ; // Fall through to label ??Subroutine13_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   F0           MOVX    @DPTR,A
+   \   000007                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000007                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000007   AC82         MOV     R4,DPL
+   \   000009   AD83         MOV     R5,DPH
+   \   00000B   7B01         MOV     R3,#0x1
+   \   00000D   EE           MOV     A,R6
+   \   00000E   FA           MOV     R2,A
+   \   00000F   7961         MOV     R1,#0x61
+   \   000011   02....       LJMP    ?Subroutine9 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   33           RLC     A
+   \   000001   F8           MOV     R0,A
+   \   000002   E4           CLR     A
+   \   000003   33           RLC     A
+   \   000004   F9           MOV     R1,A
+   \   000005   E8           MOV     A,R0
+   \   000006   24..         ADD     A,#(MT_SysOsalEventId & 0xff)
+   \   000008   F582         MOV     DPL,A
+   \   00000A   E9           MOV     A,R1
+   \   00000B   34..         ADDC    A,#((MT_SysOsalEventId >> 8) & 0xff)
+   \   00000D   F583         MOV     DPH,A
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   FA           MOV     R2,A
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   FB           MOV     R3,A
+   \   000014   90....       MOV     DPTR,#MT_TaskID
+   \   000017   E0           MOVX    A,@DPTR
+   \   000018   F9           MOV     R1,A
+   \   000019   22           RET
+    445          
+    446          /***************************************************************************************************
+    447           * @fn      MT_SysOsalStopTimer
+    448           *
+    449           * @brief
+    450           *
+    451           * @param   uint8 pData - pointer to the data
+    452           *
+    453           * @return  None
+    454           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    455          void MT_SysOsalStopTimer(uint8 *pBuf)
+   \                     MT_SysOsalStopTimer:
+    456          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    457            uint16 eventId;
+    458            uint8 retValue = ZFailure;
+   \   00000A   12....       LCALL   ?Subroutine0 & 0xFFFF
+    459            uint8 cmdId;
+    460          
+    461            /* parse header */
+    462            cmdId = pBuf[MT_RPC_POS_CMD1];
+    463            pBuf += MT_RPC_FRAME_HDR_SZ;
+    464          
+    465            if (*pBuf <= 3)
+   \                     ??CrossCallReturnLabel_13:
+   \   00000D   FA           MOV     R2,A
+   \   00000E   C3           CLR     C
+   \   00000F   9404         SUBB    A,#0x4
+   \   000011   500B         JNC     ??MT_SysOsalStopTimer_0
+    466            {
+    467              eventId = (uint16) MT_SysOsalEventId[*pBuf];
+    468              retValue = osal_stop_timerEx(MT_TaskID, eventId);
+   \   000013                ; Setup parameters for call to function osal_stop_timerEx
+   \   000013   EA           MOV     A,R2
+   \   000014   C3           CLR     C
+   \   000015   12....       LCALL   ?Subroutine2 & 0xFFFF
+    469            }
+   \                     ??CrossCallReturnLabel_4:
+   \   000018   12....       LCALL   ??osal_stop_timerEx?relay
+   \   00001B   E9           MOV     A,R1
+   \   00001C   8002         SJMP    ??MT_SysOsalStopTimer_1
+    470            else
+    471            {
+    472              retValue = ZInvalidParameter;
+   \                     ??MT_SysOsalStopTimer_0:
+   \   00001E   7402         MOV     A,#0x2
+    473            }
+   \                     ??MT_SysOsalStopTimer_1:
+   \   000020   80..         SJMP    ?Subroutine6
+    474          
+    475            /* Build and send back the response */
+    476            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 1, &retValue );
+    477          }
+    478          
+    479          /***************************************************************************************************
+    480           * @fn      MT_SysRandom
+    481           *
+    482           * @brief
+    483           *
+    484           * @param   uint8 pData - pointer to the data
+    485           *
+    486           * @return  None
+    487           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    488          void MT_SysRandom()
+   \                     MT_SysRandom:
+    489          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    490            uint16 randValue = Onboard_rand();
+   \   00000A                ; Setup parameters for call to function Onboard_rand
+   \   00000A   12....       LCALL   ??Onboard_rand?relay
+    491            uint8 retArray[2];
+    492          
+    493            retArray[0] = LO_UINT16(randValue);
+   \   00000D   EA           MOV     A,R2
+   \   00000E   85..82       MOV     DPL,?XSP + 0
+   \   000011   85..83       MOV     DPH,?XSP + 1
+   \   000014   F0           MOVX    @DPTR,A
+    494            retArray[1] = HI_UINT16(randValue);
+   \   000015   7401         MOV     A,#0x1
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   EB           MOV     A,R3
+   \   00001B   12....       LCALL   ?Subroutine1 & 0xFFFF
+    495          
+    496            /* Build and send back the response */
+    497            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_RANDOM, 2, retArray );
+   \                     ??CrossCallReturnLabel_1:
+   \   00001E   7A0C         MOV     R2,#0xc
+   \   000020                REQUIRE ?Subroutine8
+   \   000020                ; // Fall through to label ?Subroutine8
+    498          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   7961         MOV     R1,#0x61
+   \   000002   12....       LCALL   ??MT_BuildAndSendZToolResponse?relay
+   \   000005   7402         MOV     A,#0x2
+   \   000007                REQUIRE ??Subroutine14_0
+   \   000007                ; // Fall through to label ??Subroutine14_0
+    499          
+    500          /***************************************************************************************************
+    501           * @fn      MT_SysAdcRead
+    502           *
+    503           * @brief   Reading ADC value, temperature sensor and voltage
+    504           *
+    505           * @param   uint8 pData - pointer to the data
+    506           *
+    507           * @return  None
+    508           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    509          void MT_SysAdcRead(uint8 *pBuf)
+   \                     MT_SysAdcRead:
+    510          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    511            uint8 channel, resolution;
+    512            uint16 tempValue;
+    513            uint8 retArray[2];
+    514            uint8 cmdId;
+    515          
+    516            /* parse header */
+    517            cmdId = pBuf[MT_RPC_POS_CMD1];
+   \   00000A   12....       LCALL   ??Subroutine12_0 & 0xFFFF
+    518            pBuf += MT_RPC_FRAME_HDR_SZ;
+    519          
+    520            /* Channel */
+    521            channel = *pBuf++;
+   \                     ??CrossCallReturnLabel_14:
+   \   00000D   F9           MOV     R1,A
+   \   00000E   A3           INC     DPTR
+   \   00000F   AA82         MOV     R2,DPL
+   \   000011   AB83         MOV     R3,DPH
+    522          
+    523            /* Resolution */
+    524            resolution = *pBuf++;
+    525          
+    526            /* Voltage reading */
+    527            switch (channel)
+   \   000013   12....       LCALL   ?UC_SWITCH_SPARSE
+   \                     `?<Jumptable for MT_SysAdcRead>_0`:
+   \   000016   01           DB        1
+   \   000017   00           DB        0
+   \   000018   07           DB        7
+   \   000019   ....         DW        ??MT_SysAdcRead_0
+   \   00001B   02           DB        2
+   \   00001C   0E           DB        14
+   \   00001D   ....         DW        ??MT_SysAdcRead_1
+   \   00001F   0F           DB        15
+   \   000020   ....         DW        ??MT_SysAdcRead_2
+   \   000022   ....         DW        ??MT_SysAdcRead_3
+    528            {
+    529              /* Analog input channel */
+    530              case HAL_ADC_CHANNEL_0:
+    531              case HAL_ADC_CHANNEL_1:
+    532              case HAL_ADC_CHANNEL_2:
+    533              case HAL_ADC_CHANNEL_3:
+    534              case HAL_ADC_CHANNEL_4:
+    535              case HAL_ADC_CHANNEL_5:
+    536              case HAL_ADC_CHANNEL_6:
+    537              case HAL_ADC_CHANNEL_7:
+    538                tempValue = HalAdcRead(channel, resolution);
+   \                     ??MT_SysAdcRead_0:
+   \   000024                ; Setup parameters for call to function HalAdcRead
+   \   000024   8A82         MOV     DPL,R2
+   \   000026   8B83         MOV     DPH,R3
+   \   000028   E0           MOVX    A,@DPTR
+   \   000029   FA           MOV     R2,A
+   \                     ??MT_SysAdcRead_4:
+   \   00002A   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   00002D   8013         SJMP    ??MT_SysAdcRead_5
+    539                break;
+    540          
+    541              /* Temperature sensor */
+    542              case(HAL_ADC_CHANNEL_TEMP):
+    543                tempValue = HalAdcRead(HAL_ADC_CHANNEL_TEMP, HAL_ADC_RESOLUTION_14);
+   \                     ??MT_SysAdcRead_1:
+   \   00002F                ; Setup parameters for call to function HalAdcRead
+   \   00002F   7A04         MOV     R2,#0x4
+   \   000031   790E         MOV     R1,#0xe
+   \   000033   80F5         SJMP    ??MT_SysAdcRead_4
+    544                break;
+    545          
+    546              /* Voltage reading */
+    547              case(HAL_ADC_CHANNEL_VDD):
+    548                tempValue = HalAdcRead(HAL_ADC_CHANNEL_VDD, HAL_ADC_RESOLUTION_14);
+   \                     ??MT_SysAdcRead_2:
+   \   000035                ; Setup parameters for call to function HalAdcRead
+   \   000035   7A04         MOV     R2,#0x4
+   \   000037   790F         MOV     R1,#0xf
+   \   000039   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   00003C   8004         SJMP    ??MT_SysAdcRead_5
+    549                break;
+    550          
+    551              /* Undefined channels */
+    552              default:
+    553                tempValue = 0x00;
+   \                     ??MT_SysAdcRead_3:
+   \   00003E   7800         MOV     R0,#0x0
+   \   000040   7900         MOV     R1,#0x0
+    554                break;
+    555            }
+    556          
+    557            retArray[0] = LO_UINT16(tempValue);
+   \                     ??MT_SysAdcRead_5:
+   \   000042   E8           MOV     A,R0
+   \   000043   85..82       MOV     DPL,?XSP + 0
+   \   000046   85..83       MOV     DPH,?XSP + 1
+   \   000049   F0           MOVX    @DPTR,A
+    558            retArray[1] = HI_UINT16(tempValue);
+   \   00004A   7401         MOV     A,#0x1
+   \   00004C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004F   E9           MOV     A,R1
+   \   000050   12....       LCALL   ?Subroutine1 & 0xFFFF
+    559          
+    560            /* Build and send back the response */
+    561            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 2, retArray);
+   \                     ??CrossCallReturnLabel_2:
+   \   000053   EE           MOV     A,R6
+   \   000054   FA           MOV     R2,A
+   \   000055   80..         SJMP    ?Subroutine8
+    562          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL   ??HalAdcRead?relay
+   \   000003   8A..         MOV     ?V0 + 0,R2
+   \   000005   8B..         MOV     ?V0 + 1,R3
+   \   000007   A8..         MOV     R0,?V0 + 0
+   \   000009   A9..         MOV     R1,?V0 + 1
+   \   00000B   22           RET
+    563          
+    564          /**************************************************************************************************
+    565           * @fn      MT_SysGpio
+    566           *
+    567           * @brief   ZAccel RPC interface for controlling the available GPIO pins.
+    568           *
+    569           * @param   uint8 pData - Pointer to the data.
+    570           *
+    571           * @return  None
+    572           *************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    573          void MT_SysGpio(uint8 *pBuf)
+   \                     MT_SysGpio:
+    574          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+   \   000009   EA           MOV     A,R2
+   \   00000A   F8           MOV     R0,A
+   \   00000B   EB           MOV     A,R3
+   \   00000C   F9           MOV     R1,A
+    575            uint8 cmd, val;
+    576          
+    577            cmd = pBuf[MT_RPC_POS_CMD1];
+    578            pBuf += MT_RPC_FRAME_HDR_SZ;
+    579          
+    580            /* Board specific GPIO goes here */
+    581          
+    582            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmd, 1, &val);
+   \   00000D                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   00000D   85..82       MOV     DPL,?XSP + 0
+   \   000010   85..83       MOV     DPH,?XSP + 1
+   \   000013   AC82         MOV     R4,DPL
+   \   000015   AD83         MOV     R5,DPH
+   \   000017   7B01         MOV     R3,#0x1
+   \   000019   8882         MOV     DPL,R0
+   \   00001B   8983         MOV     DPH,R1
+   \   00001D   A3           INC     DPTR
+   \   00001E   A3           INC     DPTR
+   \   00001F   E0           MOVX    A,@DPTR
+   \   000020   12....       LCALL   ?Subroutine5 & 0xFFFF
+    583          }
+   \                     ??CrossCallReturnLabel_9:
+   \   000023                REQUIRE ?Subroutine7
+   \   000023                ; // Fall through to label ?Subroutine7
+    584          
+    585          #endif /* MT_SYS_FUNC */
+    586          
+    587          /***************************************************************************************************
+    588           * SUPPORT
+    589           ***************************************************************************************************/
+    590          
+    591          /***************************************************************************************************
+    592           * @fn      MT_SysResetInd()
+    593           *
+    594           * @brief   Sends a ZTOOL "reset response" message.
+    595           *
+    596           * @param   None
+    597           *
+    598           * @return  None
+    599           *
+    600           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    601          void MT_SysResetInd(void)
+   \                     MT_SysResetInd:
+    602          {
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 6
+   \   000005   74FA         MOV     A,#-0x6
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    603            uint8 retArray[6];
+    604          
+    605            retArray[0] = ResetReason();   /* Reason */
+   \   00000A   E59D         MOV     A,0x9d
+   \   00000C   13           RRC     A
+   \   00000D   13           RRC     A
+   \   00000E   13           RRC     A
+   \   00000F   541F         ANL     A,#0x1f
+   \   000011   5403         ANL     A,#0x3
+   \   000013   85..82       MOV     DPL,?XSP + 0
+   \   000016   85..83       MOV     DPH,?XSP + 1
+   \   000019   F0           MOVX    @DPTR,A
+    606            osal_memcpy( &retArray[1], MTVersionString, 5 );   /* Revision info */
+   \   00001A                ; Setup parameters for call to function osal_memcpy
+   \   00001A   75....       MOV     ?V0 + 0,#(MTVersionString & 0xff)
+   \   00001D   75....       MOV     ?V0 + 1,#((MTVersionString >> 8) & 0xff)
+   \   000020   75..00       MOV     ?V0 + 2,#0x0
+   \   000023   78..         MOV     R0,#?V0 + 0
+   \   000025   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000028   7C05         MOV     R4,#0x5
+   \   00002A   7D00         MOV     R5,#0x0
+   \   00002C   7404         MOV     A,#0x4
+   \   00002E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000031   AA82         MOV     R2,DPL
+   \   000033   AB83         MOV     R3,DPH
+   \   000035   12....       LCALL   ??osal_memcpy?relay
+   \   000038   7403         MOV     A,#0x3
+   \   00003A   12....       LCALL   ?DEALLOC_XSTACK8
+    607          
+    608            /* Send out Reset Response message */
+    609            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SYS), MT_SYS_RESET_IND,
+    610                                          sizeof(retArray), retArray);
+   \   00003D                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   00003D   85..82       MOV     DPL,?XSP + 0
+   \   000040   85..83       MOV     DPH,?XSP + 1
+   \   000043   AC82         MOV     R4,DPL
+   \   000045   AD83         MOV     R5,DPH
+   \   000047   7B06         MOV     R3,#0x6
+   \   000049   7A80         MOV     R2,#-0x80
+   \   00004B   7941         MOV     R1,#0x41
+   \   00004D   12....       LCALL   ??MT_BuildAndSendZToolResponse?relay
+    611          }
+   \   000050   7406         MOV     A,#0x6
+   \   000052   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000055   7F03         MOV     R7,#0x3
+   \   000057   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   00005A                REQUIRE SLEEPSTA
+    612          
+    613          /***************************************************************************************************
+    614           * @fn      MT_SysOsalTimerExpired()
+    615           *
+    616           * @brief   Sends a SYS Osal Timer Expired
+    617           *
+    618           * @param   None
+    619           *
+    620           * @return  None
+    621           *
+    622           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    623          void MT_SysOsalTimerExpired(uint8 Id)
+   \                     MT_SysOsalTimerExpired:
+    624          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    625            uint8 retValue;
+    626            retValue = Id;
+   \   000009   E9           MOV     A,R1
+   \   00000A   85..82       MOV     DPL,?XSP + 0
+   \   00000D   85..83       MOV     DPH,?XSP + 1
+   \   000010   F0           MOVX    @DPTR,A
+    627            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SYS), MT_SYS_OSAL_TIMER_EXPIRED, 1, &retValue);
+   \   000011                ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+   \   000011   AC82         MOV     R4,DPL
+   \   000013   AD83         MOV     R5,DPH
+   \   000015   7B01         MOV     R3,#0x1
+   \   000017   7A81         MOV     R2,#-0x7f
+   \   000019   7941         MOV     R1,#0x41
+   \   00001B   12....       LCALL   ?Subroutine9 & 0xFFFF
+    628          }
+   \                     ??CrossCallReturnLabel_11:
+   \   00001E   02....       LJMP    ?Subroutine7 & 0xFFFF
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysCommandProcessing?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysCommandProcessing
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysReset?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysReset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysPing?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysPing
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysVersion?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysVersion
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysSetExtAddr?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysSetExtAddr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysGetExtAddr?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysGetExtAddr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysOsalNVRead?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysOsalNVRead
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysOsalNVWrite?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysOsalNVWrite
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysOsalStartTimer?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysOsalStartTimer
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysOsalStopTimer?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysOsalStopTimer
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysRandom?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysRandom
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysAdcRead?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysAdcRead
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysGpio?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysGpio
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysResetInd?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysResetInd
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_SysOsalTimerExpired?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_SysOsalTimerExpired
+    629          
+    630          /***************************************************************************************************
+    631           ***************************************************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function                       ISTACK PSTACK XSTACK
+     --------                       ------ ------ ------
+     MT_SysAdcRead                      1      0     21
+       -> HalAdcRead                    0      0     24
+       -> HalAdcRead                    0      0     24
+       -> HalAdcRead                    0      0     24
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     24
+     MT_SysCommandProcessing            0      0      9
+       -> MT_SysReset                   0      0     18
+       -> MT_SysPing                    0      0     18
+       -> MT_SysVersion                 0      0     18
+       -> MT_SysSetExtAddr              0      0     18
+       -> MT_SysGetExtAddr              0      0     18
+       -> MT_SysOsalNVRead              0      0     18
+       -> MT_SysOsalNVWrite             0      0     18
+       -> MT_SysOsalStartTimer          0      0     18
+       -> MT_SysOsalStopTimer           0      0     18
+       -> MT_SysRandom                  0      0     18
+       -> MT_SysAdcRead                 0      0     18
+       -> MT_SysGpio                    0      0     18
+     MT_SysGetExtAddr                   2      0     17
+       -> ZMacGetReq                    4      0     16
+       -> MT_BuildAndSendZToolResponse
+                                        4      0     16
+     MT_SysGpio                         2      0     10
+       -> MT_BuildAndSendZToolResponse
+                                        4      0      2
+     MT_SysOsalNVRead                   1      0     29
+       -> osal_nv_item_len              0      0     32
+       -> osal_mem_alloc                0      0     32
+       -> osal_memset                   0      0     32
+       -> osal_nv_read                  0      0     40
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     32
+       -> osal_mem_free                 0      0     32
+     MT_SysOsalNVWrite                  1      0     28
+       -> zgSetItem                     0      0     34
+       -> osal_nv_write                 0      0     38
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     30
+     MT_SysOsalStartTimer               1      0     19
+       -> osal_start_timerEx            0      0     20
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     20
+     MT_SysOsalStopTimer                1      0     19
+       -> osal_stop_timerEx             0      0     20
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     20
+     MT_SysOsalTimerExpired             3      0      1
+       -> MT_BuildAndSendZToolResponse
+                                        4      0      2
+     MT_SysPing                         3      0     11
+       -> MT_BuildAndSendZToolResponse
+                                        4      0      4
+     MT_SysRandom                       1      0     21
+       -> Onboard_rand                  0      0     24
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     24
+     MT_SysReset                        0      0      9
+     MT_SysResetInd                     1      0     20
+       -> osal_memcpy                   0      0     40
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     34
+     MT_SysSetExtAddr                   1      0     24
+       -> ZMacSetReq                    0      0     22
+       -> osal_nv_write                 0      0     30
+       -> MT_BuildAndSendZToolResponse
+                                        0      0     22
+     MT_SysVersion                      2      0      9
+       -> MT_BuildAndSendZToolResponse
+                                        4      0      0
+
+
+   Segment part sizes:
+
+     Function/Label                  Bytes
+     --------------                  -----
+     SLEEPSTA                           1
+     _A_IEN0                            1
+     WDCTL                              1
+     MT_SysOsalEventId                  8
+     MT_SysCommandProcessing          127
+     ??Subroutine11_0                   5
+     MT_SysReset                       10
+     MT_SysPing                        39
+     ?Subroutine1                      14
+     ?Subroutine7                       3
+     ??Subroutine15_0                   7
+     MT_SysVersion                     20
+     MT_SysSetExtAddr                 108
+     ?Subroutine5                       1
+     ??Subroutine10_0                   2
+     ?Subroutine9                       6
+     ??Subroutine14_0                   8
+     MT_SysGetExtAddr                  48
+     MT_SysOsalNVRead                 239
+     ??Subroutine13_0                  16
+     MT_SysOsalNVWrite                173
+     MT_SysOsalStartTimer              46
+     ?Subroutine6                       6
+     ?Subroutine0                       9
+     ??Subroutine12_0                   8
+     ?Subroutine3                      20
+     ?Subroutine2                      26
+     MT_SysOsalStopTimer               34
+     MT_SysRandom                      32
+     ?Subroutine8                       7
+     MT_SysAdcRead                     87
+     ?Subroutine4                      12
+     MT_SysGpio                        35
+     MT_SysResetInd                    90
+     MT_SysOsalTimerExpired            33
+     ??MT_SysCommandProcessing?relay    6
+     ??MT_SysReset?relay                6
+     ??MT_SysPing?relay                 6
+     ??MT_SysVersion?relay              6
+     ??MT_SysSetExtAddr?relay           6
+     ??MT_SysGetExtAddr?relay           6
+     ??MT_SysOsalNVRead?relay           6
+     ??MT_SysOsalNVWrite?relay          6
+     ??MT_SysOsalStartTimer?relay       6
+     ??MT_SysOsalStopTimer?relay        6
+     ??MT_SysRandom?relay               6
+     ??MT_SysAdcRead?relay              6
+     ??MT_SysGpio?relay                 6
+     ??MT_SysResetInd?relay             6
+     ??MT_SysOsalTimerExpired?relay     6
+
+ 
+ 1 271 bytes in segment BANKED_CODE
+    90 bytes in segment BANK_RELAYS
+     3 bytes in segment SFR_AN
+     8 bytes in segment XDATA_ROM_C
+ 
+ 1 361 bytes of CODE  memory
+     8 bytes of CONST memory
+     0 bytes of DATA  memory (+ 3 bytes shared)
+
+Errors: none
+Warnings: none

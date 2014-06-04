@@ -1,0 +1,1 @@
+*.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo *.rej *~ #*# .#* .*.swp .DS_Store *.obj *.exp *.map *.mac *.rel build.log build.wrn build.dat target *bak  obj   *.ap_ *.apk *.cache *.dex *.ilk *.css *.opt *.pdb *.vcb *.vcl *.suo *.vco *.user *.ncb Release Debug ARMV4IRel ARMV4IDbg *.exe *.plg *.sdf _UpgradeReport_Files ipch bin gen .metadata dateCh.txt .prefs
